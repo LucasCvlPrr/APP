@@ -1,2 +1,2 @@
-# APP
+# Infinite Measures Website
 Deuxième semestre
