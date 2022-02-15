@@ -52,6 +52,8 @@
             </ul>
 
             <img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+
+
         </nav>
 
         
@@ -62,23 +64,46 @@
         <img class="homeImg" src="../img/homeImg.jpg" alt="homeImg">
     </div>
 
-    <div class="homeLogin">
-        <h1>LOGIN TO USE OUR SOFTWARE</h1>
+    <h1>LOGIN TO USE OUR SOFTWARE</h1>
 
-
+    <div class="homeLoginPreview">
+        
         <div class="homeLoginFormContainer">
-            <h6 class="homeLoginFormTitle">Login</h6>
+            <h4 class="homeLoginFormTitle">Login</h4>
 
             <form action="" method="get" class="homeLoginForm">
-                <label for="email"> Email</label>
-                <input type="email" name="email" id="email" required>
+                <div class="emailInput">
+                    <div class="emailLabel">
+                        <label for="email"> Email</label>
+                    </div>
 
-                <label for="password"> Password</label>
-                <input type="text" name="password" id="password" required>
+                    <div class="email">
+                        <input type="text" name="email" id="email" required size="50px">
+                    </div>
+                </div>
+                
+                <div class="passwordInput">
+                    <div class="passwordLabel">
+                        <label for="password"> Password</label>
+                    </div>
+                    
+                    <div class="password">
+                        <input type="text" name="password" id="password" required size="50px">
+                    </div>
+                </div>
+
+                <div class="loginBtn">
+                    <input type="submit" value="Login">
+                </div>
             </form>
+
+
         </div>
 
-        <div class="homePreviewContainer"></div>
+        <div class="homePreviewContainer">
+            <h4>What you get on your personnal dashboard</h4>
+        </div>
+
     </div>
 
     <!-- Pied de page -->
