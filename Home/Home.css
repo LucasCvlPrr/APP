@@ -31,4 +31,109 @@ nav.menuNav ul li.button:hover a{
     transition: 0.4s all;
 }
 
+<<<<<<< Updated upstream
 
+=======
+nav.menuNav img.connexionLogo{
+    margin-top: 35px;
+}
+
+img.homeImg{
+    max-height: 80vh;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.homePageTitle hr{
+    margin-top: 20px;
+    width: 90%;
+
+}
+
+div.homePageTitle h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #74b2dc;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+div.homeLoginPreview{
+    display: flex;
+}
+
+div.homeLoginFormContainer{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 20px;
+    width: 50%;
+}
+
+div.homeLoginFormContainer h4.homeLoginFormTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+div.emailInput{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+div.emailInput div.emailLabel{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+div.emailInput div.email{
+    margin-top: 10px;
+}
+
+div.passwordInput{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.passwordInput div.passwordLabel{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+div.passwordInput div.password{
+    margin-top: 10px;
+}
+
+div.loginBtn input.submitBtn{
+    margin-left: 265px;
+    background: #74b2dc;
+    color: white;
+    border-color: #74b2dc;
+    border-radius: 10px;
+    height: 60px;
+    width: 100px;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+    cursor: pointer;
+}
+
+div.homePreviewContainer{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-right: 30px;
+    width: 50%;
+    background-image: url(../img/backgroundPreviewContainerHome.jpg);
+}
+
+div.homePreviewContainer h4.homePreviewContainerTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+}
+>>>>>>> Stashed changes
