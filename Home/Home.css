@@ -46,6 +46,7 @@ img.homeImg{
     margin-right: auto;
 }
 
+<<<<<<< Updated upstream
 div.homePageTitle hr{
     margin-top: 20px;
     width: 90%;
@@ -53,6 +54,14 @@ div.homePageTitle hr{
 }
 
 div.homePageTitle h1{
+=======
+hr.firstLineSeparator{
+    width: 80%;
+    margin-top: 25px;
+}
+
+h1{
+>>>>>>> Stashed changes
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #74b2dc;
     text-align: center;
@@ -86,7 +95,6 @@ div.emailInput{
 
 div.emailInput div.emailLabel{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
 }
 
 div.emailInput div.email{
@@ -102,13 +110,13 @@ div.passwordInput{
 
 div.passwordInput div.passwordLabel{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
 }
 
 div.passwordInput div.password{
     margin-top: 10px;
 }
 
+<<<<<<< Updated upstream
 div.loginBtn input.submitBtn{
     margin-left: 265px;
     background: #74b2dc;
@@ -119,6 +127,63 @@ div.loginBtn input.submitBtn{
     width: 100px;
     font: bold 15px arial, sans-serif;
     text-shadow:none;
+=======
+div.loginBtn{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+div.loginBtn button{
+    height: 50px;
+    width: 100px;
+    background-color: #569ac7;
+    color: white;
+    border-style: outset;
+    border-color: #569ac7;
+    border: 1px solid #eee;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+    border-radius: 10px;
+}
+
+div.loginBtn button:hover {
+    background-color: #c4def0;
+    cursor: pointer;
+}
+
+hr.loginFormLineSeparator{
+    width: 50%;
+}
+
+div.notRegText{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.registerBtn{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+div.registerBtn button{
+    height: 50px;
+    width: 100px;
+    background-color: #569ac7;
+    color: white;
+    border-style: outset;
+    border-color: #569ac7;
+    border: 1px solid #eee;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+    border-radius: 10px;
+}
+
+div.registerBtn button:hover{
+    background-color: #c4def0;
+>>>>>>> Stashed changes
     cursor: pointer;
 }
 
@@ -128,6 +193,7 @@ div.homePreviewContainer{
     margin-left: 50px;
     margin-right: 30px;
     width: 50%;
+<<<<<<< Updated upstream
     background-image: url(../img/backgroundPreviewContainerHome.jpg);
 }
 
@@ -135,5 +201,13 @@ div.homePreviewContainer h4.homePreviewContainerTitle{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     color: white;
+}
+>>>>>>> Stashed changes
+=======
+}
+
+h4.homePreviewContainerTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 >>>>>>> Stashed changes
