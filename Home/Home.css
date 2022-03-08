@@ -5,35 +5,41 @@ header.header{
 
 p.slogan{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    color: #74b2dc;
     display: inline;
-
+    margin-top: 40px;
 }
 
 nav.menuNav{
     display: flex;
 }
 
+nav.menuNav ul{
+    margin-left: 400px;
+    margin-top: 51px;
+}
+
 nav.menuNav ul li.button{
     display: inline-block;
     list-style-type: none;
+    
 }
 
 nav.menuNav ul li.button a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
     color: black;
     text-decoration: none;
     padding: 10px;
 }
-
 
 nav.menuNav ul li.button:hover a{
     background-color: #757575;
     transition: 0.4s all;
 }
 
-<<<<<<< Updated upstream
-
-=======
 nav.menuNav img.connexionLogo{
     margin-top: 35px;
 }
@@ -46,22 +52,12 @@ img.homeImg{
     margin-right: auto;
 }
 
-<<<<<<< Updated upstream
-div.homePageTitle hr{
-    margin-top: 20px;
-    width: 90%;
-
-}
-
-div.homePageTitle h1{
-=======
 hr.firstLineSeparator{
     width: 80%;
     margin-top: 25px;
 }
 
 h1{
->>>>>>> Stashed changes
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #74b2dc;
     text-align: center;
@@ -116,18 +112,6 @@ div.passwordInput div.password{
     margin-top: 10px;
 }
 
-<<<<<<< Updated upstream
-div.loginBtn input.submitBtn{
-    margin-left: 265px;
-    background: #74b2dc;
-    color: white;
-    border-color: #74b2dc;
-    border-radius: 10px;
-    height: 60px;
-    width: 100px;
-    font: bold 15px arial, sans-serif;
-    text-shadow:none;
-=======
 div.loginBtn{
     text-align: center;
     margin-top: 40px;
@@ -183,8 +167,79 @@ div.registerBtn button{
 
 div.registerBtn button:hover{
     background-color: #c4def0;
->>>>>>> Stashed changes
     cursor: pointer;
+}
+
+nav.menuNav img.connexionLogo{
+    margin-top: 35px;
+}
+
+img.homeImg{
+    max-height: 80vh;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #74b2dc;
+    text-align: center;
+}
+
+div.homeLoginPreview{
+    display: flex;
+}
+
+div.homeLoginFormContainer{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 20px;
+    width: 50%;
+}
+
+h4.homeLoginFormTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+div.emailInput{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+div.emailInput div.emailLabel{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+div.emailInput div.email{
+    margin-top: 10px;
+}
+
+div.passwordInput{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.passwordInput div.passwordLabel{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+div.passwordInput div.password{
+    margin-top: 10px;
+}
+
+div.loginBtn{
+    margin-left: 265px;
+    height: 60px;
 }
 
 div.homePreviewContainer{
@@ -193,7 +248,6 @@ div.homePreviewContainer{
     margin-left: 50px;
     margin-right: 30px;
     width: 50%;
-<<<<<<< Updated upstream
     background-image: url(../img/backgroundPreviewContainerHome.jpg);
 }
 
@@ -202,12 +256,3 @@ div.homePreviewContainer h4.homePreviewContainerTitle{
     text-align: center;
     color: white;
 }
->>>>>>> Stashed changes
-=======
-}
-
-h4.homePreviewContainerTitle{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-}
->>>>>>> Stashed changes
