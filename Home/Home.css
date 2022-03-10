@@ -1,3 +1,5 @@
+/* Header */
+
 header.header{
     background-color: #e0e0e0;
     padding: 10px;
@@ -42,6 +44,10 @@ nav.menuNav ul li.button:hover a{
 nav.menuNav img.connexionLogo{
     margin-top: 35px;
 }
+
+/* End Header */
+
+/* Content */
 
 img.homeImg{
     max-height: 80vh;
@@ -234,6 +240,10 @@ div.soundSensor{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* End Content */
+
+/* Footer */
+
 footer.footer{
     background: linear-gradient(0deg, #e0e0e0 22%, #757575 22%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -288,4 +298,7 @@ div.secondaryFooter p.oversight{
     margin-left: 5px;
 }
 
+/* End Footer */
+
+/* END */
 
