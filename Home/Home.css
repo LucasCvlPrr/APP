@@ -159,13 +159,18 @@ div.registerBtn button{
     height: 50px;
     width: 100px;
     background-color: #569ac7;
-    color: white;
     border-style: outset;
     border-color: #569ac7;
     border: 1px solid #eee;
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
     border-radius: 10px;
+}
+
+div.registerBtn button a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-decoration: none;
 }
 
 div.registerBtn button:hover{
