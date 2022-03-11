@@ -67,6 +67,7 @@ div.titleContainer{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    align-items: center;
 }
 
 div.solutionPresentation{
@@ -81,6 +82,7 @@ div.envirronment{
 
 div.envirronmentSensors{
     display: flex;
+    margin-top: 50px;
 }
 
 h4.envirronmentAnalysing{
@@ -115,11 +117,45 @@ div.workers{
     width: 40%;
 }
 
+div.workersSensors{
+    display: flex;
+    margin-top: 50px;
+}
+
 h4.workersHealth{
     text-align: center;
 }
 
+div.heartBeatSensor{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    width: 40%;
+    margin-left: 180px;
+}
 
+h4.heartBeatSensorTitle{
+    text-align: center;
+}
+
+hr.secondLineSeparator{
+    width: 80%;
+    margin-top: 40px;
+}
+
+div.industryInfo h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #74b2dc;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+div.industryNumbers{
+    background: #f2edfc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    align-items: center;
+}
 
 /* Footer */
 
