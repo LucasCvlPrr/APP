@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +27,7 @@
             <!-- Menu de navigation -->
             <ul>
                 <li class="button">
-                    <a href="../Home/Home.html">
+                    <a href="../Home/Home.php">
                         Home
                     </a>
                     
@@ -49,95 +53,33 @@
                     </a>
                     
                 </li>
+
+                <?php
+
+                if(isset($_SESSION["email"])){
+                    echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                    echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
+                }
+                else{
+                    //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                    echo "<li class='button'><a href='Home.php'>Log in</a></li>";
+                }
+            ?>
+
             </ul>
-
-            <img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-
-
         </nav>
-
-        
     </header>
 
     <!-- Contenu -->
-    <div class="topImg">
-        <img class="homeImg" src="../img/homeImg.jpg" alt="homeImg">
-    </div>
-  
-    <hr class="firstLineSeparator">
+    <?php
 
-    <h1>Login to use our software</h1>
-
-    <div class="homeLoginPreview">
-        
-        <div class="homeLoginFormContainer">
-            <h4 class="homeLoginFormTitle">Login</h4>
-
-            <form action="" method="get" class="homeLoginForm">
-                <div class="emailInput">
-                    <div class="emailLabel">
-                        <label for="email"> Email</label>
-                    </div>
-
-                    <div class="email">
-                        <input type="text" name="email" id="email" required size="50px">
-                    </div>
-                </div>
-                
-                <div class="passwordInput">
-                    <div class="passwordLabel">
-                        <label for="password"> Password</label>
-                    </div>
+                if(isset($_SESSION["email"])){
+                    echo "<p>Your email : " . $_SESSION["email"] . "</p>";
+                }
+                else{
                     
-                    <div class="password">
-                        <input type="text" name="password" id="password" required size="50px">
-                    </div>
-                </div>
-
-                <div class="loginBtn">
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-
-            <hr class="loginFormLineSeparator">
-
-            <div class="notRegText">
-                <p>Not registered yet ?</p>
-            </div>
-
-            <div class="registerBtn">
-                <button type="submit" href="../Register/Register.php">Register</button>
-            </div>
-
-
-        </div>
-
-        <div class="homePreviewContainer">
-            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard</h4>
-        </div>
-
-    </div>
-
-    <hr class="secondLineSeparator">
-
-    <h1>Our solutions</h1>
-
-    <div class="solutionPreviewContainer">
-        <div class="heartSensor">
-            <img class="heartBeatImg" src="../img/heartBeat.png" alt="heartBeatImg">
-            <h4 class="heartSensorTitle">HEART SENSOR</h4>
-        </div>
-
-        <div class="pollutionSensor">
-            <img class="pollutionImg" src="../img/co2.PNG" alt="pollutionImg">
-            <h4 class="pollutionSensorTitle">POLLUTION SENSOR</h4>
-        </div>
-
-        <div class="soundSensor">
-            <img class="soundImg" src="../img/sound.PNG" alt="soundImg">
-            <h4 class="soundSensorTitle">SOUND SENSOR</h4>
-        </div>
-    </div>
+                }
+            ?>
 
 
 

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +27,7 @@
             <!-- Menu de navigation -->
             <ul>
                 <li class="button">
-                    <a href="../Home/Home.html">
+                    <a href="../Home/Home.php">
                         Home
                     </a>
                     
@@ -49,11 +53,19 @@
                     </a>
                     
                 </li>
+
+                <?php
+
+                if(isset($_SESSION["email"])){
+                    echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                    echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
+                }
+                else{
+                    //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                    echo "<li class='button'><a href='Home.php'>Log in</a></li>";
+                }
+            ?>
             </ul>
-
-            <img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-
-
         </nav>
 
         
@@ -73,7 +85,7 @@
         <div class="homeLoginFormContainer">
             <h4 class="homeLoginFormTitle">Login</h4>
 
-            <form action="" method="get" class="homeLoginForm">
+            <form action="php.scripts/login.php" method="post" class="homeLoginForm">
                 <div class="emailInput">
                     <div class="emailLabel">
                         <label for="email"> Email</label>
@@ -86,30 +98,43 @@
                 
                 <div class="passwordInput">
                     <div class="passwordLabel">
-                        <label for="password"> Password</label>
+                        <label for="password">Password</label>
                     </div>
                     
                     <div class="password">
-                        <input type="text" name="password" id="password" required size="50px">
+                        <input type="password" name="password" id="password" required size="50px">
                     </div>
                 </div>
 
                 <div class="loginBtn">
-                    <button type="submit">Login</button>
+                    <button type="submit" name="submit" id="submit">Login</button>
                 </div>
             </form>
+
+            <?php 
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput"){
+                        echo "<p>You missed a blank, fill the other !</p>";
+                    }
+                    else if($_GET["error"] == "wronglogin"){
+                        echo "<p>Incorrect login information !</p>";
+                    }
+                }
+
+            ?>
+
 
             <hr class="loginFormLineSeparator">
 
             <div class="notRegText">
                 <p>Not registered yet ?</p>
             </div>
-
+            
             <div class="registerBtn">
-                <button type="submit" href="../Register/Register.php">Register</button>
+                <form method="get" action="../Register/Register.php">
+                    <button type="submit">Register</button>
+                </form>    
             </div>
-
-
         </div>
 
         <div class="homePreviewContainer">

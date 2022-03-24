@@ -62,10 +62,6 @@ h1{
     text-align: center;
 }
 
-div.RegisterPreview{
-    
-}
-
 div.RegisterFormContainer{
     box-shadow: 0px 0px 15px #e0e0e0;
     border-radius: 10px;
@@ -92,7 +88,7 @@ div.lastNameInput{
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    order: 1;
+    order: 2;
 }
 
 div.lastNameInput div.lastNameLabel{
@@ -109,7 +105,7 @@ div.firstNameInput{
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    order: 2;
+    order: 3;
 }
 
 div.firstNameInput div.firstNameLabel{
@@ -126,7 +122,7 @@ div.emailInput{
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    order: 3;
+    order: 4;
 }
 
 div.emailInput div.emailLabel{
@@ -138,20 +134,20 @@ div.emailInput div.email{
     margin-top: 10px;
 }
 
-div.phoneInput{
+div.pseudoInput{
     margin-top: 40px;
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    order: 4;
+    order: 1;
 }
 
-div.phoneInput div.phoneLabel{
+div.pseudoInput div.pseudoLabel{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
 
-div.phoneInput div.phone{
+div.pseudoInput div.pseudo{
     margin-top: 10px;
 }
 
