@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 p.slogan{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -5,3 +6,234 @@ p.slogan{
 p.button{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+=======
+html,
+body{
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Header */
+
+header.header{
+    background-color: #e0e0e0;
+    padding: 10px;
+}
+
+p.slogan{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #74b2dc;
+    display: inline;
+    margin-top: 40px;
+}
+
+nav.menuNav{
+    display: flex;
+}
+
+nav.menuNav ul{
+    margin-left: 46%;
+    margin-top: 51px;
+}
+
+nav.menuNav ul li.button{
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav.menuNav ul li.button a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav.menuNav ul li.button:hover a{
+    background-color: #757575;
+    transition: 0.4s all;
+}
+
+nav.menuNav img.connexionLogo{
+    margin-top: 35px;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+
+/* Content */
+
+img.solutionPageImg{
+    max-height: 80vh;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr.firstLineSeparator{
+    width: 80%;
+    margin-top: 25px;
+}
+
+div.titleContainer{
+    background: #74b2dc;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    align-items: center;
+}
+
+div.solutionPresentation{
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+}
+
+div.envirronment{
+    width: 40%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h4.envirronmentAnalysing{
+    width: 100%;
+}
+
+p.envirronmentText{
+    width: 100%;
+}
+
+div.envirronmentSensors{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.pollutionSensor{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    width: 40%;
+    margin-right: 20px;
+    text-align: center;
+}
+
+div.soundSensor{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    width: 40%;
+    margin-left: 20px;
+    text-align: center;
+}
+
+div.workers{
+    width: 40%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h4.workersHealth{
+    width: 100%;
+}
+
+p.workersText{
+    width: 100%;
+}
+
+div.workersSensors{
+    width: 30%;
+    display: flex;
+}
+
+div.heartBeatSensor{
+    box-shadow: 0px 0px 15px #e0e0e0;
+    border-radius: 10px;
+    width: 100%;
+}
+
+hr.secondLineSeparator{
+    width: 80%;
+    margin-top: 40px;
+}
+
+div.industryInfo h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #74b2dc;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+div.industryNumbers{
+    background: #f2edfc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    align-items: center;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+
+/* Footer */
+
+footer.footer{
+    background: linear-gradient(0deg, #e0e0e0 22%, #757575 22%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+h2.infiniteMeasuresFooter{
+    margin-top: 50px;
+}
+
+div.principalFooter hr{
+    color: white;
+    width: 90%;
+}
+
+div.footerLinks{
+    display: flex;
+    margin-left: 25px;
+}
+
+div.footerLinks ul li.link{
+    display: inline-block;
+    list-style-type: none;   
+}
+
+div.footerLinks ul li.link a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+div.footerLinks ul li.link:hover a{
+    background-color: #474747;
+    transition: 0.4s all;
+}
+
+
+div.secondaryFooter{
+    display: flex;
+    justify-content: center;
+}
+
+div.secondaryFooter p.poweredBy{
+    color: black;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+
+/* END */
+>>>>>>> Stashed changes
