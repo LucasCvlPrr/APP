@@ -5,8 +5,8 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Home.css'>
-    <script src='Home.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='Register.css'>
+    <script src='Register.js'></script>
 </head>
 <body>
     <!--En-tête de page.-->
@@ -60,33 +60,58 @@
     </header>
 
     <!-- Contenu -->
-    <div class="topImg">
-        <img class="homeImg" src="../img/homeImg.jpg" alt="homeImg">
-    </div>
-  
-    <hr class="firstLineSeparator">
 
-    <h1>Login to use our software</h1>
+    <h1>REGISTER TO USE OUR SOFTWARES</h1>
 
-    <div class="homeLoginPreview">
+    <div class="RegisterPreview">
         
-        <div class="homeLoginFormContainer">
-            <h4 class="homeLoginFormTitle">Login</h4>
+        <div class="RegisterFormContainer">
+            <h4 class="RegisterFormTitle"></h4>
 
-            <form action="" method="get" class="homeLoginForm">
-                <div class="emailInput">
-                    <div class="emailLabel">
-                        <label for="email"> Email</label>
+            <form action="" method="get" class="RegisterinForm">
+                <div class="lastNameInput">
+                    <div class="lastNameLabel">
+                        <label for="last_name">Last Name</label>
                     </div>
 
+                    <div class="last_name">
+                        <input type="text" name="last_name" id="last_name" required size="50px">
+                    </div>
+                </div>
+                
+                <div class="firstNameInput">
+                    <div class="firstNameLabel">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    
+                    <div class="first_name">
+                        <input type="text" name="first_name" id="first_name" required size="50px">
+                    </div>
+                </div>
+
+                <div class="emailInput">
+                    <div class="emailLabel">
+                        <label for="email">Email</label>
+                    </div>
+                    
                     <div class="email">
                         <input type="text" name="email" id="email" required size="50px">
                     </div>
                 </div>
-                
+
+                <div class="phoneInput">
+                    <div class="phoneLabel">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    
+                    <div class="phone">
+                        <input type="text" name="phone" id="phone" required size="50px">
+                    </div>
+                </div>
+
                 <div class="passwordInput">
                     <div class="passwordLabel">
-                        <label for="password"> Password</label>
+                        <label for="password">Password</label>
                     </div>
                     
                     <div class="password">
@@ -94,52 +119,23 @@
                     </div>
                 </div>
 
-                <div class="loginBtn">
-                    <button type="submit">Login</button>
+                <div class="repeatpasswordInput">
+                    <div class="repeatpasswordLabel">
+                        <label for="repeatpassword">Repeat Password</label>
+                    </div>
+                    
+                    <div class="repeatpassword">
+                        <input type="text" name="repeatpassword" id="repeatpassword" required size="50px">
+                    </div>
                 </div>
+
+                <div class="registerBtn">
+                    <button type="submit">Submit</button>
+                </div>
+
             </form>
-
-            <hr class="loginFormLineSeparator">
-
-            <div class="notRegText">
-                <p>Not registered yet ?</p>
-            </div>
-
-            <div class="registerBtn">
-                <button type="submit" href="../Register/Register.php">Register</button>
-            </div>
-
-
-        </div>
-
-        <div class="homePreviewContainer">
-            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard</h4>
-        </div>
-
-    </div>
-
-    <hr class="secondLineSeparator">
-
-    <h1>Our solutions</h1>
-
-    <div class="solutionPreviewContainer">
-        <div class="heartSensor">
-            <img class="heartBeatImg" src="../img/heartBeat.png" alt="heartBeatImg">
-            <h4 class="heartSensorTitle">HEART SENSOR</h4>
-        </div>
-
-        <div class="pollutionSensor">
-            <img class="pollutionImg" src="../img/co2.PNG" alt="pollutionImg">
-            <h4 class="pollutionSensorTitle">POLLUTION SENSOR</h4>
-        </div>
-
-        <div class="soundSensor">
-            <img class="soundImg" src="../img/sound.PNG" alt="soundImg">
-            <h4 class="soundSensorTitle">SOUND SENSOR</h4>
         </div>
     </div>
-
-
 
     <!-- Pied de page -->
     <footer class="footer">

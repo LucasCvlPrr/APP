@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-p.slogan{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-p.button{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-=======
 html,
 body{
     height: 100%;
@@ -114,6 +105,7 @@ div.envirronmentSensors{
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 div.pollutionSensor{
@@ -180,6 +172,7 @@ div.industryNumbers{
     align-items: center;
 }
 
+
 /*************************************************************************************************************************************************************************************************************************************************************************/
 
 /* Footer */
@@ -236,4 +229,4 @@ div.secondaryFooter p.poweredBy{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 
 /* END */
->>>>>>> Stashed changes
+
