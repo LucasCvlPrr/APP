@@ -111,6 +111,7 @@
             session_start();
             $_SESSION["id"] = $emailExists["id"];
             $_SESSION["email"] = $emailExists["email"];
+
             //header("location: ../../Dashboard/Dashboard.php");
             header("location: ../../Home/Home.php");
             exit();

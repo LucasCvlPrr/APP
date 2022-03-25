@@ -9,11 +9,11 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Dashboard.css'>
-    <script src='Home.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='Solution.css'>
+    <script src='Solution.js'></script>
 </head>
 <body>
-    <!--En-tête de page.-->
+    <!-- Header -->
     <header class="header">
 
         <nav class="menuNav">
@@ -24,7 +24,7 @@
                 THE NEW INDUSTRY
             </p>
 
-            <!-- Menu de navigation -->
+            <!-- Navigation Menu -->
             <ul>
                 <li class="button">
                     <a href="../Home/Home.php">
@@ -57,7 +57,7 @@
                 <?php
 
                 if(isset($_SESSION["email"])){
-                    echo "<li class='button'><a href='Dashboard.php'>Dashboard</a></li>";
+                    echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
                     echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
                 }
                 else{
@@ -67,23 +67,71 @@
             ?>
 
             </ul>
+
+            <img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+
+
         </nav>
+
+        
     </header>
 
-    <body>
-        <?php
-            if(isset($_SESSION["email"])){
-                echo "<h1>Your email : " . $_SESSION["email"] . "</h1>";
-                echo "<h1>Your ID : " . $_SESSION["id"] . "</h1>";  
-            }
-            else{}
-        ?>
+     <!-- Content -->
+     <div class="topImg">
+        <img class="solutionPageImg" src="../img/solutionPageImg.jpg" alt="solutionPageImg">
+    </div>
   
-    </body>
+    <hr class="firstLineSeparator">
+
+    <div class="titleContainer">
+        <h1><br> OUR SOLUTION FOR YOUR FACTORY <br></h1>
+    </div>
+
+    <div class="solutionPresentation">
+        <div class="envirronment">
+            <h4 class="envirronmentAnalysing">Envirronment analysing</h4>
+
+            <p class="envirronmentText">Our POLLUTION and SOUND sensors were designed to be integrated on a full solution for a live detection of potential risks.</p>
+
+            <div class="envirronmentSensors">
+                <div class="pollutionSensor">
+                    <img class="pollutionImg" src="../img/co2.PNG" alt="pollutionImg">
+                    <h4 class="pollutionSensorTitle">POLLUTION SENSOR</h4>
+                </div>
+        
+                <div class="soundSensor">
+                    <img class="soundImg" src="../img/sound.PNG" alt="soundImg">
+                    <h4 class="soundSensorTitle">SOUND SENSOR</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="workers">
+            <h4 class="workersHealth">Workers' Health</h4>
+
+            <p class="workersText">We protect our users with HEART sensor for the prevention  and justification for work incidents.</p>
+            
+            <div class="workersSensors">
+                <div class="heartBeatSensor">
+                    <img class="heartBeatImg" src="../img/heartBeat.png" alt="heartBeatImg">
+                    <h4 class="heartBeatSensorTitle">HEART BEAT SENSOR</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="secondLineSeparator">
+
+    <div class="industryInfo">
+        <h1>Why working for the industry?</h1>
+
+        <div class="industryNumbers">
+            <h4><br> Some clue numbers about the industry <br></h4>
+        </div>
+    </div>
 
 
-
-    <!-- Pied de page -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="principalFooter">
             <h2 class="infiniteMeasuresFooter"><br>INFINITE<br>MEASURES</h2>
@@ -124,10 +172,11 @@
         </div>
 
         <div class="secondaryFooter">
-            <p class="poweredBy">Powered by</p>
-            <p class="oversight">Oversight</p>
+            <p class="poweredBy">Powered by <span style="color: #52cde1;">Oversight</span></p>
         </div>
     </footer>
+    
+
     
 </body>
 </html>

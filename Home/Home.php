@@ -114,10 +114,10 @@
             <?php 
                 if(isset($_GET["error"])){
                     if($_GET["error"] == "emptyinput"){
-                        echo "<p>You missed a blank, fill the other !</p>";
+                        echo "<h1>You missed a blank, fill the other !</h1>";
                     }
                     else if($_GET["error"] == "wronglogin"){
-                        echo "<p>Incorrect login information !</p>";
+                        echo "<h1>Incorrect login information !</h1>";
                     }
                 }
 

@@ -138,25 +138,25 @@
             <?php 
                 if(isset($_GET["error"])){
                     if($_GET["error"] == "emptyinput"){
-                        echo "<p>You missed a blank, fill the other !</p>";
+                        echo "<h1>You missed a blank, fill the other !</h1>";
                     }
                     else if($_GET["error"] == "invalidpseudo"){
-                        echo "<p>Invalid Pseudo, choose another one !</p>";
+                        echo "<h1>Invalid Pseudo, choose another one !</h1>";
                     }
                     else if($_GET["error"] == "invalidemail"){
-                        echo "<p>Invalid Email, choose another one !</p>";
+                        echo "<h1>Invalid Email, choose another one !</h1>";
                     }
                     else if($_GET["error"] == "invalidpasswdmatch"){
-                        echo "<p>Passwords don't match, try again !</p>";
+                        echo "<h1>Passwords don't match, try again !</h1>";
                     }
                     else if($_GET["error"] == "pseudooremailtaken"){
-                        echo "<p>Pseudo or Email already used ...</p>";
+                        echo "<h1>Pseudo or Email already used ...</h1>";
                     }
                     else if($_GET["error"] == "stmtfailed"){
-                        echo "<p>Something went wrong, try again !</p>";
+                        echo "<h1>Something went wrong, try again !</h1>";
                     }
                     else if($_GET["error"] == "none"){
-                        echo "<p>You have signed up !</p>";
+                        echo "<h1>You have signed up !</h1>";
                     }
                 }
 

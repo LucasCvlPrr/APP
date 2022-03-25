@@ -79,3 +79,40 @@
         header("location: ../Register.php?error=none");
         exit();
     }
+
+    //for the login form
+
+    function emptyInputLogin($email, $password){
+        $result;
+        if(empty($email) || empty($password)){
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    function loginUser($conn, $email, $password){
+        $emailExists = pseudoOrEmailExists($conn, $pseudo, $email);
+
+        if($emailExists === false){
+            header("location: ../Home.php?error=wronglogin");
+            exit();
+        }
+
+        $hashedPassword = $emailExists["passwd"];
+        $checkPassword = password_verify($password, $hashedPassword);
+
+        if($checkPassword === false){
+            header("location: ../Home.php?error=wronglogin");
+            exit();
+        }
+        else if($checkPassword === true){
+            session_start();
+            $_SESSION["id"] = $emailExists["id"];
+            $_SESSION["email"] = $emailExists["email"];
+            //header("location: ../../Dashboard/Dashboard.php");
+            header("location: ../../Home/Home.php");
+            exit();
+        }
+    }
