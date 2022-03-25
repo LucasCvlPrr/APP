@@ -34,21 +34,21 @@
                 </li>
 
                 <li class="button">
-                    <a href="../Solution/Solution.html">
+                    <a href="../Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../About/About.html">
+                    <a href="../About/About.php">
                         About
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../Contact/Contact.html">
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
@@ -122,7 +122,6 @@
                 }
 
             ?>
-
 
             <hr class="loginFormLineSeparator">
 

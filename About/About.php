@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,11 +9,11 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Solution.css'>
-    <script src='Solution.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='About.css'>
+    <script src='Home.js'></script>
 </head>
 <body>
-    <!-- Header -->
+    <!--En-tête de page.-->
     <header class="header">
 
         <nav class="menuNav">
@@ -20,7 +24,7 @@
                 THE NEW INDUSTRY
             </p>
 
-            <!-- Navigation Menu -->
+            <!-- Menu de navigation -->
             <ul>
                 <li class="button">
                     <a href="../Home/Home.php">
@@ -30,28 +34,40 @@
                 </li>
 
                 <li class="button">
-                    <a href="../Solution/Solution.html">
+                    <a href="../Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../About/About.html">
+                    <a href="../About/About.php">
                         About
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../Contact/Contact.html">
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
                 </li>
+
+                <?php
+
+                if(isset($_SESSION["email"])){
+                    echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                    echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
+                }
+                else{
+                    //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                    echo "<li class='button'><a href='Home.php'>Log in</a></li>";
+                }
+            ?>
+
             </ul>
 
-            <img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
 
 
         </nav>
@@ -59,62 +75,35 @@
         
     </header>
 
-     <!-- Content -->
-     <div class="topImg">
-        <img class="solutionPageImg" src="../img/solutionPageImg.jpg" alt="solutionPageImg">
-    </div>
-  
+    <!-- Contenu -->
     <hr class="firstLineSeparator">
 
-    <div class="titleContainer">
-        <h1><br> OUR SOLUTION FOR YOUR FACTORY <br></h1>
-    </div>
+    <h1>About Us</h1>
 
-    <div class="solutionPresentation">
-        <div class="envirronment">
-            <h4 class="envirronmentAnalysing">Envirronment analysing</h4>
+    <h3>What is <span style="color:#74b2dc">Infinite Measures</span> ?</h3>
 
-            <p class="envirronmentText">Our POLLUTION and SOUND sensors were designed to be integrated on a full solution for a live detection of potential risks.</p>
+    <p><strong>Infinite Measures</strong> is a human-sized company.</p>
+    <p>Our team is specialized in the development of technology solutions.</p>
+    
+    <hr class="secondLineSeparator">
 
-            <div class="envirronmentSensors">
-                <div class="pollutionSensor">
-                    <img class="pollutionImg" src="../img/co2.PNG" alt="pollutionImg">
-                    <h4 class="pollutionSensorTitle">POLLUTION SENSOR</h4>
-                </div>
-        
-                <div class="soundSensor">
-                    <img class="soundImg" src="../img/sound.PNG" alt="soundImg">
-                    <h4 class="soundSensorTitle">SOUND SENSOR</h4>
-                </div>
-            </div>
-        </div>
+    <h3>How do we work ?</h3>
 
-        <div class="workers">
-            <h4 class="workersHealth">Workers' Health</h4>
-
-            <p class="workersText">We protect our users with HEART sensor for the prevention  and justification for work incidents.</p>
-            
-            <div class="workersSensors">
-                <div class="heartBeatSensor">
-                    <img class="heartBeatImg" src="../img/heartBeat.png" alt="heartBeatImg">
-                    <h4 class="heartBeatSensorTitle">HEART BEAT SENSOR</h4>
-                </div>
-            </div>
-        </div>
-    </div>
+    <p>We always work on our knowledge of our clients needs.</p>
+    <p>Our team members are <strong>experimented technology engineers</strong> working together</p>
+    <p>to find the solution that fit to our <strong>client needs.</strong></p>
+    <p>We work together with <strong><span style="color:#74b2dc">Oversight</span> engineers team</strong> on the development</p>
+    <p>of your industry solution.</p>
 
     <hr class="secondLineSeparator">
 
-    <div class="industryInfo">
-        <h1>Why working for the industry?</h1>
-
-        <div class="industryNumbers">
-            <h4><br> Some clue numbers about the industry <br></h4>
-        </div>
+    <div class="rect">
+        <h1>They trust us...<br><br><br><br><br><br></h1>
     </div>
 
+    <hr class="firstLineSeparator">
 
-    <!-- Footer -->
+    <!-- Pied de page -->
     <footer class="footer">
         <div class="principalFooter">
             <h2 class="infiniteMeasuresFooter"><br>INFINITE<br>MEASURES</h2>
@@ -155,11 +144,10 @@
         </div>
 
         <div class="secondaryFooter">
-            <p class="poweredBy">Powered by <span style="color: #52cde1;">Oversight</span></p>
+            <p class="poweredBy">Powered by</p>
+            <p class="oversight">Oversight</p>
         </div>
     </footer>
-    
-
     
 </body>
 </html>
