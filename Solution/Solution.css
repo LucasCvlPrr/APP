@@ -1,3 +1,10 @@
+html,
+body{
+    height: 100%;
+    width: 100%;
+}
+
+
 /* Header */
 
 header.header{
@@ -45,7 +52,7 @@ nav.menuNav img.connexionLogo{
     margin-top: 35px;
 }
 
-/* End Header */
+/*************************************************************************************************************************************************************************************************************************************************************************/
 
 /* Content */
 
@@ -78,26 +85,34 @@ div.solutionPresentation{
 
 div.envirronment{
     width: 40%;
-}
-
-div.envirronmentSensors{
+    text-align: center;
     display: flex;
-    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 h4.envirronmentAnalysing{
-    text-align: center;
+    width: 100%;
+}
+
+p.envirronmentText{
+    width: 100%;
+}
+
+div.envirronmentSensors{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 div.pollutionSensor{
     box-shadow: 0px 0px 15px #e0e0e0;
     border-radius: 10px;
     width: 40%;
-    margin-left: 20px;
     margin-right: 20px;
-}
-
-h4.pollutionSensorTitle{
     text-align: center;
 }
 
@@ -106,35 +121,35 @@ div.soundSensor{
     border-radius: 10px;
     width: 40%;
     margin-left: 20px;
-    margin-right: 20px;
-}
-
-h4.soundSensorTitle{
     text-align: center;
 }
 
 div.workers{
     width: 40%;
-}
-
-div.workersSensors{
+    text-align: center;
     display: flex;
-    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 h4.workersHealth{
-    text-align: center;
+    width: 100%;
+}
+
+p.workersText{
+    width: 100%;
+}
+
+div.workersSensors{
+    width: 30%;
+    display: flex;
 }
 
 div.heartBeatSensor{
     box-shadow: 0px 0px 15px #e0e0e0;
     border-radius: 10px;
-    width: 40%;
-    margin-left: 180px;
-}
-
-h4.heartBeatSensorTitle{
-    text-align: center;
+    width: 100%;
 }
 
 hr.secondLineSeparator{
@@ -156,6 +171,9 @@ div.industryNumbers{
     text-align: center;
     align-items: center;
 }
+
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
 
 /* Footer */
 
@@ -208,6 +226,7 @@ div.secondaryFooter p.poweredBy{
     color: black;
 }
 
-/* End Footer */
+/*************************************************************************************************************************************************************************************************************************************************************************/
 
 /* END */
+
