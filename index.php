@@ -11,9 +11,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='About.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Home/Home.css'>
     <link rel="icon" type="image/png" href="../img/factorypng.png">
-    <script src='About.js'></script>
+    <script src='Home/Home.js'></script>
 </head>
 <body>
     
@@ -24,7 +24,7 @@
 
         <nav class="menuNav">
 
-            <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
+            <img src="img/logoIM.png" alt="logoIM" class="logoIM">
 
             <p class="slogan">
                 THE NEW INDUSTRY ♻️
@@ -35,28 +35,28 @@
 
             <ul>
                 <li class="button">
-                    <a href="../index.php">
+                    <a href="index.php">
                         Home
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../Solution/Solution.php">
+                    <a href="Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../About/About.php">
+                    <a href="About/About.php">
                         About
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../Contact/Contact.php">
+                    <a href="Contact/Contact.php">
                         Contact
                     </a>
                     
@@ -65,12 +65,12 @@
                 <?php
                 
                     if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
-                        echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
+                        echo "<li class='button'><a href='Dashboard/Dashboard.php'>Dashboard</a></li>";
+                        echo "<li class='button'><a href='Home/php.scripts/logout.php'>Log out</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                        echo "<li class='button'><a href='index.php'>Log in</a></li>";
                     }
                 ?>
             </ul>
@@ -79,32 +79,68 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <hr class="firstLineSeparator">
 
-    <h1>About Us</h1>
+    <div class="homeLoginPreview">
+        
+        <div class="homeLoginFormContainer">
+            <h4 class="homeLoginFormTitle">LOGIN ✔️</h4>
 
-    <h3>What is <span style="color:#74b2dc">Infinite Measures</span> ?</h3>
+            <form action="Home/php.scripts/login.php" method="post" class="homeLoginForm">
+                <div class="emailInput">
+                    <div class="emailLabel">
+                        <label for="email">Email 📫</label>
+                    </div>
 
-    <p><strong>Infinite Measures</strong> is a human-sized company.</p>
-    <p>Our team is specialized in the development of technology solutions.</p>
-    
-    <hr class="secondLineSeparator">
+                    <div class="email">
+                        <input type="text" name="email" id="email" required size="40px" autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="passwordInput">
+                    <div class="passwordLabel">
+                        <label for="password">Password 🔒</label>
+                    </div>
+                    
+                    <div class="password">
+                        <input type="password" name="password" id="password" required size="40px" autocomplete="off">
+                    </div>
+                </div>
 
-    <h3>How do we work ?</h3>
+                <div class="loginBtn">
+                    <button type="submit" name="submit" id="submit">Login</button>
+                </div>
+            </form>
 
-    <p>We always work on our knowledge of our clients needs.</p>
-    <p>Our team members are <strong>experimented technology engineers</strong> working together</p>
-    <p>to find the solution that fit to our <strong>client needs.</strong></p>
-    <p>We work together with <strong><span style="color:#74b2dc">Oversight</span> engineers team</strong> on the development</p>
-    <p>of your industry solution.</p>
+            <?php 
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput"){
+                        echo "<h1>You missed a blank, fill the other !</h1>";
+                    }
+                    else if($_GET["error"] == "wronglogin"){
+                        echo "<h1>Incorrect login information !</h1>";
+                    }
+                }
 
-    <hr class="secondLineSeparator">
+            ?>
 
-    <div class="rect">
-        <h1>They trust us...<br><br><br><br><br><br></h1>
+            <hr class="loginFormLineSeparator">
+
+            <div class="notRegText">
+                <p>Not registered yet ? ⏱</p>
+            </div>
+            
+            <div class="registerBtn">
+                <form method="get" action="Register/Register.php">
+                    <button type="submit">Register</button>
+                </form>    
+            </div>
+        </div>
+
+        <div class="homePreviewContainer">
+            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h4>
+        </div>
+
     </div>
-
-    <hr class="firstLineSeparator">
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
@@ -126,7 +162,7 @@
             </li>
 
             <li class="link">
-                <a href="../Contact/Contact.html">
+                <a href="Contact/Contact.html">
                     Contact
                 </a>
 
@@ -141,7 +177,7 @@
         </ul>
 
         <div class="poweredByOversight">
-            <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Powered by <a href="About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
         </div>
     </footer>
 

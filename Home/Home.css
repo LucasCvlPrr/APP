@@ -1,60 +1,110 @@
-/* Header */
+/* Initialisation */
+
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+
+body {
+    margin:0;
+    height: 100%;
+    font-weight: bold;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    letter-spacing: 2px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(-45deg, #74b2dc, black, #23a6d5, gray);
+	background-size: 400% 400%;
+	animation: animate-background 15s ease-in-out infinite;
+    transition: 1s all;
+}
+
+.main {
+    padding: 10px;
+    margin-top: 30px;
+    height: 1500px; /* Used in this example to enable scrolling */
+    width: 100%;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/* En-tête */
 
 header.header{
-    background-color: #e0e0e0;
-    padding: 10px;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    box-shadow: 1px 1px 15px black;
+}
+
+nav.menuNav img.logoIM{
+    align-self: center;
+    height: 100px;
+    width: 100px;
 }
 
 p.slogan{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
+    padding-left: 10px;
+    font-size: 25px;
+    font-weight: bolder;
+    letter-spacing: 4px;
     color: #74b2dc;
     display: inline;
-    margin-top: 40px;
+    align-self: center;
 }
 
 nav.menuNav{
     display: flex;
+    flex-direction: row;
+    background-color: white;
 }
 
 nav.menuNav ul{
-    margin-left: 46%;
-    margin-top: 51px;
+    align-self: center;
+    margin-right: 1%;
+    margin-left: auto;
 }
 
 nav.menuNav ul li.button{
-    display: inline-block;
-    list-style-type: none;
+    display: inline-flex;
+    border-radius: 10px;
+    margin-right: 3px;
+    
 }
 
 nav.menuNav ul li.button a{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     color: black;
     text-decoration: none;
     padding: 10px;
 }
 
 nav.menuNav ul li.button:hover a{
-    background-color: #757575;
-    transition: 0.4s all;
+    color: white;
+    background: linear-gradient(-45deg, #74b2dc, #23a6d5, rgb(0, 213, 255), rgb(0, 225, 255));
+	background-size: 400% 400%;
+	animation: animate-background 1s ease-in-out infinite;
+    transition: 1s all;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
-nav.menuNav img.connexionLogo{
-    margin-top: 35px;
-}
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/* Contenu */
 
-/* End Header */
-
-/* Content */
-
-img.homeImg{
-    max-height: 80vh;
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.homeLoginPreview {
+    padding-top: 140px;
+    display: flex;
+    flex-direction: row;
 }
 
 hr.firstLineSeparator{
@@ -63,7 +113,6 @@ hr.firstLineSeparator{
 }
 
 h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #74b2dc;
     text-align: center;
     margin-top: 30px;
@@ -71,27 +120,27 @@ h1{
 }
 
 div.homeLoginFormContainer{
-    box-shadow: 0px 0px 15px #e0e0e0;
     border-radius: 10px;
     margin-left: 30px;
     margin-right: 20px;
-    width: 50%;
+    width: 45%;
+    background-color: white;
+    box-shadow: 1px 1px 15px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h4.homeLoginFormTitle{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
 }
 
 div.emailInput{
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 25%;
-    margin-right: 50px;
 }
 
 div.emailInput div.emailLabel{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
 
@@ -102,12 +151,9 @@ div.emailInput div.email{
 div.passwordInput{
     margin-top: 40px;
     margin-bottom: 20px;
-    margin-left: 25%;
-    margin-right: 20px;
 }
 
 div.passwordInput div.passwordLabel{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
 
@@ -122,14 +168,16 @@ div.loginBtn{
 }
 
 div.loginBtn button{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
     height: 50px;
     width: 100px;
     background-color: #569ac7;
     color: white;
     border-style: outset;
     border-color: #569ac7;
-    border: 1px solid #eee;
-    box-shadow: 5px 5px 5px #eee;
+    border: 1px solid #569ac7;
+    box-shadow: 1px 1px 15px gray;
     text-shadow: none;
     border-radius: 10px;
 }
@@ -137,6 +185,7 @@ div.loginBtn button{
 div.loginBtn button:hover {
     background-color: #c4def0;
     cursor: pointer;
+    border: 1px solid #c4def0;
 }
 
 hr.loginFormLineSeparator{
@@ -144,7 +193,6 @@ hr.loginFormLineSeparator{
 }
 
 div.notRegText{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     font-weight: bold;
 }
@@ -156,14 +204,16 @@ div.registerBtn{
 }
 
 div.registerBtn button{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
     height: 50px;
     width: 100px;
     background-color: #569ac7;
     color: white;
     border-style: outset;
     border-color: #569ac7;
-    border: 1px solid #eee;
-    box-shadow: 5px 5px 5px #eee;
+    border: 1px solid #569ac7;
+    box-shadow: 1px 1px 15px gray;
     text-shadow: none;
     border-radius: 10px;
 }
@@ -171,22 +221,11 @@ div.registerBtn button{
 div.registerBtn button:hover{
     background-color: #c4def0;
     cursor: pointer;
-}
-
-img.homeImg{
-    max-height: 80vh;
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-div.homeLoginPreview{
-    display: flex;
+    border: 1px solid #c4def0;
 }
 
 div.homePreviewContainer{
-    box-shadow: 0px 0px 15px #e0e0e0;
+    box-shadow: 1px 1px 15px black;
     border-radius: 10px;
     margin-left: 50px;
     margin-right: 30px;
@@ -195,110 +234,57 @@ div.homePreviewContainer{
 }
 
 div.homePreviewContainer h4.homePreviewContainerTitle{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     color: white;
 }
 
-hr.secondLineSeparator{
-    width: 80%;
-    margin-top: 25px;
-}
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/* Pied-de-page */
 
-div.solutionPreviewContainer{
+.footer{
+    background: white;
     display: flex;
-    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+    align-items: center;
+    width: 100%;
 }
 
-div.heartSensor{
-    box-shadow: 0px 0px 15px #e0e0e0;
-    border-radius: 10px;
-    margin-left: 100px;
-    margin-right: 50px;
-    width: 20%;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-div.pollutionSensor{
-    box-shadow: 0px 0px 15px #e0e0e0;
-    border-radius: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
-    width: 20%;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-div.soundSensor{
-    box-shadow: 0px 0px 15px #e0e0e0;
-    border-radius: 10px;
-    margin-left: 50px;
-    margin-right: 100px;
-    width: 20%;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* End Content */
-
-/* Footer */
-
-footer.footer{
-    background: linear-gradient(0deg, #e0e0e0 22%, #757575 22%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    color: white;
-}
-
-h2.infiniteMeasuresFooter{
-    margin-top: 50px;
-}
-
-div.principalFooter hr{
-    color: white;
-    width: 90%;
-}
-
-div.footerLinks{
-    display: flex;
-    margin-left: 25px;
-}
-
-div.footerLinks ul li.link{
+.footer ul li.link{
     display: inline-block;
-    list-style-type: none;   
+    list-style-type: none;
 }
 
-div.footerLinks ul li.link a{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.footer ul li.link a{
     font-size: 15px;
-    color: white;
     text-decoration: none;
     padding: 10px;
-}
-
-div.footerLinks ul li.link:hover a{
-    background-color: #474747;
-    transition: 0.4s all;
-}
-
-
-div.secondaryFooter{
-    display: flex;
-    justify-content: center;
-}
-
-div.secondaryFooter p.poweredBy{
     color: black;
 }
 
-div.secondaryFooter p.oversight{
-    color: #52cde1;
-    margin-left: 5px;
+.footer ul li.link:hover a{
+    background-color: black;
+    color: white;
+    transition: 0.4s all;
 }
 
-/* End Footer */
+div.poweredByOversight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1%;
+    margin-left: auto;
+}
 
-/* END */
+p.poweredBy{
+    color: black;
+    margin-right: 5px;
+}
 
+a.oversight{
+    text-decoration: none;
+    color: #52cde1;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/*************************************************************************************************************************************************************************************************************************************************************************/

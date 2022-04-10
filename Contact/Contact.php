@@ -1,3 +1,5 @@
+<!-- Initialisation -->
+
 <?php
     session_start();
 ?>
@@ -10,21 +12,30 @@
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='Contact.css'>
+    <link rel="icon" type="image/png" href="../img/factorypng.png">
     <script src='Contact.js'></script>
 </head>
 <body>
-    <!--En-tête de page.-->
-    <header>
-        <img src="../img/logoIM.png" alt="logoIM" height="125" width="125">
-        
-        <p class="slogan">
-            THE NEW INDUSTRY
-        </p>
+    
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- En-tête de page -->
 
-        <nav>
+    <header class="header">
+
+        <nav class="menuNav">
+
+            <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
+
+            <p class="slogan">
+                THE NEW INDUSTRY ♻️
+            </p>
+
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <!-- Menu de navigation -->
+
             <ul>
                 <li class="button">
-                    <a href="../Home/Home.php">
+                    <a href="../index.php">
                         Home
                     </a>
                     
@@ -52,22 +63,67 @@
                 </li>
 
                 <?php
-
-                if(isset($_SESSION["email"])){
-                    echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
-                    echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
-                }
-                else{
-                    //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                    echo "<li class='button'><a href='Home.php'>Log in</a></li>";
-                }
-            ?>
-
+                
+                    if(isset($_SESSION["email"])){
+                        echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                        echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
+                    }
+                    else{
+                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                    }
+                ?>
             </ul>
         </nav>
     </header>
-    
 
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- Contenu -->
+    <div></div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- Pied de page -->
+
+    <footer class="footer">
+        <ul>
+            <li class="link">
+                <a href="">
+                    Legal Terms
+                </a>
+
+            </li>
+
+            <li class="link">
+                <a href="">
+                    Personnal Data
+                </a>
+
+            </li>
+
+            <li class="link">
+                <a href="../Contact/Contact.php">
+                    Contact
+                </a>
+
+            </li>
+
+            <li class="link">
+                <a href="">
+                    Sitemap
+                </a>
+
+            </li>
+        </ul>
+
+        <div class="poweredByOversight">
+            <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+        </div>
+    </footer>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     
 </body>
 </html>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>

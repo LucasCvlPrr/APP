@@ -21,13 +21,13 @@
             <img src="../img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
         
             <p class="slogan">
-                THE NEW INDUSTRY
+                DASHBOARD 🌎
             </p>
 
             <!-- Menu de navigation -->
             <ul>
                 <li class="button">
-                    <a href="../Home/Home.php">
+                    <a href="../index.php">
                         Home
                     </a>
                     
@@ -62,7 +62,7 @@
                 }
                 else{
                     //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                    echo "<li class='button'><a href='Home.php'>Log in</a></li>";
+                    echo "<li class='button'><a href='../index.php'>Log in</a></li>";
                 }
             ?>
 
@@ -70,62 +70,70 @@
         </nav>
     </header>
 
-    <body>
-        <?php
-            if(isset($_SESSION["email"])){
-                echo "<h1>Your email : " . $_SESSION["email"] . "</h1>";
-                echo "<h1>Your ID : " . $_SESSION["id"] . "</h1>";  
-            }
-            else{}
-        ?>
-  
-    </body>
+    <!-- Contenu -->
+    <div class="info_container">
+        <div class="info_user">
+            <?php
+                $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
 
+                if(isset($_SESSION["email"])){
+                    echo "<h1>Email : " . $_SESSION["email"] . "</h1>";
+                    echo "<h1>ID : " . $_SESSION["id"] . "</h1>";
+                    
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+                    $recupUser->execute(array($_SESSION["id"]));
+                    
+                    echo "<h1>Pseudo : " . $recupUser->fetch()['pseudo'] . "</h1>";
+
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+                    $recupUser->execute(array($_SESSION["id"]));
+
+                    echo "<h1>Last Name : " . $recupUser->fetch()['last_name'] . "</h1>";
+
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+                    $recupUser->execute(array($_SESSION["id"]));
+                    
+                    echo "<h1>First Name : " . $recupUser->fetch()['first_name'] . "</h1>";
+                }
+            ?>
+        </div>
+    </div>
 
 
     <!-- Pied de page -->
     <footer class="footer">
-        <div class="principalFooter">
-            <h2 class="infiniteMeasuresFooter"><br>INFINITE<br>MEASURES</h2>
+        <ul>
+            <li class="link">
+                <a href="">
+                    Legal Terms
+                </a>
 
-            <hr class="footerSeparator">
+            </li>
 
-            <div class="footerLinks">
-                <ul>
-                    <li class="link">
-                        <a href="">
-                            Legal Terms
-                        </a>
-                        
-                    </li>
-    
-                    <li class="link">
-                        <a href="">
-                            Personnal Data
-                        </a>
-                        
-                    </li>
-    
-                    <li class="link">
-                        <a href="../Contact/Contact.html">
-                            Contact
-                        </a>
-                        
-                    </li>
-    
-                    <li class="link">
-                        <a href="">
-                            Sitemap
-                        </a>
-                        
-                    </li>
-                </ul>
-            </div>
-        </div>
+            <li class="link">
+                <a href="">
+                    Personnal Data
+                </a>
 
-        <div class="secondaryFooter">
-            <p class="poweredBy">Powered by</p>
-            <p class="oversight">Oversight</p>
+            </li>
+
+            <li class="link">
+                <a href="../Contact/Contact.html">
+                    Contact
+                </a>
+
+            </li>
+
+            <li class="link">
+                <a href="">
+                    Sitemap
+                </a>
+
+            </li>
+        </ul>
+
+        <div class="poweredByOversight">
+            <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.html" class="oversight">Oversight</a></p>
         </div>
     </footer>
     
