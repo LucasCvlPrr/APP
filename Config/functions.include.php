@@ -105,7 +105,7 @@
         $emailExists = pseudoOrEmailExists($conn, $email, $email);
 
         if($emailExists === false){
-            header("location: ../Home.php?error=wronglogin");
+            header("location: ../index.php?error=wronglogin");
             exit();
         }
 
@@ -113,7 +113,7 @@
         $checkPassword = password_verify($password, $hashedPassword);
 
         if($checkPassword === false){
-            header("location: ../Home.php?error=wronglogin");
+            header("location: ../index.php?error=wronglogin");
             exit();
         }
         else if($checkPassword === true){
@@ -122,7 +122,7 @@
             $_SESSION["email"] = $emailExists["email"];
 
             //header("location: ../../Dashboard/Dashboard.php");
-            header("location: ../../Home/Home.php");
+            header("location: ../../index.php");
             exit();
         }
     }

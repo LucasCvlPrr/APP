@@ -9,14 +9,14 @@
         require_once '../../Config/functions.include.php';
 
         if(emptyInputLogin($email, $password) !== false){
-            header("location: ../Home.php?error=emptyinput"); //retour à la page de Home avec l'erreur 'emptyinput'
+            header("location: ../../index.php?error=emptyinput"); //retour à la page de Home avec l'erreur 'emptyinput'
             exit(); //vide le form en cours
         }
 
         loginUser($conn, $email, $password);
     }
     else{
-        header("location: ../Home.php");
+        header("location: ../../index.php");
         exit();
     }
 
