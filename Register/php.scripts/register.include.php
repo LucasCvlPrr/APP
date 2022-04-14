@@ -12,7 +12,7 @@
         require_once '../../Config/database.php'; //connection à la DB
         require_once '../../Config/functions.include.php'; //import de fontions
 
-        if(emptyInputSignup($last_name, $first_name, $email, $pseudo, $password, $repeat_password) !== false){
+        if(emptyInputSignup($pseudo, $last_name, $first_name, $email, $password, $repeat_password) !== false){
             header("location: ../Register.php?error=emptyinput"); //retour à la page de Register avec l'erreur 'emptyinput'
             exit(); //vide le form en cours
         }
@@ -27,6 +27,11 @@
             exit(); 
         }
 
+        if(invalidPasswd($password) !== false){
+            header("location: ../Register.php?error=invalidpasswd"); //retour à la page de Register avec l'erreur 'invalidpasswd'
+            exit();
+        }
+
         if(passwdMatch($password, $repeat_password) !== false){
             header("location: ../Register.php?error=invalidpasswdmatch"); //retour à la page de Register avec l'erreur 'invalidpasswdmatch'
             exit(); 
@@ -37,7 +42,7 @@
             exit();
         }
 
-        $pseudo.=passwdStrengh($password);
+        $pseudo.=passwdStrengh($password); 
 
         createUser($conn, $last_name, $first_name, $email, $pseudo, $password);
 

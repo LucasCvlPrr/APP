@@ -1,8 +1,7 @@
 <?php
 
-    function emptyInputSignup($last_name, $first_name, $email, $pseudo, $password, $repeat_password){
-        $result;
-        if(empty($last_name) || empty($first_name) || empty($email) || empty($pseudo) || empty($password) || empty($repeat_password)){
+    function emptyInputSignup($pseudo, $last_name, $first_name, $email, $password, $repeat_password){
+        if(empty($pseudo) || empty($last_name) || empty($first_name) || empty($email) || empty($password) || empty($repeat_password)){
             $result = true;
         } else {
             $result = false;
@@ -11,7 +10,6 @@
     }
 
     function invalidPseudo($pseudo){
-        $result;
         if(!preg_match("/^[a-zA-Z0-9]*$/", $pseudo)){
             $result = true;
         } else {
@@ -21,7 +19,6 @@
     }
 
     function invalidEmail($email){
-        $result;
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $result = true;
         } else {
@@ -30,8 +27,21 @@
         return $result;
     }
 
+    function invalidPasswd($password){
+        $number = preg_match('@[0-9]@', $password);
+        $lowerCase = preg_match('@[a-z]@', $password);
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+
+        if(strlen($password) < 8 || !$number || !$lowerCase || !$uppercase || !$specialChars){
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
     function passwdMatch($password,$repeat_password){
-        $result;
         if($password !== $repeat_password){
             $result = true;
         } else {
@@ -90,7 +100,6 @@
     //for the login form
 
     function emptyInputLogin($email, $password){
-        $result;
         if(empty($email) || empty($password)){
             $result = true;
         } else {
@@ -100,10 +109,10 @@
     }
 
     function loginUser($conn, $email, $password){
-        $emailExists = pseudoOrEmailExists($conn, $pseudo, $email);
+        $emailExists = pseudoOrEmailExists($conn, $email, $email);
 
         if($emailExists === false){
-            header("location: ../Home.php?error=wronglogin");
+            header("location: ../index.php?error=wronglogin");
             exit();
         }
 
@@ -111,15 +120,16 @@
         $checkPassword = password_verify($password, $hashedPassword);
 
         if($checkPassword === false){
-            header("location: ../Home.php?error=wronglogin");
+            header("location: ../index.php?error=wronglogin");
             exit();
         }
         else if($checkPassword === true){
             session_start();
             $_SESSION["id"] = $emailExists["id"];
             $_SESSION["email"] = $emailExists["email"];
+
             //header("location: ../../Dashboard/Dashboard.php");
-            header("location: ../../Home/Home.php");
+            header("location: ../../index.php");
             exit();
         }
     }

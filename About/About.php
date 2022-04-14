@@ -11,9 +11,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Register.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='About.css'>
     <link rel="icon" type="image/png" href="../img/factorypng.png">
-    <script src='Register.js'></script>
+    <script src='About.js'></script>
 </head>
 <body>
     
@@ -79,112 +79,32 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
+    <hr class="firstLineSeparator">
 
-    <div class="RegisterPreview">
-        
-        <div class="RegisterFormContainer">
-            <h4 class="RegisterFormTitle">Register</h4>
+    <h1>About Us</h1>
 
-            <form action="php.scripts/register.include.php" method="post" class="RegisterinForm">
-                <div class="pseudoInput">
-                    <div class="pseudoLabel">
-                        <label for="pseudo">Pseudo</label>
-                    </div>
-                    
-                    <div class="pseudo">
-                        <input type="text" name="pseudo" id="pseudo" required size="50px">
-                    </div>
-                </div>
+    <h3>What is <span style="color:#74b2dc">Infinite Measures</span> ?</h3>
 
-                <div class="lastNameInput">
-                    <div class="lastNameLabel">
-                        <label for="last_name">Last Name</label>
-                    </div>
+    <p><strong>Infinite Measures</strong> is a human-sized company.</p>
+    <p>Our team is specialized in the development of technology solutions.</p>
+    
+    <hr class="secondLineSeparator">
 
-                    <div class="last_name">
-                        <input type="text" name="last_name" id="last_name" required size="50px">
-                    </div>
-                </div>
-                
-                <div class="firstNameInput">
-                    <div class="firstNameLabel">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    
-                    <div class="first_name">
-                        <input type="text" name="first_name" id="first_name" required size="50px">
-                    </div>
-                </div>
+    <h3>How do we work ?</h3>
 
-                <div class="emailInput">
-                    <div class="emailLabel">
-                        <label for="email">Email</label>
-                    </div>
-                    
-                    <div class="email">
-                        <input type="text" name="email" id="email" required size="50px">
-                    </div>
-                </div>
+    <p>We always work on our knowledge of our clients needs.</p>
+    <p>Our team members are <strong>experimented technology engineers</strong> working together</p>
+    <p>to find the solution that fit to our <strong>client needs.</strong></p>
+    <p>We work together with <strong><span style="color:#74b2dc">Oversight</span> engineers team</strong> on the development</p>
+    <p>of your industry solution.</p>
 
-                <div class="passwordInput">
-                    <div class="passwordLabel">
-                        <label for="password">Password</label>
-                    </div>
-                    
-                    <div class="password">
-                        <input type="password" name="password" id="password" required size="50px">
-                    </div>
-                </div>
+    <hr class="secondLineSeparator">
 
-                <div class="repeatpasswordInput">
-                    <div class="repeatpasswordLabel">
-                        <label for="repeatpassword">Repeat Password</label>
-                    </div>
-                    
-                    <div class="repeatpassword">
-                        <input type="password" name="repeatpassword" id="repeatpassword" required size="50px">
-                    </div>
-                </div>
-
-                <div class="registerBtn">
-                    <button type="submit" name="formsend" id="formsend">Submit</button>
-                </div>
-
-            </form>
-
-            <?php 
-                if(isset($_GET["error"])){
-                    if($_GET["error"] == "emptyinput"){
-                        echo "<h1>You missed a blank, fill the other !</h1>";
-                    }
-                    else if($_GET["error"] == "invalidpseudo"){
-                        echo "<h1>Invalid Pseudo, choose another one!</h1>";
-                    }
-                    else if($_GET["error"] == "invalidemail"){
-                        echo "<h1>Invalid Email, choose another one!</h1>";
-                    }
-                    else if($_GET["error"] == "invalidpasswd"){
-                        echo "<h1>Password must be at least 8 characters long, 
-                        contain 1 upper case, 1 lower case, 1 number and 1 special character (!*/)";
-                    }
-                    else if($_GET["error"] == "invalidpasswdmatch"){
-                        echo "<h1>Passwords don't match, try again!</h1>";
-                    }
-                    else if($_GET["error"] == "pseudooremailtaken"){
-                        echo "<h1>Pseudo or Email already used...</h1>";
-                    }
-                    else if($_GET["error"] == "stmtfailed"){
-                        echo "<h1>Something went wrong, try again!</h1>";
-                    }
-                    else if($_GET["error"] == "none"){
-                        echo "<h1>You have signed up!</h1>";
-                    }
-                }
-
-            ?>
-        </div>
+    <div class="rect">
+        <h1>They trust us...<br><br><br><br><br><br></h1>
     </div>
 
+    <hr class="firstLineSeparator">
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->

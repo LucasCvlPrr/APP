@@ -27,4 +27,4 @@
         die("Failed to connect to the DB ..." . mysqli_connect_error());
     }
 
-    
+

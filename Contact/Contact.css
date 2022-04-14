@@ -1,7 +1,157 @@
-p.slogan{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Initialisation */
+
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+
+body {
+    margin:0;
+    height: 100%;
+    font-weight: bold;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    letter-spacing: 2px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(-45deg, #74b2dc, black, #23a6d5, gray);
+	background-size: 400% 400%;
+	animation: animate-background 15s ease-in-out infinite;
+    transition: 1s all;
 }
 
-p.button{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.main {
+    padding: 10px;
+    margin-top: 30px;
+    height: 1500px; /* Used in this example to enable scrolling */
+    width: 100%;
 }
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/* En-tête */
+
+header.header{
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    box-shadow: 1px 1px 15px black;
+}
+
+nav.menuNav img.logoIM{
+    align-self: center;
+    height: 100px;
+    width: 100px;
+}
+
+p.slogan{
+    padding-left: 10px;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+    letter-spacing: 4px;
+    color: #74b2dc;
+    display: inline;
+    align-self: center;
+}
+
+nav.menuNav{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+nav.menuNav ul{
+    align-self: center;
+    margin-right: 1%;
+    margin-left: auto;
+}
+
+nav.menuNav ul li.button{
+    display: inline-flex;
+    border-radius: 10px;
+    margin-right: 3px;
+    
+}
+
+nav.menuNav ul li.button a{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav.menuNav ul li.button:hover a{
+    color: white;
+    background: linear-gradient(-45deg, #74b2dc, #23a6d5, rgb(0, 213, 255), rgb(0, 225, 255));
+	background-size: 400% 400%;
+	animation: animate-background 1s ease-in-out infinite;
+    transition: 1s all;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/* Contenu */
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/* Pied-de-page */
+
+.footer{
+    background: white;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    align-items: center;
+    width: 100%;
+}
+
+.footer ul li.link{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.footer ul li.link a{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+}
+
+.footer ul li.link:hover a{
+    background-color: black;
+    color: white;
+    transition: 0.4s all;
+}
+
+div.poweredByOversight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1%;
+    margin-left: auto;
+}
+
+p.poweredBy{
+    color: black;
+    margin-right: 5px;
+}
+
+a.oversight{
+    text-decoration: none;
+    color: #52cde1;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************/
+/*************************************************************************************************************************************************************************************************************************************************************************/
