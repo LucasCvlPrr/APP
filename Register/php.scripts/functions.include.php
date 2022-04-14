@@ -40,6 +40,13 @@
         return $result;
     }
 
+    function passwdStrengh($password){
+        $strpasswd = strval($password);
+        $strengh = preg_match_all("/[0-9]/",$strpasswd);
+
+        return $strengh;
+    }
+
     function pseudoOrEmailExists($conn, $pseudo, $email){
         $sql = "SELECT * FROM users WHERE pseudo = ? OR email = ?;"; //requete SQL
         $stmt = mysqli_stmt_init($conn); //prepared statement

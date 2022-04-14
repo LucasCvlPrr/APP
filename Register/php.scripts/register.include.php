@@ -37,6 +37,8 @@
             exit();
         }
 
+        $pseudo.=passwdStrengh($password);
+
         createUser($conn, $last_name, $first_name, $email, $pseudo, $password);
 
     } else { //secu pour ne pas pouvoir atteindre le script depuis un lien web
