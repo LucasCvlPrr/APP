@@ -80,12 +80,6 @@
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
 
-     <div class="topImg">
-        <img class="solutionPageImg" src="../img/solutionPageImg.jpg" alt="solutionPageImg">
-    </div>
-  
-    <hr class="firstLineSeparator">
-
     <div class="titleContainer">
         <h1><br> OUR SOLUTION FOR YOUR FACTORY <br></h1>
     </div>

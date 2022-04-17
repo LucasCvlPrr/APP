@@ -29,11 +29,11 @@
 
     function invalidPasswd($password){
         $number = preg_match('@[0-9]@', $password);
-        $lowerCase = preg_match('@[a-z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
         $uppercase = preg_match('@[A-Z]@', $password);
-        $specialChars = preg_match('@[^\w]@', $password);
+        $specialchars = preg_match('@[^\w]@', $password);
 
-        if(strlen($password) < 8 || !$number || !$lowerCase || !$uppercase || !$specialChars){
+        if(strlen($password) < 8 || !$number || !$lowercase || !$uppercase || !$specialchars){
             $result = true;
         } else {
             $result = false;
@@ -50,6 +50,40 @@
         return $result;
     }
 
+<<<<<<< Updated upstream
+=======
+    function passwdStrengh($password){
+        $strpasswd = strval($password);
+        $lenpasswd = strlen($strpasswd);
+        $lowercase = preg_match_all("/[a-z]/", $strpasswd);
+        $uppercase = preg_match_all("/[A-Z]/", $strpasswd);
+        $number = preg_match_all("/[0-9]/", $strpasswd);
+        $specialchars = preg_match_all("/[^\w]/", $strpasswd);
+
+        $strengh = $lenpasswd;
+
+        if($lowercase >= floor($lenpasswd/5)){
+            $strengh += round($lenpasswd/4);
+        }
+
+        if($uppercase >= floor($lenpasswd/5)){
+            $strengh += round($lenpasswd/2);
+        }
+
+        if($number >= floor($lenpasswd/5)){
+            $strengh += round($lenpasswd/4);
+        }
+
+        if($specialchars >= floor($lenpasswd/5)){
+            $strengh += round(($lenpasswd/4)*3);
+        }
+
+        $result = ((((((($strengh.'.').$lowercase).'.').$uppercase).'.').$number).'.').$specialchars;
+
+        return $result;
+    }
+
+>>>>>>> Stashed changes
     function pseudoOrEmailExists($conn, $pseudo, $email){
         $sql = "SELECT * FROM users WHERE pseudo = ? OR email = ?;"; //requete SQL
         $stmt = mysqli_stmt_init($conn); //prepared statement
