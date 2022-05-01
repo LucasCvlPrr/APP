@@ -11,9 +11,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='OversightTeam.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Contact.css'>
     <link rel="icon" type="image/png" href="../img/factorypng.png">
-    <script src='OversightTeam.js'></script>
+    <script src='Contact.js'></script>
 </head>
 <body>
     
@@ -24,7 +24,7 @@
 
         <nav class="menuNav">
 
-            <img src="../../img/logoIM.png" alt="logoIM" class="logoIM">
+            <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
             <p class="slogan">
                 THE NEW INDUSTRY ♻️
@@ -35,28 +35,28 @@
 
             <ul>
                 <li class="button">
-                    <a href="../../index.php">
+                    <a href="../index.php">
                         Home
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../../Solution/Solution.php">
+                    <a href="../Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../../About/About.php">
+                    <a href="../About/About.php">
                         About
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../../Contact/Contact.php">
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
@@ -65,12 +65,22 @@
                 <?php
                 
                     if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                        echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
+
+                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+                        $recupUser->execute(array($_SESSION['email']));
+                        $isAdmin = $recupUser->fetch()['isAdmin'];
+
+                        if($isAdmin == 1){
+                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
+                        }
+
                         echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../../index.php'>Log in</a></li>";
+                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
                     }
                 ?>
             </ul>
@@ -79,6 +89,7 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
+    <div></div>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
@@ -100,7 +111,7 @@
             </li>
 
             <li class="link">
-                <a href="../Contact/Contact.html">
+                <a href="../Contact/Contact.php">
                     Contact
                 </a>
 

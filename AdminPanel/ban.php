@@ -7,7 +7,7 @@ if(isset($_GET['id'])){
     if($selectUser->rowCount() > 0){
         $deleteUser = $bdd->prepare('DELETE from users WHERE id=?');
         $deleteUser->execute(array($_GET['id']));
-        header("Location: adminSpace.php");
+        header("Location: adminPanel.php");
     } else {
         echo "The select user doesn't exist ...";
     }

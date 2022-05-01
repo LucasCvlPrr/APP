@@ -1,26 +1,20 @@
-<!-- Initialisation -->
-
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Infinite Measures</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Solution.css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../img/factorypng.png">
-    <script src='Solution.js'></script>
+    <title>Admin-Panel</title>
+    <link rel="stylesheet" type='text/css' media='screen' href="style.css">
 </head>
 <body>
-    
-    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    <!-- En-tête de page -->
 
-    <header class="header">
+<header class="header">
 
         <nav class="menuNav">
 
@@ -65,7 +59,17 @@
                 <?php
                 
                     if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                        echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
+
+                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+                        $recupUser->execute(array($_SESSION['email']));
+                        $isAdmin = $recupUser->fetch()['isAdmin'];
+
+                        if($isAdmin == 1){
+                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
+                        }
+
                         echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
                     }
                     else{
@@ -77,56 +81,37 @@
         </nav>
     </header>
 
-    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-    <!-- Contenu -->
-
-    <div class="titleContainer">
-        <h1><br> OUR SOLUTION FOR YOUR FACTORY <br></h1>
-    </div>
-
-    <div class="solutionPresentation">
-        <div class="envirronment">
-            <h4 class="envirronmentAnalysing">Envirronment analysing</h4>
-
-            <p class="envirronmentText">Our POLLUTION and SOUND sensors were designed to be integrated on a full solution for a live detection of potential risks.</p>
-
-            <div class="envirronmentSensors">
-                <div class="pollutionSensor">
-                    <img class="pollutionImg" src="../img/co2.PNG" alt="pollutionImg">
-                    <h4 class="pollutionSensorTitle">POLLUTION SENSOR</h4>
-                </div>
-        
-                <div class="soundSensor">
-                    <img class="soundImg" src="../img/sound.PNG" alt="soundImg">
-                    <h4 class="soundSensorTitle">SOUND SENSOR</h4>
-                </div>
-            </div>
+    <div class="global">
+        <div class="admin_info">
+            <h3>Welcome to the Admin Panel !</h3><br>
+            <?php
+                if(isset($_SESSION["email"])){
+                    $email = $_SESSION['email'];
+                    
+                    echo "<p>Your email : ".$email."</p><br>";
+                    
+                    //récupération 'isAdmin'
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+                    $recupUser->execute(array($_SESSION['email']));
+                    $isAdmin = $recupUser->fetch()['isAdmin'];
+                    echo "<p>isAdmin : ".$isAdmin."</p>";
+                }
+            ?>
         </div>
-
-        <div class="workers">
-            <h4 class="workersHealth">Workers' Health</h4>
-
-            <p class="workersText">We protect our users with HEART sensor for the prevention  and justification for work incidents.</p>
-            
-            <div class="workersSensors">
-                <div class="heartBeatSensor">
-                    <img class="heartBeatImg" src="../img/heartBeat.png" alt="heartBeatImg">
-                    <h4 class="heartBeatSensorTitle">HEART BEAT SENSOR</h4>
-                </div>
-            </div>
+        <div class="users_list">
+                <h3>The list of the users:</h3><br>
+                <?php
+                    //récupération de tous les utilisateurs
+                    $recupUsers = $bdd->query('SELECT * FROM users');
+                    while($user = $recupUsers->fetch()){
+                        ?>
+                            <p><?= $user['pseudo']; ?><a id='ban_link' href="ban.php?id=<?= $user['id']; ?>" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                        <?php
+                    }
+                ?>
         </div>
     </div>
-
-    <hr class="secondLineSeparator">
-
-    <div class="industryInfo">
-        <h1>Why working for the industry?</h1>
-
-        <div class="industryNumbers">
-            <h4><br> Some clue numbers about the industry <br></h4>
-        </div>
-    </div>
-
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
@@ -148,7 +133,7 @@
             </li>
 
             <li class="link">
-                <a href="../Contact/Contact.html">
+                <a href="Contact/Contact.html">
                     Contact
                 </a>
 
@@ -163,7 +148,7 @@
         </ul>
 
         <div class="poweredByOversight">
-            <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Powered by <a href="About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
         </div>
     </footer>
 

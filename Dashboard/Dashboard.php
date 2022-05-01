@@ -10,7 +10,7 @@
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='Dashboard.css'>
-    <script src='Home.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">//on importe JQUERY pour rendre le chat instantanné</script>
 </head>
 <body>
     <!--En-tête de page.-->
@@ -58,6 +58,16 @@
 
                 if(isset($_SESSION["email"])){
                     echo "<li class='button'><a href='Dashboard.php'>Dashboard</a></li>";
+
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+                    $recupUser->execute(array($_SESSION['email']));
+                    $isAdmin = $recupUser->fetch()['isAdmin'];
+
+                    if($isAdmin == 1){
+                        echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
+                    }
+
                     echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
                 }
                 else{
@@ -71,9 +81,12 @@
     </header>
 
     <!-- Contenu -->
+<div class="global_container">
     <div class="info_container">
         <div class="info_user">
             <?php
+                echo '<h1 class="profile_title">Profile</h1>';
+
                 $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
 
                 if(isset($_SESSION["email"])){
@@ -84,6 +97,7 @@
                     $recupUser->execute(array($_SESSION["id"]));
                     
                     echo "<h1>Pseudo : " . $recupUser->fetch()['pseudo'] . "</h1>";
+
 
                     $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
                     $recupUser->execute(array($_SESSION["id"]));
@@ -98,7 +112,22 @@
             ?>
         </div>
     </div>
-
+    
+    <div class="message_container">
+            <div id="messages" class="messages">
+                <!-- c'est ici qu'on affiche les messages en JS -->
+            </div>
+        <form method="POST" action="messagerie.scripts/loadMessages.php?task=write">
+            <div class="text_div">
+                    <input id='messageForm' type="text" name="description" autocomplete="off">
+                
+                    <div class="submit_div">
+                        <button id='btn-sub' type="submit" name="send">Send</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
 
     <!-- Pied de page -->
     <footer class="footer">
@@ -136,6 +165,7 @@
             <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.html" class="oversight">Oversight</a></p>
         </div>
     </footer>
-    
+    <script src='messagerie.scripts/messagerie.js'></script>
 </body>
+
 </html>
