@@ -103,109 +103,142 @@ nav.menuNav img.logoIM{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
-div.titleContainer{
-    background: #74b2dc;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    align-items: center;
-}
-
-div.solutionPresentation{
+.solutionPresentation{
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    justify-content: center;
-}
-
-div.envirronment{
-    width: 40%;
-    text-align: center;
-    display: flex;
+    margin: 5%;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-content: center;
+    height: 50%;
 }
 
-h4.envirronmentAnalysing{
-    width: 100%;
-}
-
-p.envirronmentText{
-    width: 100%;
-}
-
-div.envirronmentSensors{
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-div.pollutionSensor{
-    box-shadow: 0px 0px 15px #e0e0e0;
+/* Capteur pollution */
+.pollutionSensor{
+    position: relative;
+    height: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 15px black;
     border-radius: 10px;
-    width: 40%;
-    margin-right: 20px;
-    text-align: center;
-}
-
-div.soundSensor{
-    box-shadow: 0px 0px 15px #e0e0e0;
-    border-radius: 10px;
-    width: 40%;
-    margin-left: 20px;
-    text-align: center;
-}
-
-div.workers{
-    width: 40%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-h4.workersHealth{
-    width: 100%;
-}
-
-p.workersText{
-    width: 100%;
-}
-
-div.workersSensors{
     width: 30%;
-    display: flex;
+    margin: 2%;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
 }
 
-div.heartBeatSensor{
-    box-shadow: 0px 0px 15px #e0e0e0;
-    border-radius: 10px;
+.pollutionOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    overflow: hidden;
     width: 100%;
+    height: 0;
+    border-radius: 10px;
+    transition: .5s ease;
 }
 
-hr.secondLineSeparator{
-    width: 80%;
-    margin-top: 40px;
+.pollutionSensor:hover .pollutionOverlay {
+    height: 100%;
 }
 
-div.industryInfo h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #74b2dc;
+.pollutionOverlayText {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 60px;
 }
 
-div.industryNumbers{
-    background: #f2edfc;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Capteur son */
+.soundSensor{
+    position: relative;
+    height: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 15px black;
+    border-radius: 10px;
+    width: 30%;
+    margin: 2%;
+    margin-top: 100px;
     text-align: center;
-    align-items: center;
+    font-size: 20px;
 }
 
+.soundOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    border-radius: 10px;
+    transition: .5s ease;
+}
+
+.soundSensor:hover .soundOverlay {
+    height: 100%;
+}
+
+.soundOverlayText {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Capteur cardiaque */
+.heartBeatSensor{
+    position: relative;
+    height: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 15px black;
+    border-radius: 10px;
+    width: 30%;
+    margin: 2%;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.heartOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    border-radius: 10px;
+    transition: .5s ease;
+}
+
+.heartBeatSensor:hover .heartOverlay {
+    height: 100%;
+}
+
+.heartOverlayText {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Pied-de-page */
@@ -239,7 +272,7 @@ div.industryNumbers{
     transition: 0.4s all;
 }
 
-div.poweredByOversight{
+.poweredByOversight{
     display: flex;
     justify-content: flex-end;
     align-items: center;
