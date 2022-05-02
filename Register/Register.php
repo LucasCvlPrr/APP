@@ -79,112 +79,116 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-
-    <div class="RegisterPreview">
         
-        <div class="RegisterFormContainer">
-            <h4 class="RegisterFormTitle">Register</h4>
+    <div class="RegisterFormContainer">
+        <div class="RegisterFormTitle">
+            <h4>Register</h4>
+        </div>
+        
 
-            <form action="php.scripts/register.include.php" method="post" class="RegisterinForm">
-                <div class="pseudoInput">
-                    <div class="pseudoLabel">
-                        <label for="pseudo">Pseudo</label>
-                    </div>
-                    
-                    <div class="pseudo">
-                        <input type="text" name="pseudo" id="pseudo" required size="50px">
-                    </div>
-                </div>
-
-                <div class="lastNameInput">
-                    <div class="lastNameLabel">
-                        <label for="last_name">Last Name</label>
-                    </div>
-
-                    <div class="last_name">
-                        <input type="text" name="last_name" id="last_name" required size="50px">
-                    </div>
+        <form action="php.scripts/register.include.php" method="post">
+            <div class="pseudoInput">
+                <div class="pseudoLabel">
+                    <label for="pseudo">Pseudo</label>
                 </div>
                 
-                <div class="firstNameInput">
-                    <div class="firstNameLabel">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    
-                    <div class="first_name">
-                        <input type="text" name="first_name" id="first_name" required size="50px">
-                    </div>
+                <div class="pseudo">
+                    <input type="text" name="pseudo" id="pseudo" required size="50px" placeholder="Your pseudo...">
+                </div>
+            </div>
+
+            <div class="lastNameInput">
+                <div class="lastNameLabel">
+                    <label for="last_name">Last Name</label>
                 </div>
 
-                <div class="emailInput">
-                    <div class="emailLabel">
-                        <label for="email">Email</label>
-                    </div>
-                    
-                    <div class="email">
-                        <input type="text" name="email" id="email" required size="50px">
-                    </div>
+                <div class="last_name">
+                    <input type="text" name="last_name" id="last_name" required size="50px" placeholder="Your last name...">
                 </div>
-
-                <div class="passwordInput">
-                    <div class="passwordLabel">
-                        <label for="password">Password</label>
-                    </div>
-                    
-                    <div class="password">
-                        <input type="password" name="password" id="password" required size="50px">
-                    </div>
+            </div>
+            
+            <div class="firstNameInput">
+                <div class="firstNameLabel">
+                    <label for="first_name">First Name</label>
                 </div>
-
-                <div class="repeatpasswordInput">
-                    <div class="repeatpasswordLabel">
-                        <label for="repeatpassword">Repeat Password</label>
-                    </div>
-                    
-                    <div class="repeatpassword">
-                        <input type="password" name="repeatpassword" id="repeatpassword" required size="50px">
-                    </div>
+                
+                <div class="first_name">
+                    <input type="text" name="first_name" id="first_name" required size="50px" placeholder="Your first name...">
                 </div>
+            </div>
 
-                <div class="registerBtn">
-                    <button type="submit" name="formsend" id="formsend">Submit</button>
+            <div class="emailInput">
+                <div class="emailLabel">
+                    <label for="email">Email</label>
                 </div>
+                
+                <div class="email">
+                    <input type="text" name="email" id="email" required size="50px" placeholder="Your email...">
+                </div>
+            </div>
 
-            </form>
+            <div class="passwordInput">
+                <div class="passwordLabel">
+                    <label for="password">Password</label>
+                </div>
+                
+                <div class="password">
+                    <input type="password" name="password" id="password" required size="50px" oninput="passwdStrength()" placeholder="Your password...">
+                </div>
+                
+                <div id="strength-bar" style="width: 240px"></div>
+            </div>
 
-            <?php 
-                if(isset($_GET["error"])){
-                    if($_GET["error"] == "emptyinput"){
-                        echo "<h1>You missed a blank, fill the other !</h1>";
-                    }
-                    else if($_GET["error"] == "invalidpseudo"){
-                        echo "<h1>Invalid Pseudo, choose another one!</h1>";
-                    }
-                    else if($_GET["error"] == "invalidemail"){
-                        echo "<h1>Invalid Email, choose another one!</h1>";
-                    }
-                    else if($_GET["error"] == "invalidpasswd"){
-                        echo "<h1>Password must be at least 8 characters long, 
-                        contain 1 upper case, 1 lower case, 1 number and 1 special character (!*/)";
-                    }
-                    else if($_GET["error"] == "invalidpasswdmatch"){
-                        echo "<h1>Passwords don't match, try again!</h1>";
-                    }
-                    else if($_GET["error"] == "pseudooremailtaken"){
-                        echo "<h1>Pseudo or Email already used...</h1>";
-                    }
-                    else if($_GET["error"] == "stmtfailed"){
-                        echo "<h1>Something went wrong, try again!</h1>";
-                    }
-                    else if($_GET["error"] == "none"){
-                        echo "<h1>You have signed up!</h1>";
-                    }
-                }
+            <div class="repeatpasswordInput">
+                <div class="repeatpasswordLabel">
+                    <label for="repeatpassword">Repeat Password</label>
+                </div>
+                
+                <div class="repeatpassword">
+                    <input type="password" name="repeatpassword" id="repeatpassword" required size="50px" placeholder="Your password... Once again!">
+                </div>
+            </div>
 
-            ?>
-        </div>
+            
+            <div class="registerBtn">
+                <button type="submit" name="formsend" id="formsend">Submit</button>
+            </div>
+
+        </form>
     </div>
 
+    <div class="errorMsg">
+        <?php 
+            if(isset($_GET["error"])){
+                if($_GET["error"] == "emptyinput"){
+                    echo "<h1>You missed a blank, fill the other !</h1>";
+                }
+                else if($_GET["error"] == "invalidpseudo"){
+                    echo "<h1>Invalid Pseudo, choose another one!</h1>";
+                }
+                else if($_GET["error"] == "invalidemail"){
+                    echo "<h1>Invalid Email, choose another one!</h1>";
+                }
+                else if($_GET["error"] == "invalidpasswd"){
+                    echo "<h1>Password must be at least 8 characters long, 
+                    contain 1 upper case, 1 lower case, 1 number and 1 special character";
+                }
+                else if($_GET["error"] == "invalidpasswdmatch"){
+                    echo "<h1>Passwords don't match, try again!</h1>";
+                }
+                else if($_GET["error"] == "pseudooremailtaken"){
+                    echo "<h1>Pseudo or Email already used...</h1>";
+                }
+                else if($_GET["error"] == "stmtfailed"){
+                    echo "<h1>Something went wrong, try again!</h1>";
+                }
+                else if($_GET["error"] == "none"){
+                    echo "<h1>You have signed up!</h1>";
+                }
+            }
+
+        ?>
+    </div>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->

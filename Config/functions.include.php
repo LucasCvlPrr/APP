@@ -1,5 +1,8 @@
 <?php
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // pour le formulaire d'insription
+
     function emptyInputSignup($pseudo, $last_name, $first_name, $email, $password, $repeat_password){
         if(empty($pseudo) || empty($last_name) || empty($first_name) || empty($email) || empty($password) || empty($repeat_password)){
             $result = true;
@@ -29,11 +32,11 @@
 
     function invalidPasswd($password){
         $number = preg_match('@[0-9]@', $password);
-        $lowercase = preg_match('@[a-z]@', $password);
-        $uppercase = preg_match('@[A-Z]@', $password);
-        $specialchars = preg_match('@[^\w]@', $password);
+        $lower_case = preg_match('@[a-z]@', $password);
+        $upper_case = preg_match('@[A-Z]@', $password);
+        $special_chars = preg_match('@[^\w]@', $password);
 
-        if(strlen($password) < 8 || !$number || !$lowercase || !$uppercase || !$specialchars){
+        if(strlen($password) < 8 || strlen($password) > 30 || !$number || !$lower_case || !$upper_case || !$special_chars){
             $result = true;
         } else {
             $result = false;
@@ -58,7 +61,7 @@
             exit(); 
         }
 
-        mysqli_stmt_bind_param($stmt, "ss", $pseudo, $email); // "ss" because two string are transmited
+        mysqli_stmt_bind_param($stmt, "ss", $pseudo, $email); // "ss" car deux chaines sont transmisent
         mysqli_stmt_execute($stmt);
 
         $resultData = mysqli_stmt_get_result($stmt);
@@ -83,14 +86,16 @@
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT); //secu avec hashing des passwords
 
-        mysqli_stmt_bind_param($stmt, "sssss", $last_name, $first_name, $email, $pseudo, $hashedPassword); // "sssss" because two string are transmited
+        mysqli_stmt_bind_param($stmt, "sssss", $last_name, $first_name, $email, $pseudo, $hashedPassword); // "sssss" car deux chaînes sont transmises
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("location: ../Register.php?error=none");
         exit();
     }
 
-    //for the login form
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //pour le login
 
     function emptyInputLogin($email, $password){
         if(empty($email) || empty($password)){
@@ -127,5 +132,31 @@
         }
     }
 
-    
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //pour le formulaire de contact
+
+    function emptyInputContact($first_name, $last_name, $email, $msg){
+        if(empty($first_name) || empty($last_name) || empty($first_name) || empty($email) || empty($msg)){
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    function createContact($conn, $last_name, $first_name, $email, $msg){
+        $sql = "INSERT INTO contact (last_name, first_name, email, msg) VALUES ('$last_name', '$first_name', '$email', '$msg');"; //requete SQL
+        $stmt = mysqli_stmt_init($conn); //prepared statement
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("location: ../Contact.php?error=stmtfailed"); //retour à la page de Register avec l'erreur 'stmtfailed'
+            exit(); 
+        }
+
+
+        mysqli_stmt_bind_param($stmt, "ssss", $last_name, $first_name, $email, $msg); // "sssss" car deux chaînes sont transmises
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../Contact.php?error=none");
+        exit();
+    }

@@ -101,20 +101,18 @@ nav.menuNav ul li.button:hover a{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
-div.RegisterPreview{
-    padding-top: 140px;
-}
-
-div.RegisterFormContainer{
+.RegisterFormContainer{
     background: white;
-    box-shadow: 0px 0px 15px #e0e0e0;
-    border-radius: 10px;
-    margin-left: 450px;
-    margin-right: 20px;
+    box-shadow: 0px 0px 15px black;
+    border-radius: 20px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
 }
 
-h4.RegisterFormTitle{
+.RegisterFormTitle{
+    padding: 5px;
     text-align: center;
     font-size: large;
 }
@@ -126,109 +124,75 @@ form{
     align-items: center;
 }
 
-div.lastNameInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    order: 2;
-}
-
-div.lastNameInput div.lastNameLabel{
-    font-weight: bold;
-}
-
-div.lastNameInput div.last_name{
-    margin-top: 10px;
-}
-
-div.firstNameInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    order: 3;
-}
-
-div.firstNameInput div.firstNameLabel{
-    font-weight: bold;
-}
-
-div.firstNameInput div.first_name{
-    margin-top: 10px;
-}
-
-div.emailInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    order: 4;
-}
-
-div.emailInput div.emailLabel{
-    font-weight: bold;
-}
-
-div.emailInput div.email{
-    margin-top: 10px;
-}
-
-div.pseudoInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+.pseudoInput{
+    margin: 30px;
     order: 1;
 }
 
-div.pseudoInput div.pseudoLabel{
-    font-weight: bold;
-}
-
-div.pseudoInput div.pseudo{
+.pseudo{
     margin-top: 10px;
 }
 
-div.passwordInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+.lastNameInput{
+    margin: 30px;
+    order: 2;
+}
+
+.last_name{
+    margin-top: 10px;
+}
+
+.firstNameInput{
+    margin: 30px;
+    order: 3;
+}
+
+.first_name{
+    margin-top: 10px;
+}
+
+.emailInput{
+    margin: 30px;
+    order: 4;
+}
+
+.email{
+    margin-top: 10px;
+}
+
+.passwordInput{
+    margin: 30px;
+    margin-top: 47px;
     order: 5;
 }
 
-div.passwordInput div.passwordLabel{
-    font-weight: bold;
-}
-
-div.passwordInput div.password{
+.password{
     margin-top: 10px;
 }
 
-div.repeatpasswordInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+#strength-bar{
+    background: rgb(214, 214, 214); 
+    height: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.repeatpasswordInput{
+    margin: 30px;
     order: 6;
 }
 
-div.repeatpasswordInput div.repeatpasswordLabel{
-    font-weight: bold;
-}
-
-div.repeatpasswordInput div.repeatpassword{
+.repeatpassword{
     margin-top: 10px;
 }
 
-div.registerBtn{
+.registerBtn{
     order: 7;
     margin-left: 400px;
     height: 100px;
 }
 
-div.registerBtn button{
+.registerBtn button{
     font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 16px;
     height: 50px;
@@ -243,9 +207,15 @@ div.registerBtn button{
     border-radius: 10px;
 }
 
-div.registerBtn button:hover{
+.registerBtn button:hover{
     background-color: #c4def0;
     cursor: pointer;
+}
+
+.errorMsg {
+    color: white;
+    text-align: center;
+    padding: 40px;
 }
 
 /*************************************************************************************************************************************************************************************************************************************************************************/

@@ -65,17 +65,7 @@
                 <?php
                 
                     if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
-
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
-
-                        if($isAdmin == 1){
-                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
-                        }
-
+                        echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
                         echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
                     }
                     else{
@@ -89,7 +79,76 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <div></div>
+    <div class="ContactFormContainer">
+        <div class="ContactFormTitle">
+            <h4>Contact us</h4>
+        </div>
+        
+
+
+        <form action="php.scripts/contact.include.php" method="post">
+            <div class="firstNameInput">
+                <div class="firstNameLabel">
+                    <label for="first_name">First Name</label>
+                </div>
+
+                <div class="first_name">
+                    <input type="text" id="first_name" name="first_name" required size="50px" placeholder="Your name...">
+                </div>
+            </div>
+            
+            <div class="lastNameInput">
+                <div class="lastNameLabel">
+                    <label for="last_name">Last Name</label>
+                </div>
+
+                <div class="last_name">
+                    <input type="text" id="last_name" name="last_name" required size="50px" placeholder="Your last name...">
+                </div>
+            </div>
+
+            <div class="emailInput">
+                <div class="emailLabel">
+                    <label for="email">Email</label>
+                </div>
+                
+                <div class="email">
+                    <input type="text" name="email" id="email" required size="50px" placeholder="Your email...">
+                </div>
+            </div>
+            <div class="messageInput">
+                <div class="messageLabel">
+                    <label for="message">Message</label>
+                </div>
+
+                <div class="message">
+                    <textarea id="message" name="message" style="height:200px; width:381px" placeholder="Write something.."></textarea>
+                </div>
+            </div>
+            
+            <div class="sendBtn">
+                <button type="submit" name="formsend" id="formsend">Send</button>
+            </div>
+
+        </form>
+
+    </div> 
+
+
+    <div class="thanks">
+        <?php 
+            if(isset($_GET["error"])){
+                if($_GET["error"] == "emptyinput"){
+                    echo "<h1>You missed a blank, fill the other !</h1>";
+                }
+                else if($_GET["error"] == "none"){
+                    echo "<h1>Thank you for your interest!</h1>";
+                }
+            }
+
+        ?>
+    </div>
+
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
