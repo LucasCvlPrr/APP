@@ -27,13 +27,13 @@
             <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
             <p class="slogan">
-                THE NEW INDUSTRY ♻️
+                ABOUT
             </p>
 
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
             <!-- Menu de navigation -->
 
-            <ul>
+            <ul class="nav-links">
                 <li class="button">
                     <a href="../index.php">
                         Home
@@ -47,14 +47,14 @@
                     </a>
                     
                 </li>
-
+<!--
                 <li class="button">
                     <a href="../About/About.php">
                         About
                     </a>
                     
                 </li>
-
+-->
                 <li class="button">
                     <a href="../Contact/Contact.php">
                         Contact
@@ -84,6 +84,32 @@
                     }
                 ?>
             </ul>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <script>
+                //navbar burger script
+                const navSlide = () => {
+                    const burger = document.querySelector('.burger');
+                    const nav = document.querySelector('.nav-links');
+                    const navLinks = document.querySelectorAll('.nav-links li');
+
+                    //Toggle Nav
+                    burger.addEventListener('click', () => {
+                        nav.classList.toggle('nav-active');
+                    });
+
+                    //Animation
+                    navLinks.forEach((link, index) => {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 2}s`;
+                    });
+                    
+                }
+                navSlide();
+            </script>
         </nav>
     </header>
 

@@ -21,11 +21,11 @@
             <img src="../img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
         
             <p class="slogan">
-                DASHBOARD 🌎
+                DASHBOARD
             </p>
 
             <!-- Menu de navigation -->
-            <ul>
+            <ul class="nav-links">
                 <li class="button">
                     <a href="../index.php">
                         Home
@@ -57,7 +57,7 @@
                 <?php
 
                 if(isset($_SESSION["email"])){
-                    echo "<li class='button'><a href='Dashboard.php'>Dashboard</a></li>";
+                    //echo "<li class='button'><a href='Dashboard.php'>Dashboard</a></li>";
 
                     $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
                     $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
@@ -77,12 +77,38 @@
             ?>
 
             </ul>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <script>
+                //navbar burger script
+                const navSlide = () => {
+                    const burger = document.querySelector('.burger');
+                    const nav = document.querySelector('.nav-links');
+                    const navLinks = document.querySelectorAll('.nav-links li');
+
+                    //Toggle Nav
+                    burger.addEventListener('click', () => {
+                        nav.classList.toggle('nav-active');
+                    });
+
+                    //Animation
+                    navLinks.forEach((link, index) => {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 2}s`;
+                    });
+                    
+                }
+                navSlide();
+            </script>
         </nav>
     </header>
 
     <!-- Contenu -->
+<div class="dash">
 <div class="global_container">
-    <div class="info_container">
         <div class="info_user">
             <?php
                 echo '<h1 class="profile_title">Profile</h1>';
@@ -111,22 +137,39 @@
                 }
             ?>
         </div>
+        <div class="message_container">
+                <div id="messages" class="messages">
+                    <!-- c'est ici qu'on affiche les messages en JS -->
+                </div>
+            <form method="POST" action="messagerie.scripts/loadMessages.php?task=write">
+                <div class="text_div">
+                        <input id='messageForm' type="text" name="description" autocomplete="off">
+                    
+                        <div class="submit_div">
+                            <button id='btn-sub' type="submit" name="send">Send</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+</div>
+
+
+<div class="graph_global_container">
+    <div class="graph_section_title">
+        <h1 class="title">Personnal Measures</h1>
     </div>
-    
-    <div class="message_container">
-            <div id="messages" class="messages">
-                <!-- c'est ici qu'on affiche les messages en JS -->
-            </div>
-        <form method="POST" action="messagerie.scripts/loadMessages.php?task=write">
-            <div class="text_div">
-                    <input id='messageForm' type="text" name="description" autocomplete="off">
-                
-                    <div class="submit_div">
-                        <button id='btn-sub' type="submit" name="send">Send</button>
-                    </div>
-            </div>
-        </form>
+
+    <div class="graph_container">
+        <div class="graph_pollution_sensor">
+        </div>
+
+        <div class="graph_sound_sensor">
+        </div>
+
+        <div class="graph_heart_sensor">
+        </div>
     </div>
+</div>
 </div>
 
     <!-- Pied de page -->

@@ -6,7 +6,7 @@
         $first_name = nl2br(htmlspecialchars($_POST["first_name"]));
         $email = nl2br(htmlspecialchars($_POST["email"]));
         $msg = nl2br(htmlspecialchars($_POST["message"], ENT_QUOTES));
-        
+  
         require_once '../../Config/database.php'; //connection à la DB
         require_once '../../Config/functions.include.php'; //import de fontions
 

@@ -27,13 +27,13 @@
             <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
             <p class="slogan">
-                THE NEW INDUSTRY ♻️
+                CONTACT
             </p>
 
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
             <!-- Menu de navigation -->
 
-            <ul>
+            <ul class="nav-links">
                 <li class="button">
                     <a href="../index.php">
                         Home
@@ -54,19 +54,30 @@
                     </a>
                     
                 </li>
-
+<!--
                 <li class="button">
                     <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
                 </li>
+-->
 
                 <?php
                 
                     if(isset($_SESSION["email"])){
                         echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
-                        echo "<li class='button'><a href='php.scripts/logout.php'>Log out</a></li>";
+
+                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+                        $recupUser->execute(array($_SESSION['email']));
+                        $isAdmin = $recupUser->fetch()['isAdmin'];
+
+                        if($isAdmin == 1){
+                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
+                        }
+
+                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
@@ -74,6 +85,32 @@
                     }
                 ?>
             </ul>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <script>
+                //navbar burger script
+                const navSlide = () => {
+                    const burger = document.querySelector('.burger');
+                    const nav = document.querySelector('.nav-links');
+                    const navLinks = document.querySelectorAll('.nav-links li');
+
+                    //Toggle Nav
+                    burger.addEventListener('click', () => {
+                        nav.classList.toggle('nav-active');
+                    });
+
+                    //Animation
+                    navLinks.forEach((link, index) => {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 2}s`;
+                    });
+                    
+                }
+                navSlide();
+            </script>
         </nav>
     </header>
 

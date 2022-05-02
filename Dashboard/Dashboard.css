@@ -15,8 +15,9 @@ body {
 
 header.header{
     position: fixed;
-    overflow: hidden;
+    overflow:visible;
     top: 0;
+    z-index: 1;
     width: 100%;
     box-shadow: 1px 1px 15px black;
 }
@@ -94,36 +95,104 @@ nav.menuNav img.logoIM{
     width: 100px;
 }
 
-.global_container {
-    padding-top: 140px;
-    padding-bottom: 140px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+/* burger menu for responsive navbar */
+
+.burger{
+    display: none;
+    cursor: pointer;
+    align-self: center;
 }
 
-.info_container {
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: #74b2dc;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 965px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .nav-links{
+        background: white;
+        border-radius: 20px 0px 0px 20px;
+        box-shadow: 1px 1px 15px black;
+        position: absolute;
+        right: -15px;
+        top: 8vh;
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li{
+        left: 0;
+        opacity: 0;
+    }
+
+    .burger{
+        display: block;
+        align-self:center;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+
+/* Body */
+
+.dash{
+    margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
-    flex-direction: column;
-    width: 25%;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.global_container {
+    margin-top: 0px;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
 }
 
 .info_user {
-    border-radius: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin:1%;
+    margin-top: 50px;
+    border-radius: 20px;
     text-align: left;
-    width: 100%;
+    width: 45%;
+    height: 600px;
     background-color: white;
     box-shadow: 1px 1px 15px black;
 }
 
 .profile_title {
+    margin: 0;
     text-decoration: underline;
     background-color: #74b2dc;
     color: white;
     align-self: center;
-    border-radius: 20px;
+    border-radius: 20px 20px 0px 0px;
 }
 
 h1{
@@ -134,12 +203,15 @@ h1{
 }
 
 .message_container {
+    margin:1%;
+    margin-top: 50px;
     display: flex;
+    width: 45%;
     flex-direction: column;
-    width: 40%;
-    height: 600px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+    height: 600px;
 }
 
 #messages {
@@ -153,6 +225,7 @@ h1{
     max-height: 100%;
     padding: 10px;
     position: relative;
+    border-radius: 20px;
 }
 
 .echo_messages {
@@ -220,6 +293,196 @@ button:hover {
     cursor: pointer;
     border: 1px solid #c4def0;
 }
+
+.graph_global_container{
+    width: 92%;
+    margin:0;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+}
+
+.graph_container{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+
+.graph_section_title {
+    margin: 0;
+    background-color: #74b2dc;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.title{
+    margin: 0;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.graph_pollution_sensor{
+    margin:1%;
+    margin-top: 50px;
+    border-radius: 20px;
+    text-align: left;
+    width: 33%;
+    height: 200px;
+    background-color: #74b2dc;
+    box-shadow: 1px 1px 15px rgb(181, 181, 181);
+    height: 300px;
+}
+
+.graph_sound_sensor{
+    margin:1%;
+    margin-top: 50px;
+    border-radius: 20px;
+    text-align: left;
+    width: 33%;
+    height: 200px;
+    background-color: #74b2dc;
+    box-shadow: 1px 1px 15px rgb(181, 181, 181);
+    height: 300px;
+}
+
+.graph_heart_sensor{
+    margin:1%;
+    margin-top: 50px;
+    border-radius: 20px;
+    text-align: left;
+    width: 33%;
+    height: 200px;
+    background-color: #74b2dc;
+    box-shadow: 1px 1px 15px rgb(181, 181, 181);
+    height: 300px;
+}
+
+@media only screen and (max-width: 965px) {
+    .global_container {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+    }
+    
+    .info_user {
+        margin:1%;
+        margin-top: 50px;
+        align-self: center;
+        border-radius: 20px;
+        text-align: left;
+        width: 90%;
+        height: 600px;
+        background-color: white;
+        box-shadow: 1px 1px 15px black;
+    }
+    
+    .profile_title {
+        margin: 0;
+        text-decoration: underline;
+        background-color: #74b2dc;
+        color: white;
+        border-radius: 20px 20px 0px 0px;
+    }
+    
+    h1{
+        font-family: 'Saira Extra Condensed', sans-serif;
+        color: #74b2dc;
+        align-self: center;
+    }
+    
+    .message_container {
+        margin:1%;
+        align-self: center;
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 1px 1px 15px black;
+        height: 600px;
+    }
+
+    .graph_global_container{
+        width: 92%;
+        margin:0;
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-top: 15px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 1px 1px 15px black;
+    }
+    
+    .graph_container{
+        display: flex;
+        flex-direction:column;
+        justify-content: space-around;
+    }
+    
+    .graph_section_title {
+        margin: 0;
+        background-color: #74b2dc;
+        border-radius: 20px 20px 0px 0px;
+    }
+    
+    .title{
+        margin: 0;
+        color: white;
+        text-decoration: underline;
+        text-align: center;
+    }
+    
+    .graph_pollution_sensor{
+        align-self: center;
+        margin:1%;
+        margin-top: 50px;
+        border-radius: 20px;
+        text-align: left;
+        width: 95%;
+        height: 200px;
+        background-color: #74b2dc;
+        box-shadow: 1px 1px 15px rgb(181, 181, 181);
+        height: 300px;
+    }
+    
+    .graph_sound_sensor{
+        align-self: center;
+        margin:1%;
+        margin-top: 50px;
+        border-radius: 20px;
+        text-align: left;
+        width: 95%;
+        height: 200px;
+        background-color: #74b2dc;
+        box-shadow: 1px 1px 15px rgb(181, 181, 181);
+        height: 300px;
+    }
+    
+    .graph_heart_sensor{
+        align-self: center;
+        margin:1%;
+        margin-top: 50px;
+        border-radius: 20px;
+        text-align: left;
+        width: 95%;
+        height: 200px;
+        background-color: #74b2dc;
+        box-shadow: 1px 1px 15px rgb(181, 181, 181);
+        height: 300px;
+    }
+}
+
 /* Footer */
 
 footer.footer{

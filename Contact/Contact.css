@@ -40,7 +40,7 @@ body {
 
 header.header{
     position: fixed;
-    overflow: hidden;
+    overflow: visible;
     top: 0;
     width: 100%;
     box-shadow: 1px 1px 15px black;
@@ -100,17 +100,79 @@ nav.menuNav ul li.button:hover a{
     border-radius: 20px;
 }
 
+/* burger menu for responsive navbar */
+
+.burger{
+    display: none;
+    cursor: pointer;
+    align-self: center;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: #74b2dc;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 1043px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .nav-links{
+        background: white;
+        border-radius: 20px 0px 0px 20px;
+        box-shadow: 1px 1px 15px black;
+        position: absolute;
+        right: -15px;
+        top: 8vh;
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li{
+        left: 0;
+        opacity: 0;
+    }
+
+    .burger{
+        display: block;
+        align-self:center;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
 .ContactFormContainer {
+    margin-top: 150px;
+    margin-bottom: 100px;
     background-color: white;
     box-shadow: 0px 0px 15px black;
     border-radius: 20px;
-    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 70%;
 }
 
 .ContactFormTitle {
@@ -122,6 +184,7 @@ nav.menuNav ul li.button:hover a{
 form {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -159,9 +222,7 @@ form {
 }
 
 .registerBtn{
-    order: 7;
-    margin-left: 400px;
-    height: 100px;
+    padding: 10px;
 }
 
 .registerBtn button{
@@ -185,9 +246,8 @@ form {
 }
 
 .sendBtn{
-    order: 7;
-    margin-left: 400px;
-    height: 100px;
+    align-self: center;
+    padding: 10px;
 }
 
 .sendBtn button{
