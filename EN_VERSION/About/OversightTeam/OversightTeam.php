@@ -137,19 +137,19 @@
                 <div class="person">
                     <img src="../../img/Thibault.png" class="imgThibault"></img>
                     <h4 class="ThibaultName">Thibault Gilbin</h4>
-                    <h4 class="ThibaultFunction">Director, Software Engineer, Back-End</h4>
+                    <h4 class="ThibaultFunction">Manager, Software Engineer, Back-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Lucas.png" class="imgLucas"></img>
                     <h4 class="LucasName">Lucas Chevalier</h4>
-                    <h4 class="LucasFunction">Director, Software Engineer, Front-End</h4>
+                    <h4 class="LucasFunction">Manager, Software Engineer, Front-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Clemence.png" class="imgClemence"></img>
                     <h4 class="ClemenceName">Clémence Canguilhem</h4>
-                    <h4 class="ClemenceFunction">D</h4>
+                    <h4 class="ClemenceFunction">Electronics Engineer</h4>
                 </div>
             </div>
             
@@ -157,19 +157,19 @@
                 <div class="person">
                     <img src="../../img/Noelle.png" class="imgNoelle"></img>
                     <h4 class="NoelleName">Noelle Garreta</h4>
-                    <h4 class="NoelleFunction">D</h4>
+                    <h4 class="NoelleFunction">Electronics Engineer</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Amin.png" class="imgAmin"></img>
                     <h4 class="AminName">Amin El Kadari</h4>
-                    <h4 class="AminFunction">Enculé de seconde classe</h4>
+                    <h4 class="AminFunction">Telecommunications engineer</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Anthony.png" class="imgAnthony"></img>
                     <h4 class="AnthonyName">Anthony Villemain</h4>
-                    <h4 class="AnthonyFunction">Enkoulé d'agneau vétérang JODER</h4>
+                    <h4 class="AnthonyFunction">Signal processing engineer</h4>
                 </div>
             </div>
 
