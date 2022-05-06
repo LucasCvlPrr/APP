@@ -29,18 +29,11 @@
             <select name="language" id="pet-select">
                 <option value="EN" selected>EN</option>
                 <option value="FR">FR</option>
-                <option value="PT">PT</option>
             </select>
 
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
             <!-- Menu de navigation -->
             <ul class="nav-links">
-                <li class="button">
-                    <a href="../index.php">
-                        Home
-                    </a>
-                    
-                </li>
 
                 <li class="button">
                     <a href="../Solution/Solution.php">
@@ -117,6 +110,40 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
+
+    <!-- Fenetre de modif de profil -->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 style='text-decoration:underline'>Edit your informations</h1>
+        <form class="containerInputsMod" action="editProfile.scripts/editProfile.php" method="POST">
+            <div class='DivMod'>
+                <label>Email:</label>
+                <input class='email' id='inputMod' type="text" name="email" autocomplete="off" placeholder="New email ...">
+            </div>
+
+            <div class='DivMod'>
+                <label>Pseudo:</label>
+                <input class='pseudo' id='inputMod' type="text" name="pseudo" autocomplete="off" placeholder="New pseudo ...">
+            </div>
+
+            <div class='DivMod'>
+                <label>Last Name:</label>
+                <input class='last_name' id='inputMod' type="text" name="last_name" autocomplete="off" placeholder="New last name ...">
+            </div>
+
+            <div class='DivMod'>
+                <label>First Name:</label>
+                <input class='first_name' id='inputMod' type="text" name="first_name" autocomplete="off" placeholder="New first name ...">
+            </div>
+                <input type="submit" name="save" class='edit_profile_btn'>
+        </form>
+    </div>
+
+    </div>
+
     <div class="dash">
     <div class="global_container">
             <div class="info_user">
@@ -126,43 +153,49 @@
                     $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
 
                     if(isset($_SESSION["email"])){
-                        echo "<h1>Email : " . $_SESSION["email"] . "</h1>";
-                        echo "<h1>ID : " . $_SESSION["id"] . "</h1>";
+                        echo "<h1 class='emailInput'>Email : " . $_SESSION["email"] . "</h1>";
                         
                         $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
                         $recupUser->execute(array($_SESSION["id"]));
+                        $_SESSION["pseudo"] = $recupUser->fetch()['pseudo'];
                         
-                        echo "<h1>Pseudo : " . $recupUser->fetch()['pseudo'] . "</h1>";
+                        echo "<h1>Pseudo : " . $_SESSION["pseudo"] . "</h1>";
 
 
                         $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
                         $recupUser->execute(array($_SESSION["id"]));
+                        $_SESSION["last_name"] = $recupUser->fetch()['last_name'];
 
-                        echo "<h1>Last Name : " . $recupUser->fetch()['last_name'] . "</h1>";
+                        echo "<h1>Last Name : " . $_SESSION["last_name"] . "</h1>";
 
                         $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
                         $recupUser->execute(array($_SESSION["id"]));
+                        $_SESSION["first_name"] = $recupUser->fetch()['first_name'];
                         
-                        echo "<h1>First Name : " . $recupUser->fetch()['first_name'] . "</h1>";
+                        echo "<h1>First Name : " . $_SESSION["first_name"] . "</h1>";
                     }
                 ?>
+                <div class='btn-edit'>
+                    <!-- Trigger/Open The Modal -->
+                    <button class='edit_profile_btn' id="editBtn">Edit profile</button>
+                </div>
             </div>
             <div class="message_container">
+                <h1 class="live_chat_title">Live Chat</h1>
                     <div id="messages" class="messages">
                         <!-- c'est ici qu'on affiche les messages en JS -->
                     </div>
-                <form method="POST" action="messagerie.scripts/loadMessages.php?task=write">
-                    <div class="text_div">
-                            <input id='messageForm' type="text" name="description" autocomplete="off">
+                    <form method="POST" action="messagerie.scripts/loadMessages.php?task=write" class='formChat'>
+                    
+                        <input id='messageForm' type="text" name="description" autocomplete="off">
                         
-                            <div class="submit_div">
-                                <button id='btn-sub' type="submit" name="send">Send</button>
-                            </div>
-                    </div>
-                </form>
+                        <div class="submit_div">
+                            <button id='btn-sub' type="submit" name="send">Send</button>
+                        </div>
+                    
+                    </form>
             </div>
     </div>
-
 
     <div class="graph_global_container">
         <div class="graph_section_title">
@@ -181,6 +214,34 @@
         </div>
     </div>
     </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("editBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+    </script>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->

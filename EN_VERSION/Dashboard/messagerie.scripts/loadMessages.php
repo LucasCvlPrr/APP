@@ -48,6 +48,11 @@
         //variable de session
         $id_user = $_SESSION['id'];
 
+        //Recup le pseudo
+        $recupPseudo = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+        $recupPseudo->execute(array($_SESSION["id"]));
+        $pseudo = $recupPseudo->fetch()['pseudo'];
+
         //verif du POST
         if(!array_key_exists('description', $_POST)){
             echo json_encode(["status" => "error"]);
@@ -57,8 +62,8 @@
         //analyser les paramètres passés en POST
         $message = nl2br(htmlspecialchars($_POST['description'])); //nl2br pour le retour à la ligne et htmlspecialchars contre les failles xml
         //Créer une requetes pour insérer les données dans la DB
-        $insertText = $bdd->prepare('INSERT INTO messages(message, id_user, date) VALUES(?, ?, NOW())');
-        $insertText->execute(array($message, $id_user));
+        $insertText = $bdd->prepare('INSERT INTO messages(message, date, pseudo) VALUES(?,NOW(),?)');
+        $insertText->execute(array($message, $pseudo));
 
         //donner un statut de succès ou d'erreur au format JSON
         echo json_encode(["status" => "success"]);

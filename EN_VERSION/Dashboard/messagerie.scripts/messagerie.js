@@ -18,7 +18,7 @@ function getMessages(){
             return `
                 <div class="message">
                     <span class="date">${message.date.substring(11, 16)}</span>
-                    <span class="user">${message.id_user}</span>
+                    <span class="user">${message.pseudo}: </span>
                     <span class="description">${message.message}</span>
                 </div>
             `
@@ -67,7 +67,7 @@ function postMessage(event){
 }
 
 //Event Listener pour executer notre requete post quand le bouton envoi est cliqué
-document.querySelector('form').addEventListener('submit', postMessage);
+document.querySelector('.formChat').addEventListener('submit', postMessage);
 
 /**
  * Il nous faut une intervale qui demande le rafraichissement

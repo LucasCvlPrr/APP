@@ -132,19 +132,19 @@
                 <div class="person">
                     <img src="../../img/Thibault.png" class="imgThibault"></img>
                     <h4 class="ThibaultName">Thibault Gilbin</h4>
-                    <h4 class="ThibaultFunction">Director, Software & Web, Back-End</h4>
+                    <h4 class="ThibaultFunction">Director, Software Engineer, Back-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Lucas.png" class="imgLucas"></img>
                     <h4 class="LucasName">Lucas Chevalier</h4>
-                    <h4 class="LucasFunction">Director, Software & Web, Front-End</h4>
+                    <h4 class="LucasFunction">Director, Software Engineer, Front-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Clemence.png" class="imgClemence"></img>
                     <h4 class="ClemenceName">Clémence Canguilhem</h4>
-                    <h4 class="ClemenceFunction">d</h4>
+                    <h4 class="ClemenceFunction">D</h4>
                 </div>
             </div>
             
@@ -152,19 +152,19 @@
                 <div class="person">
                     <img src="../../img/Noelle.png" class="imgNoelle"></img>
                     <h4 class="NoelleName">Noelle Garreta</h4>
-                    <h4 class="NoelleFunction">d</h4>
+                    <h4 class="NoelleFunction">D</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Amin.png" class="imgAmin"></img>
                     <h4 class="AminName">Amin El Kadari</h4>
-                    <h4 class="AminFunction">d</h4>
+                    <h4 class="AminFunction">Enculé de seconde classe</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Anthony.png" class="imgAnthony"></img>
                     <h4 class="AnthonyName">Anthony Villemain</h4>
-                    <h4 class="AnthonyFunction">d</h4>
+                    <h4 class="AnthonyFunction">Agneau de merde encoulé va</h4>
                 </div>
             </div>
 

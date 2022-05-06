@@ -95,6 +95,11 @@ nav.menuNav img.logoIM{
     width: 100px;
 }
 
+#pet-select{
+    border: none;
+    margin-left: 10px;
+}
+
 /* burger menu for responsive navbar */
 
 .burger{
@@ -195,6 +200,22 @@ nav.menuNav img.logoIM{
     border-radius: 20px 20px 0px 0px;
 }
 
+.edit_profile_btn {
+    margin-left: 10px;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 60%;
+    width: 100px;
+    background-color: #569ac7;
+    color: white;
+    border-style: outset;
+    border-color: #569ac7;
+    border: 1px solid #569ac7;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 15px;
+}
+
 h1{
     font-family: 'Saira Extra Condensed', sans-serif;
     color: #74b2dc;
@@ -202,10 +223,28 @@ h1{
     padding: 10px;
 }
 
+.formChat{
+    margin: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.live_chat_title{
+    margin: 0;
+    text-decoration: underline;
+    background-color: #74b2dc;
+    color: white;
+    align-self: center;
+    border-radius: 20px 20px 0px 0px;
+}
+
 .message_container {
     margin:1%;
     margin-top: 50px;
-    display: flex;
+    display: inline-block;
     width: 45%;
     flex-direction: column;
     background-color: white;
@@ -220,12 +259,33 @@ h1{
     flex-direction: column;
     margin: 10px;
     width: auto;
-    height: auto;
+    height: 75%;
     max-width: 100%;
     max-height: 100%;
     padding: 10px;
     position: relative;
     border-radius: 20px;
+    box-shadow: 1px 1px 15px rgb(181, 181, 181);
+
+}
+
+.date {
+    color: #74b2dc;
+}
+
+.user {
+    color: rgb(87, 6, 6);
+}
+
+.description {
+    color: rgb(27, 20, 20);
+}
+
+
+
+#btn-sub{
+    height:auto;
+    margin-left: 10px;
 }
 
 .echo_messages {
@@ -252,21 +312,13 @@ h1{
 	background-color: #74b2dc;
 }
 
-.text_div {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: row;
-    padding: 15px;
-}
-
 .textarea_div {
     width: 100%;
 }
 
 input[type=text]{
     width: 60%;
-    height: 40%;
+    height:auto;
     border-radius: 10px;
     border-color:gray;
     border-width: 2px;
@@ -391,6 +443,14 @@ button:hover {
         color: white;
         border-radius: 20px 20px 0px 0px;
     }
+
+    .live_chat_title{
+        margin: 0;
+        text-decoration: underline;
+        background-color: #74b2dc;
+        color: white;
+        border-radius: 20px 20px 0px 0px;
+    }
     
     h1{
         font-family: 'Saira Extra Condensed', sans-serif;
@@ -482,6 +542,71 @@ button:hover {
         height: 300px;
     }
 }
+
+/* Modal CSS */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 120px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: none;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+  }
+
+  form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  }
+
+  .DivMod{
+    margin: 10px;
+    width: 60%;
+  }
+
+  .edit_profile_btn{
+      margin-top: 20px;
+      align-self:center;
+  }
+
+  #inputMod{
+      width: 100%;
+      height: 20px;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #74b2dc;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 
 /* Footer */
 
