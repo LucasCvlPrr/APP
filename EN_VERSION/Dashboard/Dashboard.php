@@ -148,6 +148,24 @@
 
     </div>
 
+    <div class="graph_global_container">
+        <div class="graph_section_title">
+            <h1 class="title">Personnal Measures</h1>
+        </div>
+
+        <div class="graph_container">
+            <div class="graph_pollution_sensor">
+            </div>
+
+            <div class="graph_sound_sensor">
+            </div>
+
+            <div class="graph_heart_sensor">
+            </div>
+        </div>
+    </div>
+    </div>
+
     <div class="dash">
     <div class="global_container">
             <div class="info_user">
@@ -203,24 +221,6 @@
                     
                     </form>
             </div>
-    </div>
-
-    <div class="graph_global_container">
-        <div class="graph_section_title">
-            <h1 class="title">Personnal Measures</h1>
-        </div>
-
-        <div class="graph_container">
-            <div class="graph_pollution_sensor">
-            </div>
-
-            <div class="graph_sound_sensor">
-            </div>
-
-            <div class="graph_heart_sensor">
-            </div>
-        </div>
-    </div>
     </div>
 
     <script>

@@ -12,7 +12,7 @@
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='Home/Home.css'>
-    <link rel="icon" type="image/png" href="../img/factorypng.png">
+    <link rel="icon" type="image/png" href="img/factorypng.png">
     <script src='Home/Home.js'></script>
 </head>
 <body>

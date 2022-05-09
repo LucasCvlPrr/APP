@@ -166,7 +166,6 @@ nav.menuNav img.logoIM{
 /* Body */
 
 .dash{
-    margin-top: 100px;
     margin-bottom: 100px;
     display: flex;
     flex-direction:column;
@@ -351,7 +350,7 @@ button:hover {
     margin:0;
     margin-left: 4%;
     margin-right: 4%;
-    margin-top: 15px;
+    margin-top: 150px;
     display: flex;
     flex-direction:column;
     justify-content: center;
@@ -417,8 +416,7 @@ button:hover {
 
 @media only screen and (max-width: 965px) {
     .global_container {
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
         display: flex;
         flex-direction:column;
         justify-content: center;
@@ -475,7 +473,7 @@ button:hover {
         margin:0;
         margin-left: 4%;
         margin-right: 4%;
-        margin-top: 15px;
+        margin-top: 150px;
         display: flex;
         flex-direction:column;
         justify-content: center;

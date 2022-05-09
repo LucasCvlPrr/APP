@@ -14,17 +14,19 @@ session_start();
 </head>
 <body>
 
-<header class="header">
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- En-tête de page -->
+    <header class="header">
 
         <nav class="menuNav">
 
-            <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
-
+            <img src="../img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
+        
             <p class="slogan">
-                ADMIN
+                ADMIN PANEL
             </p>
 
-            <form action="../Config/languages.includes.php" method="post">
+            <form action="../Config/languages.includes.php" method="post" id="pet-select">
                 <select name='language' id="language" onchange='this.form.submit()'>
                     <option value="EN">EN</option>
                     <option value="FR">FR</option>
@@ -36,12 +38,6 @@ session_start();
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
             <!-- Menu de navigation -->
             <ul class="nav-links">
-                <li class="button">
-                    <a href="../index.php">
-                        Home
-                    </a>
-                    
-                </li>
 
                 <li class="button">
                     <a href="../Solution/Solution.php">
@@ -65,27 +61,29 @@ session_start();
                 </li>
 
                 <?php
-                
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
 
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
+                if(isset($_SESSION["id"])){
+                    echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
 
-                        if($isAdmin == 1){
-                            //echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
-                        }
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+                    $recupUser->execute(array($_SESSION['id']));
+                    $isAdmin = $recupUser->fetch()['isAdmin'];
 
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
+                    if($isAdmin == 1){
+                        //echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
                     }
-                    else{
-                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
-                    }
-                ?>
+
+                    echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
+                }
+                else{
+                    //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                    echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                }
+            ?>
+
             </ul>
+
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -111,30 +109,12 @@ session_start();
                 }
                 navSlide();
             </script>
-
         </nav>
     </header>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <div class="global">
-        <div class="admin_info">
-            <h3>Welcome to the Admin Panel!</h3><br>
-            <?php
-                if(isset($_SESSION["email"])){
-                    $email = $_SESSION['email'];
-                    
-                    echo "<p>Your email : ".$email."</p><br>";
-                    
-                    //récupération 'isAdmin'
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                    $recupUser->execute(array($_SESSION['email']));
-                    $isAdmin = $recupUser->fetch()['isAdmin'];
-                    echo "<p>isAdmin : ".$isAdmin."</p>";
-                }
-            ?>
-        </div>
+    <div class="global_container">
         <div class="users_list">
                 <h3>The list of the users:</h3><br>
                 <?php

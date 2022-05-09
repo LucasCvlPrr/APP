@@ -5,7 +5,6 @@
 body {
     margin:0;
     font-weight: bold;
-    height: 100%;
     font-family: 'Saira Extra Condensed', sans-serif;
     letter-spacing: 2px;
     -webkit-font-smoothing: antialiased;
@@ -14,6 +13,15 @@ body {
 	background-size: 400% 400%;
 	animation: animate-background 15s ease-in-out infinite;
     transition: 1s all;
+}
+
+header.header{
+    position: fixed;
+    overflow:visible;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    box-shadow: 1px 1px 15px black;
 }
 
 .main {
@@ -35,25 +43,9 @@ body {
     }
 }
 
-/*************************************************************************************************************************************************************************************************************************************************************************/
-/* En-tête */
-
-header.header{
-    position: fixed;
-    overflow: visible;
-    top: 0;
-    width: 100%;
-    box-shadow: 1px 1px 15px black;
-}
-
-nav.menuNav img.logoIM{
-    align-self: center;
-    height: 100px;
-    width: 100px;
-}
-
 p.slogan{
     padding-left: 10px;
+    font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 25px;
     font-weight: bolder;
     letter-spacing: 4px;
@@ -82,6 +74,7 @@ nav.menuNav ul li.button{
 }
 
 nav.menuNav ul li.button a{
+    font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 20px;
     color: black;
     text-decoration: none;
@@ -96,6 +89,21 @@ nav.menuNav ul li.button:hover a{
     transition: 1s all;
     overflow: hidden;
     border-radius: 20px;
+}
+
+nav.menuNav img.logoIM{
+    align-self: center;
+    height: 100px;
+    width: 100px;
+}
+
+#pet-select{
+    margin-left: 10px;
+    align-self: center;
+}
+
+#language{
+    border: none;
 }
 
 /* burger menu for responsive navbar */
@@ -114,7 +122,7 @@ nav.menuNav ul li.button:hover a{
     border-radius: 10px;
 }
 
-@media only screen and (max-width: 1043px) {
+@media only screen and (max-width: 965px) {
     body{
         overflow-x: hidden;
     }
@@ -140,6 +148,7 @@ nav.menuNav ul li.button:hover a{
 
     .burger{
         display: block;
+        display: right;
         align-self:center;
     }
 }
@@ -162,52 +171,20 @@ nav.menuNav ul li.button:hover a{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
-
-.form_connection {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin-top: 10px;
-    margin-left: 35%;
-    margin-right: 35%;
-    padding-bottom: 10px;
-    border-radius: 20px;
-}
-
-form {
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-div {
-    padding-bottom: 5px;
-}
-
-.global {
-    padding-top: 140px;
+.global_container {
+    margin-top: 150px;
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
     margin-left: 20px;
 }
 
-.admin_info{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-}
-
 .users_list{
+    padding: 10px;
     align-items: center;
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 10px;
+    box-shadow: 1px 1px 15px black;
     border-radius: 20px;
     margin-left: 20px;
 }
@@ -215,9 +192,10 @@ div {
 .ban_link {
   background-color: red;
   color: white;
-  padding: 15px 25px;
+  padding: 5px;
   text-decoration: none;
 }
+
 
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Pied-de-page */
