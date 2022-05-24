@@ -120,31 +120,22 @@ session_start();
                     <h2 class="title">Research Users</h2><br>
                 </div>
 
-                <form method="POST" action="rechercheMultiCriteres.php" class='form'>
+                <form id="research" method="POST" action="rechercheMultiCriteres.php">
                     
                     <div class="element">
-                        <label for="pseudo">Pseudo</label>
-                        <input id='pseudoForm' type="text" name="pseudo" autocomplete="off">
+                        <input id='pseudoForm' type="text" name="pseudo" autocomplete="off" placeholder="Enter a pseudo">
                     </div>
 
                     <div class="element">
-                        <label for="last_name">Last Name</label>
-                        <input id='last_nameForm' type="text" name="last_name" autocomplete="off">
+                        <input id='last_nameForm' type="text" name="last_name" autocomplete="off" placeholder="Enter a last name">
                     </div>
 
                     <div class="element">
-                        <label for="first_name">First Name</label>
-                        <input id='first_nameForm' type="text" name="first_name" autocomplete="off">
+                        <input id='first_nameForm' type="text" name="first_name" autocomplete="off" placeholder="Enter a first name">
                     </div>
 
                     <div class="element">
-                        <label for="email">Email</label>
-                        <input id='emailForm' type="text" name="email" autocomplete="off">
-                    </div>
-                    
-                    <div class="element">
-                        <label for="id">Id</label>
-                        <input id='idForm' type="text" name="id" autocomplete="off">
+                        <input id='emailForm' type="text" name="email" autocomplete="off" placeholder="Enter an email">
                     </div>
                         
                     <div class="submit_div">
@@ -154,17 +145,33 @@ session_start();
                 </form>
                 
                 <div class="recup_users">
-                <?php
-                    //récupération de tous les utilisateurs
-                    $recupUsers = $bdd->query('SELECT * FROM users');
-                    while($user = $recupUsers->fetch()){
-                        if($user['id'] != $_SESSION['id']){
-                        ?>
-                            <p><?= $user['pseudo']; ?><a id='ban_link' href="ban.php?id=<?= $user['id']; ?>" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                    <table>
+                        <tr>
+                            <th>Pseudo</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Email</th>
+                            <th>Moderation</th>
+                        </tr>
                         <?php
+                        //récupération de tous les utilisateurs
+                        $recupUsers = $bdd->query('SELECT * FROM users');
+                        while($user = $recupUsers->fetch()){
+                            if($user['id'] != $_SESSION['id']){
+                                //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                echo "
+                                <tr>
+                                    <td>" . $user['pseudo']. "</td>
+                                    <td>" . $user['last_name']. "</td>
+                                    <td>" . $user['first_name']. "</td>
+                                    <td>" . $user['email']. "</td>
+                                    <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
+                                </tr>
+                                ";
+                            }
                         }
-                    }
-                ?>
+                        ?>
+                    </table>
                 </div>
         </div>
     </div>

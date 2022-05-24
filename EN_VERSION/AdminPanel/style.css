@@ -175,20 +175,68 @@ nav.menuNav img.logoIM{
     margin: 50px;
     margin-top: 150px;
     margin-bottom: 100px;
+    width: 80%;
     display: flex;
     flex-direction:column;
     align-items: baseline;
+    
 }
 
 .users_list{
-    width: 20%;
+    width: 100%;
     align-items: center;
     align-content: center;
     display: flex;
     flex-direction: column;
     background-color: white;
-    box-shadow: 1px 1px 15px black;
     border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+}
+
+#research {
+    width: 100%;
+}
+
+.element {
+    width: 100%;
+    text-align:center
+}
+
+input[type="text"] {
+    width: 80%;
+}
+
+.submit_div {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#btn-sub {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    background-color: #569ac7;
+    color: white;
+    border-style: outset;
+    border-color: #569ac7;
+    border: 1px solid #569ac7;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+}
+
+#btn-sub:hover {
+    background-color: #74b2dc8b;
+    cursor: pointer;
+    border: 1px solid #74b2dc8b;
+}
+
+.recup_users {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .div_title {
@@ -208,11 +256,35 @@ nav.menuNav img.logoIM{
     text-align: center;
 }
 
-.ban_link {
-  background-color: red;
-  color: white;
-  padding: 5px;
-  text-decoration: none;
+table{
+    border-collapse: collapse;
+}
+  
+th, td{
+    border: 4px solid #74b2dc;
+    padding: 10px;
+}
+
+#ban_link {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    background-color: red;
+    color: white;
+    border-style: outset;
+    border-color: red;
+    border: 1px solid red;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#ban_link:hover {
+    background-color: rgba(255, 0, 0, 0.58);
+    cursor: pointer;
+    border: 1px solid rgba(255, 0, 0, 0.58);
 }
 
 
