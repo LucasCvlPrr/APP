@@ -186,7 +186,11 @@
                 </div>
             </div>
 
-            
+            <div class="acceptLegalTerms">
+                <input type="checkbox" id="acceptLT" name="acceptLT">
+                <label for="acceptLT">I certify that I agree to the <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>.</label>
+            </div>
+
             <div class="registerBtn">
                 <button type="submit" name="formsend" id="formsend">Register</button>
             </div>
@@ -212,6 +216,9 @@
                 }
                 else if($_GET["error"] == "invalidpasswdmatch"){
                     echo "<h1>Passwords don't match, try again!</h1>";
+                }
+                else if($_GET["error"] == "ltnotchecked"){
+                    echo "<h1>Please read and accept the Terms of Use and Privacy Policy!</h1>";
                 }
                 else if($_GET["error"] == "pseudooremailtaken"){
                     echo "<h1>Pseudo or Email already used...</h1>";

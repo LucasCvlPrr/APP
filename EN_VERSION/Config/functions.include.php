@@ -53,6 +53,16 @@
         return $result;
     }
 
+    function ltNotChecked($acceptLT){
+        if(!empty($acceptLT)){
+            $result = false;
+        } else {
+            $result = true;
+        }
+
+        return $result;
+    }
+
     function pseudoOrEmailExists($conn, $pseudo, $email){
         $sql = "SELECT * FROM users WHERE pseudo = ? OR email = ?;"; //requete SQL
         $stmt = mysqli_stmt_init($conn); //prepared statement

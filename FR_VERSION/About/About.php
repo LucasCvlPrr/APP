@@ -130,20 +130,21 @@
 
     <h1>A propos de notre entreprise</h1>
 
-    <h3>Qu'est-ce-que <span style="color:#74b2dc">Infinite Measures</span>?</h3>
+    <h3>Qu'est-ce-qu'<span style="color:#74b2dc">Infinite Measures</span>?</h3>
 
     <p>Infinite Measures est une société à taille humaine.</p>
-    <p>Nous sommes spécialisé dans le développement de solutions technologiques.</p>
+    <p>Nous sommes spécialisés dans le développement de solutions technologiques.</p>
     
     <hr class="secondLineSeparator">
 
     <h3>Comment nous travaillons ?</h3>
 
-    <p>Nous sommes particulièrement attaché à notre connaissance des besoins de chacun de nos clients.</p>
+    <p>Nous sommes particulièrement attachés aux besoins de chacun de nos clients.</p>
     <p>Notre équipe est composée d'ingénieurs expérimentés dans le développement de solutions sur mesure,</p>
-    <p>et nous travaillons à l'unisson afin de proposer la meilleur solution pour chaque client.</p>
+    <p>et nous travaillons ensemble afin de proposer la meilleure solution pour tous.</p>
     <p>Nous collaborons avec les ingénieurs de <strong><span style="color:#74b2dc">Oversight</span></p>
-    <p>dans le développement de notre solution pour la sécurité de l'industrie.</p>
+    <p>pour le développement de notre solution sur la sécurité de l'industrie.</p>
+
 
     <hr class="secondLineSeparator">
 

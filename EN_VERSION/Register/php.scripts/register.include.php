@@ -8,6 +8,7 @@
         $pseudo = $_POST["pseudo"];
         $password = $_POST["password"];
         $repeat_password = $_POST["repeatpassword"];
+        $acceptLT = $_POST["acceptLT"];
         
         require_once '../../Config/database.php'; //connection à la DB
         require_once '../../Config/functions.include.php'; //import de fontions
@@ -35,6 +36,11 @@
         if(passwdMatch($password, $repeat_password) !== false){
             header("location: ../Register.php?error=invalidpasswdmatch"); //retour à la page de Register avec l'erreur 'invalidpasswdmatch'
             exit(); 
+        }
+
+        if(ltNotChecked($acceptLT) !== false){
+            header("location: ../Register.php?error=ltnotchecked"); //retour à la page de Register avec l'erreur 'ltnotchecked'
+            exit();
         }
 
         if(pseudoOrEmailExists($conn, $pseudo, $email) !== false){

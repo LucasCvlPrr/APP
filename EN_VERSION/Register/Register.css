@@ -192,7 +192,6 @@ nav.menuNav ul li.button:hover a{
 }
 
 .RegisterFormTitle{
-    padding: 5px;
     text-align: center;
     font-size: large;
 }
@@ -242,6 +241,23 @@ input {
 
 .repeatpassword{
     margin-top: 10px;
+}
+
+.acceptLegalTerms{
+    margin: 35px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+}
+
+.acceptLegalTerms input{
+    width: 15px;
+    height: 15px;
+    margin-right: 3%;
+}
+
+.acceptLegalTerms label{
+    width: 100%;
 }
 
 .registerBtn{
