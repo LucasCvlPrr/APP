@@ -53,6 +53,7 @@ function passwdStrength(){
     // console.log(possibleCharNum);
     // console.log(passwordLg);
 
+
     strengh = Math.ceil(passwordLg * Math.log2(possibleCharNum));
 
     if(strengh > 120){
@@ -66,6 +67,7 @@ function passwdStrength(){
     barWidthPercentage = (barWidth*100)/240;
 
     // console.log(barWidthPercentage);
+
 
     if(barWidthPercentage < 20){
 

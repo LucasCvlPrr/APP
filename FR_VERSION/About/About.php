@@ -145,6 +145,7 @@
     <p>Nous collaborons avec les ingénieurs de <strong><span style="color:#74b2dc">Oversight</span></p>
     <p>pour le développement de notre solution sur la sécurité de l'industrie.</p>
 
+
     <hr class="secondLineSeparator">
 
     <div class="rect">
