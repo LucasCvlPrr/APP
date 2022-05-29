@@ -175,15 +175,14 @@ nav.menuNav img.logoIM{
     margin: 50px;
     margin-top: 150px;
     margin-bottom: 100px;
-    width: 80%;
     display: flex;
-    flex-direction:column;
-    align-items: baseline;
+    flex-direction:row;
+    justify-content: space-around;
     
 }
 
 .users_list{
-    width: 100%;
+    width: 45%;
     align-items: center;
     align-content: center;
     display: flex;
@@ -191,6 +190,24 @@ nav.menuNav img.logoIM{
     background-color: white;
     border-radius: 20px;
     box-shadow: 1px 1px 15px black;
+}
+
+.accept_users{
+    width: 45%;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+}
+
+.div_title{
+    margin: 0;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
 }
 
 #research {
@@ -275,6 +292,22 @@ th, td{
     border-style: outset;
     border-color: red;
     border: 1px solid red;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#accept_link {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    border-style: outset;
+    border-color: green;
+    border: 1px solid green;
     box-shadow: 1px 1px 15px gray;
     text-shadow: none;
     border-radius: 20px;

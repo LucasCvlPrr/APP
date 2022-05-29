@@ -17,8 +17,8 @@
 
     //updated way with mysqli
     $serverName = 'localhost';
-    $dBUsername = 'root';
-    $dBPassword = '';
+    $dBUsername = 'admin';
+    $dBPassword = 'admin';
     $dBName = 'siteweb';
 
     $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);

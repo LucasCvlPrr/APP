@@ -3,7 +3,7 @@
     session_start();
 
     //connexion à la DB
-    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 
     /**
      * On étudie la demande transmise dans l'URL en GET

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/png" href="../img/factorypng.png">
     <link rel='stylesheet' type='text/css' media='screen' href='Dashboard.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">//on importe JQUERY pour rendre le chat instantanné</script>
 </head>
@@ -63,9 +65,9 @@
                 <?php
 
                 if(isset($_SESSION["id"])){
-                    //echo "<li class='button'><a href='Dashboard.php'>Dashboard</a></li>";
+                    echo "<li class='button' style='text-decoration:underline'><a href='Dashboard.php'>Dashboard</a></li>";
 
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
                     $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
                     $recupUser->execute(array($_SESSION['id']));
                     $isAdmin = $recupUser->fetch()['isAdmin'];
@@ -172,7 +174,7 @@
                 <?php
                     echo '<h1 class="profile_title">Profile</h1>';
 
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 
                     if(isset($_SESSION["id"])){
                         $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');

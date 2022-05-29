@@ -2,6 +2,7 @@
 
 <?php
     session_start();
+    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +82,7 @@
                     if(isset($_SESSION["email"])){
                         echo "<li class='button'><a href='Dashboard/Dashboard.php'>Dashboard</a></li>";
 
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
                         $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
                         $recupUser->execute(array($_SESSION['email']));
                         $isAdmin = $recupUser->fetch()['isAdmin'];
