@@ -11,9 +11,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='OversightTeam.css'>
-    <link rel="icon" type="image/png" href="../img/factorypng.png">
-    <script src='OversightTeam.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='log.css'>
+    <link rel="icon" type="image/png" href="img/factorypng.png">
+    <script src='log.js'></script>
 </head>
 <body>
     
@@ -25,76 +25,62 @@
         <nav class="menuNav">
 
             <div class="leftSide">
-                <img src="../../img/logoIM.png" alt="logoIM" class="logoIM">
+                <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
-                    OVERSIGHT
+                    THE NEW INDUSTRY
                 </p>
 
-                <form action="../../Config/languages.includes.php" method="post">
+                <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="FR">FR</option>    
                         <option value="EN">EN</option>
+                        <option value="FR">FR</option>
                     </select>
-                    <input type="hidden" name="URL" id="URL" value="About/OversightTeam/OversightTeam.php">
+                    <input type="hidden" name="URL" id="URL" value="index.php">
                     <input type="hidden" name="formsend" value="submit">
                 </form>
             </div>
 
-            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-            <!-- Menu de navigation -->
 
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            
+            <!-- Menu de navigation -->
             <ul class="nav-links">
+
                 <li class="button">
-                    <a href="../../index.php">
-                        Accueil
+                    <a href="../index.php">
+                        Home
                     </a>
                     
                 </li>
-
+                
                 <li class="button">
-                    <a href="../../Solution/Solution.php">
+                    <a href="../Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../../About/About.php">
-                        A propos
+                    <a href="../About/About.php">
+                        About
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="../../Contact/Contact.php">
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
                 </li>
 
+                <li class="button">
+                    <a href="log.php" style='text-decoration:underline'>
+                        Login
+                    </a>
+                </li>
 
-                <?php
-                
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../../Dashboard/Dashboard.php'>Dashboard</a></li>";
-
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
-
-                        if($isAdmin == 1){
-                            echo "<li class='button'><a href='../../AdminPanel/adminPanel.php'>Administration</a></li>";
-                        }
-
-                        echo "<li class='button'><a href='../../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
-                    }
-                    else{
-                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../../index.php'>Connexion</a></li>";
-                    }
-                ?>
             </ul>
 
             <div class="burger">
@@ -127,77 +113,95 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <div class="OversightTeamContainer">
-        <div class="containerTitle">
-            <h4>Discover Oversight team</h4>
-        </div>
 
-        <div class="members">
-            <div class="first">
-                <div class="person">
-                    <img src="../../img/Thibault.png" class="imgThibault"></img>
-                    <h4 class="ThibaultName">Thibault Gilbin</h4>
-                    <h4 class="ThibaultFunction">Manager, Ingénieur Logiciel, Back-End</h4>
+    <div class="homeLoginPreview">
+        
+        <div class="homeLoginFormContainer">
+            <h4 class="homeLoginFormTitle">LOGIN ✔️</h4>
+
+            <form action="php.scripts/login.php" method="post" class="homeLoginForm">
+                <div class="emailInput">
+                    <div class="emailLabel">
+                        <label for="email">Email 📫</label>
+                    </div>
+
+                    <div class="email">
+                        <input type="text" name="email" id="email" required size="40px" autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="passwordInput">
+                    <div class="passwordLabel">
+                        <label for="password">Password 🔒</label>
+                    </div>
+                    
+                    <div class="password">
+                        <input type="password" name="password" id="password" required size="40px" autocomplete="off">
+                    </div>
                 </div>
 
-                <div class="person">
-                    <img src="../../img/Lucas.png" class="imgLucas"></img>
-                    <h4 class="LucasName">Lucas Chevalier</h4>
-                    <h4 class="LucasFunction">Manager, Ingénieur Logiciel, Front-End</h4>
+                <div class="loginBtn">
+                    <button type="submit" name="submit" id="submit">Login</button>
                 </div>
+            </form>
 
-                <div class="person">
-                    <img src="../../img/Clemence.png" class="imgClemence"></img>
-                    <h4 class="ClemenceName">Clémence Canguilhem</h4>
-                    <h4 class="ClemenceFunction">Ingénieur en électronique</h4>
-                </div>
+            <?php 
+                //gestion des erreurs en GET
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput"){
+                        echo "<h1>You missed a blank, fill the other !</h1>";
+                    }
+                    else if($_GET["error"] == "wronglogin"){
+                        echo "<h1>Incorrect login information !</h1>";
+                    }
+                    else if($_GET["error"] == "notaccepted"){
+                        echo "<h1>You haven't been accepted to join yet. Wait for an Administrator answer.</h1>";
+                    }
+                }
+
+            ?>
+
+            <hr class="loginFormLineSeparator">
+
+            <div class="notRegText">
+                <p>Not registered yet? ⏱</p>
             </div>
             
-            <div class="second">
-                <div class="person">
-                    <img src="../../img/Noelle.png" class="imgNoelle"></img>
-                    <h4 class="NoelleName">Noelle Garreta</h4>
-                    <h4 class="NoelleFunction">Ingénieur en électronique</h4>
-                </div>
-
-                <div class="person">
-                    <img src="../../img/Amin.png" class="imgAmin"></img>
-                    <h4 class="AminName">Amin El Kadari</h4>
-                    <h4 class="AminFunction">Ingénieur en télécominications</h4>
-                </div>
-
-                <div class="person">
-                    <img src="../../img/Anthony.png" class="imgAnthony"></img>
-                    <h4 class="AnthonyName">Anthony Villemain</h4>
-                    <h4 class="AnthonyFunction">Ingénieur en traitement du signal</h4>
-                </div>
+            <div class="registerBtn">
+                <form method="get" action="Register/Register.php">
+                    <button type="submit">Register</button>
+                </form>    
             </div>
-
         </div>
-    </div> 
 
+        <div class="homePreviewContainer">
+            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h4>
+        </div>
+
+    </div>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
+
     <footer class="footer">
         <ul>
             <li class="link">
                 <a href="">
-                    Mentions légales
+                    Legal Terms
                 </a>
 
             </li>
 
             <li class="link">
                 <a href="">
-                    Plan du site
+                    Sitemap
                 </a>
 
             </li>
         </ul>
 
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
         </div>
     </footer>
 

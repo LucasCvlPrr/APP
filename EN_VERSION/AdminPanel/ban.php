@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 if(isset($_GET['id'])){
     $selectUser = $bdd->prepare('SELECT * from users WHERE id=?');
     $selectUser->execute(array($_GET['id']));

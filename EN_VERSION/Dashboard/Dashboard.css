@@ -1,3 +1,5 @@
+/* Initialisation */
+
 @import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
 
 body {
@@ -96,8 +98,12 @@ nav.menuNav img.logoIM{
 }
 
 #pet-select{
-    border: none;
     margin-left: 10px;
+    align-self: center;
+}
+
+#language{
+    border: none;
 }
 
 /* burger menu for responsive navbar */
@@ -142,6 +148,7 @@ nav.menuNav img.logoIM{
 
     .burger{
         display: block;
+        display: right;
         align-self:center;
     }
 }

@@ -6,7 +6,7 @@
     $id_user = $_SESSION["id"];
 
     //connexion à la DB
-    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 
     //vérif des variables POST + envoi à la DB
     if (isset($_POST['save'])){
