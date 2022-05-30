@@ -11,14 +11,15 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Contact.css'>
-    <link rel="icon" type="image/png" href="../img/factorypng.png">
-    <script src='Contact.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='log.css'>
+    <link rel="icon" type="image/png" href="img/factorypng.png">
+    <script src='log.js'></script>
 </head>
 <body>
     
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- En-tête de page -->
+
     <header class="header">
 
         <nav class="menuNav">
@@ -35,21 +36,24 @@
                         <option value="EN">EN</option>
                         <option value="FR">FR</option>
                     </select>
-                    <input type="hidden" name="URL" id="URL" value="Contact/Contact.php">
+                    <input type="hidden" name="URL" id="URL" value="index.php">
                     <input type="hidden" name="formsend" value="submit">
                 </form>
             </div>
 
+
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            
             <!-- Menu de navigation -->
             <ul class="nav-links">
+
                 <li class="button">
                     <a href="../index.php">
                         Home
                     </a>
                     
                 </li>
-
+                
                 <li class="button">
                     <a href="../Solution/Solution.php">
                         Solution
@@ -65,34 +69,18 @@
                 </li>
 
                 <li class="button">
-                    <a href="../Contact/Contact.php" style='text-decoration:underline'>
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
                 </li>
 
+                <li class="button">
+                    <a href="log.php" style='text-decoration:underline'>
+                        Login
+                    </a>
+                </li>
 
-                <?php
-                
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
-
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
-
-                        if($isAdmin == 1){
-                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
-                        }
-
-                        echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Log out</a></li>";
-                    }
-                    else{
-                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
-                    }
-                ?>
             </ul>
 
             <div class="burger">
@@ -125,83 +113,76 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <div class="ContactFormContainer">
-        <div class="ContactFormTitle">
-            <h4>Contact us</h4>
-        </div>
+
+    <div class="homeLoginPreview">
         
+        <div class="homeLoginFormContainer">
+            <h4 class="homeLoginFormTitle">LOGIN ✔️</h4>
 
+            <form action="php.scripts/login.php" method="post" class="homeLoginForm">
+                <div class="emailInput">
+                    <div class="emailLabel">
+                        <label for="email">Email 📫</label>
+                    </div>
 
-        <form action="php.scripts/contact.include.php" method="post">
-            <div class="inputZone">
-                <div>
-                    <label for="first_name">First Name</label>
-                </div>
-
-                <div class="first_name">
-                    <input type="text" id="first_name" name="first_name" placeholder="Your name...">
-                </div>
-            </div>
-            
-            <div class="inputZone">
-                <div>
-                    <label for="last_name">Last Name</label>
-                </div>
-
-                <div class="last_name">
-                    <input type="text" id="last_name" name="last_name" placeholder="Your last name...">
-                </div>
-            </div>
-
-            <div class="inputZone">
-                <div>
-                    <label for="email">Email</label>
+                    <div class="email">
+                        <input type="text" name="email" id="email" required size="40px" autocomplete="off">
+                    </div>
                 </div>
                 
-                <div class="email">
-                    <input type="text" name="email" id="email" placeholder="Your email...">
+                <div class="passwordInput">
+                    <div class="passwordLabel">
+                        <label for="password">Password 🔒</label>
+                    </div>
+                    
+                    <div class="password">
+                        <input type="password" name="password" id="password" required size="40px" autocomplete="off">
+                    </div>
                 </div>
+
+                <div class="loginBtn">
+                    <button type="submit" name="submit" id="submit">Login</button>
+                </div>
+            </form>
+
+            <?php 
+                //gestion des erreurs en GET
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput"){
+                        echo "<h1>You missed a blank, fill the other !</h1>";
+                    }
+                    else if($_GET["error"] == "wronglogin"){
+                        echo "<h1>Incorrect login information !</h1>";
+                    }
+                    else if($_GET["error"] == "notaccepted"){
+                        echo "<h1>You haven't been accepted to join yet. Wait for an Administrator answer.</h1>";
+                    }
+                }
+
+            ?>
+
+            <hr class="loginFormLineSeparator">
+
+            <div class="notRegText">
+                <p>Not registered yet? ⏱</p>
             </div>
             
-            <div class="inputZone">
-                <div>
-                    <label for="message">Message</label>
-                </div>
-
-                <div class="message">
-                    <textarea id="message" name="message" placeholder="Write something..." ></textarea>
-                </div>
+            <div class="registerBtn">
+                <form method="get" action="Register/Register.php">
+                    <button type="submit">Register</button>
+                </form>    
             </div>
-            
-            <div class="sendBtn">
-                <button type="submit" name="formsend" id="formsend">Send</button>
-            </div>
+        </div>
 
-        </form>
+        <div class="homePreviewContainer">
+            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h4>
+        </div>
 
-    </div> 
-
-
-    <div class="thanks">
-        <?php 
-            if(isset($_GET["error"])){
-                if($_GET["error"] == "emptyinput"){
-                    echo "<h1>You missed a blank, fill the other !</h1>";
-                }
-                else if($_GET["error"] == "invalidemail"){
-                    echo "<h1>Invalid Email, choose another one!</h1>";
-                }
-                else if($_GET["error"] == "none"){
-                    echo "<h1>Thank you for your interest!</h1>";
-                }
-            }
-
-        ?>
     </div>
-
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
+
     <footer class="footer">
         <ul>
             <li class="link">

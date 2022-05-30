@@ -58,14 +58,14 @@
                     </a>
                     
                 </li>
-<!--
+
                 <li class="button">
-                    <a href="../About/About.php">
+                    <a href="../About/About.php" style='text-decoration:underline'>
                         About
                     </a>
                     
                 </li>
--->
+
                 <li class="button">
                     <a href="../Contact/Contact.php">
                         Contact
@@ -87,7 +87,7 @@
                             echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
                         }
 
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
+                        echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Log out</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">

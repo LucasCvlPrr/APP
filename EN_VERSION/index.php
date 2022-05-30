@@ -2,7 +2,6 @@
 
 <?php
     session_start();
-    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 ?>
 
 <!DOCTYPE html>
@@ -12,186 +11,183 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Home/Home.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='home.css'>
     <link rel="icon" type="image/png" href="img/factorypng.png">
-    <script src='Home/Home.js'></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- En-tête de page -->
-
+ 
     <header class="header">
 
-        <nav class="menuNav">
+    <nav class="menuNav">
 
-            <div class="leftSide">
-                <img src="img/logoIM.png" alt="logoIM" class="logoIM">
+        <img src="img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
 
-                <p class="slogan">
-                    THE NEW INDUSTRY
-                </p>
+        <p class="slogan">
+            THE NEW INDUSTRY
+        </p>
 
-                <form action="Config/languages.includes.php" method="post">
-                    <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="EN">EN</option>
-                        <option value="FR">FR</option>
-                    </select>
-                    <input type="hidden" name="URL" id="URL" value="index.php">
-                    <input type="hidden" name="formsend" value="submit">
-                </form>
-            </div>
+        <form action="../Config/languages.includes.php" method="post" id="pet-select">
+            <select name='language' id="language" onchange='this.form.submit()'>
+                <option value="EN">EN</option>
+                <option value="FR">FR</option>
+            </select>
+            <input type="hidden" name="URL" id="URL" value="AdminPanel/adminPanel.php">
+            <input type="hidden" name="formsend" value="submit">
+        </form>
 
+        <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+        <!-- Menu de navigation -->
+        <ul class="nav-links">
 
-            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-            <!-- Menu de navigation -->
-
-            <ul class="nav-links">
-                <!--
-                <li class="button">
-                    <a href="index.php">
-                        Home
-                    </a>
-                    
-                </li>
-                -->
-
-                <li class="button">
-                    <a href="Solution/Solution.php">
-                        Solution
-                    </a>
-                    
-                </li>
-
-                <li class="button">
-                    <a href="About/About.php">
-                        About
-                    </a>
-                    
-                </li>
-
-                <li class="button">
-                    <a href="Contact/Contact.php">
-                        Contact
-                    </a>
-                    
-                </li>
-
-                <?php
+        <li class="button">
+                <a href="index.php" style='text-decoration:underline'>
+                    Home
+                </a>
                 
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='Dashboard/Dashboard.php'>Dashboard</a></li>";
+            </li>
 
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
+            <li class="button">
+                <a href="Solution/Solution.php">
+                    Solution
+                </a>
+                
+            </li>
 
-                        if($isAdmin == 1){
-                            echo "<li class='button'><a href='AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
-                        }
+            <li class="button">
+                <a href="About/About.php">
+                    About
+                </a>
+                
+            </li>
 
-                        echo "<li class='button'><a href='Home/php.scripts/logout.php'>Log out</a></li>";
-                    }
-                    else{
-                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='index.php'>Log in</a></li>";
-                    }
-                ?>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <script>
-                //navbar burger script
-                const navSlide = () => {
-                    const burger = document.querySelector('.burger');
-                    const nav = document.querySelector('.nav-links');
-                    const navLinks = document.querySelectorAll('.nav-links li');
+            <li class="button">
+                <a href="Contact/Contact.php">
+                    Contact
+                </a>
+                
+            </li>
 
-                    //Toggle Nav
-                    burger.addEventListener('click', () => {
-                        nav.classList.toggle('nav-active');
-                    });
+            <?php
 
-                    //Animation
-                    navLinks.forEach((link, index) => {
-                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 2}s`;
-                    });
-                    
+            if(isset($_SESSION["id"])){
+                echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
+
+                $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+                $recupUser->execute(array($_SESSION['id']));
+                $isAdmin = $recupUser->fetch()['isAdmin'];
+
+                if($isAdmin == 1){
+                    echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
                 }
-                navSlide();
-            </script>
-        </nav>
+
+                echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Log out</a></li>";
+            }
+            else{
+                //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+            }
+        ?>
+
+        </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <script>
+            //navbar burger script
+            const navSlide = () => {
+                const burger = document.querySelector('.burger');
+                const nav = document.querySelector('.nav-links');
+                const navLinks = document.querySelectorAll('.nav-links li');
+
+                //Toggle Nav
+                burger.addEventListener('click', () => {
+                    nav.classList.toggle('nav-active');
+                });
+
+                //Animation
+                navLinks.forEach((link, index) => {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 2}s`;
+                });
+                
+            }
+            navSlide();
+        </script>
+    </nav>
     </header>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
 
-    <div class="homeLoginPreview">
-        
-        <div class="homeLoginFormContainer">
-            <h4 class="homeLoginFormTitle">LOGIN ✔️</h4>
+    <!----hero Section start---->
 
-            <form action="Home/php.scripts/login.php" method="post" class="homeLoginForm">
-                <div class="emailInput">
-                    <div class="emailLabel">
-                        <label for="email">Email 📫</label>
-                    </div>
+	<div class="hero">
 
-                    <div class="email">
-                        <input type="text" name="email" id="email" required size="40px" autocomplete="off">
-                    </div>
-                </div>
-                
-                <div class="passwordInput">
-                    <div class="passwordLabel">
-                        <label for="password">Password 🔒</label>
-                    </div>
-                    
-                    <div class="password">
-                        <input type="password" name="password" id="password" required size="40px" autocomplete="off">
-                    </div>
-                </div>
-
-                <div class="loginBtn">
-                    <button type="submit" name="submit" id="submit">Login</button>
-                </div>
-            </form>
-
-            <?php 
-                if(isset($_GET["error"])){
-                    if($_GET["error"] == "emptyinput"){
-                        echo "<h1>You missed a blank, fill the other !</h1>";
-                    }
-                    else if($_GET["error"] == "wronglogin"){
-                        echo "<h1>Incorrect login information !</h1>";
-                    }
-                }
-
-            ?>
-
-            <hr class="loginFormLineSeparator">
-
-            <div class="notRegText">
-                <p>Not registered yet? ⏱</p>
-            </div>
-            
-            <div class="registerBtn">
-                <form method="get" action="Register/Register.php">
-                    <button type="submit">Register</button>
-                </form>    
-            </div>
+    <div class="content">
+        <h4>Welcome, we are</h4>
+        <h1>Infinite <span>Measures.</span></h1>
+        <h3>We provide some technological solutions in the field of Industry.</h3>
+        <div class="pra">
+            <p style="text-align: center;">
+                <a class="button" href="Log/log.php">Let's get started</a>
+            </p>
         </div>
-
-        <div class="homePreviewContainer">
-            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h4>
-        </div>
-
+    </div>
     </div>
 
+    <!-----service section start----------->
+    <div class="service">
+    <div class="title">
+        <h2>Our Services</h2>
+    </div>
+
+    <div class="box">
+        <div class="card">
+            <i class="fas fa-bars"></i>
+            <h5>Our Field</h5>
+            <div class="pra">
+                <p>We deploy environmental measurement technologies to help industries modernize and be greener. We produce connected sensors that can be worn by factory workers.</p>
+                <p style="text-align: center;">
+					<a class="button" href="Solution/solution.php">Learn more</a>
+				</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="far fa-user"></i>
+            <h5>Personalization</h5>
+            <div class="pra">
+                <p>We offer a web platform that allows users to personalize their experience. A factory can connect its workers and analyze their data in a specific way.</p>
+                <p style="text-align: center;">
+					<a class="button" href="About/About.php">About us</a>
+				</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="far fa-bell"></i>
+            <h5>Communication</h5>
+            <div class="pra">
+                <p>We have developed a platform for our customers to communicate with us. Our administrators can help you with any issues with your devices. You can even contact us without connecting.</p>
+                <p style="text-align: center;">
+					<a class="button" href="Contact/Contact.php">Contact us</a>
+				</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
 

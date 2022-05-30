@@ -110,7 +110,7 @@
         $emailExists = pseudoOrEmailExists($conn, $email, $email);
 
         if($emailExists === false){
-            header("location: ../../index.php?error=wronglogin");
+            header("location: ../log.php?error=wronglogin");
             exit();
         }
 
@@ -118,17 +118,29 @@
         $checkPassword = password_verify($password, $hashedPassword);
 
         if($checkPassword === false){
-            header("location: ../../index.php?error=wronglogin");
+            header("location: ../log.php?error=wronglogin");
             exit();
         }
         else if($checkPassword === true){
-            session_start();
-            $_SESSION["id"] = $emailExists["id"];
-            $_SESSION["email"] = $emailExists["email"];
+            $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+            $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+            $recupUser->execute(array($email));
+            $isAccepted = $recupUser->fetch()['accepted'];
 
-            //header("location: ../../Dashboard/Dashboard.php");
-            header("location: ../../index.php");
-            exit();
+            if($isAccepted == 1){
+                session_start();
+                $_SESSION["id"] = $emailExists["id"];
+                $_SESSION["email"] = $emailExists["email"];
+
+                header("location: ../../Dashboard/Dashboard.php");
+                //header("location: ../../index.php");
+                exit();
+            }
+            else {
+                header("location: ../log?error=notaccepted");
+                exit();
+            }
+
         }
     }
 

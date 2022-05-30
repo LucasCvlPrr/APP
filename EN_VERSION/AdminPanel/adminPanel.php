@@ -74,7 +74,7 @@ session_start();
                         echo "<li class='button' style='text-decoration:underline'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
                     }
 
-                    echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
+                    echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Log out</a></li>";
                 }
                 else{
                     //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
@@ -222,8 +222,8 @@ session_start();
                                     <tr>
                                         <td>" . $user['pseudo']. "</td>
                                         <td>" . $user['email']. "</td>
-                                        <td><a id='accept_link' href='acceptMembers.php?id= ". $user['id'] . "';>Accept this user</a></td>
-                                        <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Dismiss this user</a></td>
+                                        <td><a id='accept_link' href='acceptMembers.php?id= ". $user['id'] . "';>Accept</a></td>
+                                        <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Dismiss</a></td>
                                     </tr>
                                     ";
                             }
