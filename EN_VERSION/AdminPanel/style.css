@@ -170,15 +170,81 @@ nav.menuNav img.logoIM{
 
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
+.panel{
+    padding: 5px;
+    margin: 50px;
+    margin-top: 110px;
+    width: 100%;
+    align-self: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
 
 .global_container {
-    margin: 50px;
-    margin-top: 150px;
-    margin-bottom: 100px;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: space-around;
     
+}
+
+.global_container_2 {
+    margin: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.msgs{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    justify-content:baseline;
+}
+
+.contacts{
+    margin: 5px;
+    width: 20%;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+}
+
+#suppr_link{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 25px;
+    width: 70px;
+    background-color: red;
+    color: white;
+    border-style: outset;
+    border-color: red;
+    border: 1px solid red;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#suppr_link:hover {
+    background-color: rgba(255, 0, 0, 0.58);
+    cursor: pointer;
+    border: 1px solid rgba(255, 0, 0, 0.58);
 }
 
 .users_list{

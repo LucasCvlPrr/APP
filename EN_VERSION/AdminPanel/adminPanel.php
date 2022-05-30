@@ -121,122 +121,150 @@ session_start();
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <div class="global_container">
-        <div class="users_list">
-                <h1 class="div_title">Research Users</h1>
-                <!-- action="rechercheMultiCriteres.php" -->
-                <form id="research" method="POST">
-                    
-                    <div class="element">
-                        <input id='pseudoForm' type="text" name="pseudo" autocomplete="off" placeholder="Enter a pseudo">
-                    </div>
-
-                    <div class="element">
-                        <input id='last_nameForm' type="text" name="last_name" autocomplete="off" placeholder="Enter a last name">
-                    </div>
-
-                    <div class="element">
-                        <input id='first_nameForm' type="text" name="first_name" autocomplete="off" placeholder="Enter a first name">
-                    </div>
-
-                    <div class="element">
-                        <input id='emailForm' type="text" name="email" autocomplete="off" placeholder="Enter an email">
-                    </div>
+    <div class='panel'>
+        <div class="global_container">
+            <div class="users_list">
+                    <h1 class="div_title">Research Users</h1>
+                    <!-- action="rechercheMultiCriteres.php" -->
+                    <form id="research" method="POST">
                         
-                    <div class="submit_div">
-                        <button id='btn-sub' type="submit" name="submit">Search</button>
-                    </div>
+                        <div class="element">
+                            <input id='pseudoForm' type="text" name="pseudo" autocomplete="off" placeholder="Enter a pseudo">
+                        </div>
+
+                        <div class="element">
+                            <input id='last_nameForm' type="text" name="last_name" autocomplete="off" placeholder="Enter a last name">
+                        </div>
+
+                        <div class="element">
+                            <input id='first_nameForm' type="text" name="first_name" autocomplete="off" placeholder="Enter a first name">
+                        </div>
+
+                        <div class="element">
+                            <input id='emailForm' type="text" name="email" autocomplete="off" placeholder="Enter an email">
+                        </div>
+                            
+                        <div class="submit_div">
+                            <button id='btn-sub' type="submit" name="submit">Search</button>
+                        </div>
+                        
+                    </form>
                     
-                </form>
+                    <div class="recup_users">
+                        <table>
+                            <tr>
+                                <th>Pseudo</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Email</th>
+                                <th>Moderation</th>
+                            </tr>
+                            <?php
+                            //récupération de tous les utilisateurs
+                            $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                            if(isset($_POST['submit'])){
+                                $pseudo = $_POST['pseudo'];
+                                $email = $_POST['email'];
+                                $last_name = $_POST['last_name'];
+                                $first_name = $_POST['first_name'];
+
+                                $results = $bdd->query("SELECT * FROM users WHERE pseudo LIKE '%{$pseudo}%' AND  email LIKE '%{$email}%' AND  last_name LIKE '%{$last_name}%' AND  first_name LIKE '%{$first_name}%' ");
+                                //$users = $results->fetchAll(); //recup toutes les données
+                                while($user = $results->fetch()){
+                                    if($user['id'] != $_SESSION['id']){
+                                        //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                        echo "
+                                        <tr>
+                                            <td>" . $user['pseudo']. "</td>
+                                            <td>" . $user['last_name']. "</td>
+                                            <td>" . $user['first_name']. "</td>
+                                            <td>" . $user['email']. "</td>
+                                            <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
+                                        </tr>
+                                        ";
+                                    }
+                                }
+                            } else {
+                                $results = $bdd->query("SELECT * FROM users WHERE accepted=1");
+                                //$users = $results->fetchAll(); //recup toutes les données
+                                while($user = $results->fetch()){
+                                    if($user['id'] != $_SESSION['id']){
+                                        //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                        echo "
+                                        <tr>
+                                            <td>" . $user['pseudo']. "</td>
+                                            <td>" . $user['last_name']. "</td>
+                                            <td>" . $user['first_name']. "</td>
+                                            <td>" . $user['email']. "</td>
+                                            <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
+                                        </tr>
+                                        ";
+                                    }
+                                }
+                            }
+                            
+                            ?>
+                        </table>
+                    </div>
+            </div>
+            
+
+            <div class="accept_users">
+                <h1 class="div_title">Users Demands</h1>
                 
-                <div class="recup_users">
-                    <table>
-                        <tr>
-                            <th>Pseudo</th>
-                            <th>Last Name</th>
-                            <th>First Name</th>
-                            <th>Email</th>
-                            <th>Moderation</th>
-                        </tr>
-                        <?php
-                        //récupération de tous les utilisateurs
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
-                        if(isset($_POST['submit'])){
-                            $pseudo = $_POST['pseudo'];
-                            $email = $_POST['email'];
-                            $last_name = $_POST['last_name'];
-                            $first_name = $_POST['first_name'];
-
-                            $results = $bdd->query("SELECT * FROM users WHERE pseudo LIKE '%{$pseudo}%' AND  email LIKE '%{$email}%' AND  last_name LIKE '%{$last_name}%' AND  first_name LIKE '%{$first_name}%' ");
+                <table>
+                            <tr>
+                                <th>Pseudo</th>
+                                <th>Email</th>
+                                <th>Accept</th>
+                                <th>Dismiss</th>
+                            </tr>
+                            <?php
+                            //récupération de tous les utilisateurs
+                            $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                            $results = $bdd->query("SELECT * FROM users WHERE accepted=0");
                             //$users = $results->fetchAll(); //recup toutes les données
                             while($user = $results->fetch()){
                                 if($user['id'] != $_SESSION['id']){
                                     //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
-                                    echo "
-                                    <tr>
-                                        <td>" . $user['pseudo']. "</td>
-                                        <td>" . $user['last_name']. "</td>
-                                        <td>" . $user['first_name']. "</td>
-                                        <td>" . $user['email']. "</td>
-                                        <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
-                                    </tr>
-                                    ";
+                                        echo "
+                                        <tr>
+                                            <td>" . $user['pseudo']. "</td>
+                                            <td>" . $user['email']. "</td>
+                                            <td><a id='accept_link' href='acceptMembers.php?id= ". $user['id'] . "';>Accept</a></td>
+                                            <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Dismiss</a></td>
+                                        </tr>
+                                        ";
                                 }
                             }
-                        } else {
-                            $results = $bdd->query("SELECT * FROM users WHERE accepted=1");
-                            //$users = $results->fetchAll(); //recup toutes les données
-                            while($user = $results->fetch()){
-                                if($user['id'] != $_SESSION['id']){
-                                    //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
-                                    echo "
-                                    <tr>
-                                        <td>" . $user['pseudo']. "</td>
-                                        <td>" . $user['last_name']. "</td>
-                                        <td>" . $user['first_name']. "</td>
-                                        <td>" . $user['email']. "</td>
-                                        <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
-                                    </tr>
-                                    ";
-                                }
-                            }
-                        }
-                        
-                        ?>
-                    </table>
-                </div>
+                            ?>
+                        </table>
+            </div>
         </div>
 
-        <div class="accept_users">
-            <h1 class="div_title">Users Demands</h1>
-            
-            <table>
-                        <tr>
-                            <th>Pseudo</th>
-                            <th>Email</th>
-                            <th>Accept</th>
-                            <th>Dismiss</th>
-                        </tr>
-                        <?php
-                        //récupération de tous les utilisateurs
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
-                        $results = $bdd->query("SELECT * FROM users WHERE accepted=0");
-                        //$users = $results->fetchAll(); //recup toutes les données
-                        while($user = $results->fetch()){
-                            if($user['id'] != $_SESSION['id']){
-                                //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
-                                    echo "
-                                    <tr>
-                                        <td>" . $user['pseudo']. "</td>
-                                        <td>" . $user['email']. "</td>
-                                        <td><a id='accept_link' href='acceptMembers.php?id= ". $user['id'] . "';>Accept</a></td>
-                                        <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Dismiss</a></td>
-                                    </tr>
-                                    ";
-                            }
-                        }
-                        ?>
-                    </table>
+        <div class="global_container_2">
+                            <h1 class="div_title">Contact's Messages</h1>
+                            <div class='msgs'>
+                                <?php 
+                                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                                    $results = $bdd->query("SELECT * FROM contact");
+                                    //$users = $results->fetchAll(); //recup toutes les données
+                                    while($message = $results->fetch()){
+                                    
+                                            //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                                echo "
+                                                <div class='contacts'>
+                                                    <p>By: " . $message['first_name']. " ". $message['last_name']." </p>
+                                                    <p>Email: " . $message['email'] . " </p>
+                                                    <p>Message: " . $message['msg'] . " </p>
+                                                    <a id='suppr_link' href='supprContact.php?id= ". $message['id'] . "';>Delete</a>
+                                                </div>
+                                                ";
+                                
+                                    }
+                                ?>
+                                </div>
+
         </div>
     </div>
 
