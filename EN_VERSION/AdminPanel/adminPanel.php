@@ -40,6 +40,13 @@ session_start();
             <ul class="nav-links">
 
                 <li class="button">
+                    <a href="../../index.php">
+                        Home
+                    </a>
+
+                </li>
+
+                <li class="button">
                     <a href="../Solution/Solution.php">
                         Solution
                     </a>
@@ -78,7 +85,7 @@ session_start();
                 }
                 else{
                     //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                    echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                    echo "<li class='button'><a href='../Log/log.php'>Log in</a></li>";
                 }
             ?>
 

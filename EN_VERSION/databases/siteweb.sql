@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : ven. 06 mai 2022 à 08:58
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : localhost:3306
+-- Généré le : dim. 29 mai 2022 à 13:13
+-- Version du serveur : 8.0.29-0ubuntu0.22.04.2
+-- Version de PHP : 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,15 +27,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `contact`
 --
 
-DROP TABLE IF EXISTS `contact`;
-CREATE TABLE IF NOT EXISTS `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact` (
+  `id` int NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `msg` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `msg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `contact`
@@ -51,15 +49,12 @@ INSERT INTO `contact` (`id`, `first_name`, `last_name`, `email`, `msg`) VALUES
 -- Structure de la table `messages`
 --
 
-DROP TABLE IF EXISTS `messages`;
-CREATE TABLE IF NOT EXISTS `messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `messages` (
+  `id` int NOT NULL,
   `message` text NOT NULL,
   `date` datetime NOT NULL,
-  `pseudo` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=latin1;
+  `pseudo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `messages`
@@ -84,7 +79,8 @@ INSERT INTO `messages` (`id`, `message`, `date`, `pseudo`) VALUES
 (147, 'Encore un autre', '2022-05-06 05:29:48', 'XxMaxiNoellexX'),
 (148, 'On continue', '2022-05-06 05:29:53', 'ThibGil'),
 (149, 'Voilà', '2022-05-06 05:29:59', 'ThibGil'),
-(150, 'test', '2022-05-06 05:30:04', 'XxMaxiNoellexX');
+(150, 'test', '2022-05-06 05:30:04', 'XxMaxiNoellexX'),
+(151, 'test', '2022-05-25 16:13:25', 'ThibGil');
 
 -- --------------------------------------------------------
 
@@ -92,31 +88,74 @@ INSERT INTO `messages` (`id`, `message`, `date`, `pseudo`) VALUES
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `isAdmin` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `isAdmin` int NOT NULL DEFAULT '0',
   `last_name` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
   `passwd` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `accepted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `isAdmin`, `last_name`, `first_name`, `email`, `pseudo`, `passwd`, `date`) VALUES
-(10, 0, 'Garreta', 'Noelle', 'garretanoelle@gmail.com', 'XxMaxiNoellexX', '$2y$10$/GSS.1sGfiep6447anxbG.UCjdfmFUf.0kO5fJLGT9OY9e5f0F3Ga', '2022-03-24 01:17:46'),
-(12, 1, 'Gilbin', 'Thibault', 'gilbinthibault@gmail.com', 'ThibGil', '$2y$10$NTOeoa2aKvC3sP.vvuBge.P/qHU3UW7sUqHY7nlVWsvZsqdyAvoOK', '2022-03-25 00:19:49'),
-(14, 0, 'Canguilhem', 'Clemence', 'clem@gmail.com', 'Clem', '$2y$10$29QkcXzaKRxemwsNdkZnPOqu//Z6hLq59de00e2imseV0R28wf6g2', '2022-03-25 00:22:08'),
-(15, 0, 'El Kadari', 'Amin', 'amin@gmail.com', 'AminElKadari', '$2y$10$aqIl.z5556BCAROwooQEsOmA4Evem3Y9qRcSQHs6l1s7doYq2s8m.', '2022-03-25 00:22:39'),
-(18, 1, 'Chevalier', 'Lucas', 'lucas.chevalier08@gmail.com', 'LucasCvl', '$2y$10$ecxN87p8Oe7FoH22u.CQNODYjnZSLHNsGPF1kB8RBRbuC4uVALcYe', '2022-05-06 08:57:40');
+INSERT INTO `users` (`id`, `isAdmin`, `last_name`, `first_name`, `email`, `pseudo`, `passwd`, `date`, `accepted`) VALUES
+(10, 0, 'Garreta', 'Noelle', 'garretanoelle@gmail.com', 'XxMaxiNoellexX', '$2y$10$/GSS.1sGfiep6447anxbG.UCjdfmFUf.0kO5fJLGT9OY9e5f0F3Ga', '2022-03-24 01:17:46', 1),
+(12, 1, 'Gilbin', 'Thibault', 'gilbinthibault@gmail.com', 'ThibGil', '$2y$10$NTOeoa2aKvC3sP.vvuBge.P/qHU3UW7sUqHY7nlVWsvZsqdyAvoOK', '2022-03-25 00:19:49', 1),
+(14, 0, 'Canguilhem', 'Clemence', 'clem@gmail.com', 'Clem', '$2y$10$29QkcXzaKRxemwsNdkZnPOqu//Z6hLq59de00e2imseV0R28wf6g2', '2022-03-25 00:22:08', 1),
+(18, 1, 'Chevalier', 'Lucas', 'lucas.chevalier08@gmail.com', 'LucasCvl', '$2y$10$ecxN87p8Oe7FoH22u.CQNODYjnZSLHNsGPF1kB8RBRbuC4uVALcYe', '2022-05-06 08:57:40', 1);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pseudo` (`pseudo`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `pseudo` (`pseudo`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Contraintes pour les tables déchargées

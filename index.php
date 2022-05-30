@@ -11,7 +11,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='home.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='EN_VERSION/home.css'>
     <link rel="icon" type="image/png" href="img/factorypng.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -27,18 +27,18 @@
 
     <nav class="menuNav">
 
-        <img src="img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
+        <img src="EN_VERSION/img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
 
         <p class="slogan">
             THE NEW INDUSTRY
         </p>
 
-        <form action="../Config/languages.includes.php" method="post" id="pet-select">
+        <form action="EN_VERSION/Config/languages.includes.php" method="post" id="pet-select">
             <select name='language' id="language" onchange='this.form.submit()'>
                 <option value="EN">EN</option>
                 <option value="FR">FR</option>
             </select>
-            <input type="hidden" name="URL" id="URL" value="AdminPanel/adminPanel.php">
+            <input type="hidden" name="URL" id="URL" value="index.php">
             <input type="hidden" name="formsend" value="submit">
         </form>
 
@@ -54,21 +54,21 @@
             </li>
 
             <li class="button">
-                <a href="Solution/Solution.php">
+                <a href="EN_VERSION/Solution/Solution.php">
                     Solution
                 </a>
                 
             </li>
 
             <li class="button">
-                <a href="About/About.php">
+                <a href="EN_VERSION/About/About.php">
                     About
                 </a>
                 
             </li>
 
             <li class="button">
-                <a href="Contact/Contact.php">
+                <a href="EN_VERSION/Contact/Contact.php">
                     Contact
                 </a>
                 
@@ -77,7 +77,7 @@
             <?php
 
             if(isset($_SESSION["id"])){
-                echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
+                echo "<li class='button'><a href='EN_VERSION/Dashboard/Dashboard.php'>Dashboard</a></li>";
 
                 $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
                 $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
@@ -85,14 +85,14 @@
                 $isAdmin = $recupUser->fetch()['isAdmin'];
 
                 if($isAdmin == 1){
-                    echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
+                    echo "<li class='button'><a href='EN_VERSION/AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
                 }
 
-                echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Log out</a></li>";
+                echo "<li class='button'><a href='EN_VERSION/Log/php.scripts/logout.php'>Log out</a></li>";
             }
             else{
                 //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                echo "<li class='button'><a href='EN_VERSION/Log/log.php'>Log in</a></li>";
             }
         ?>
 
@@ -158,7 +158,7 @@
             <div class="pra">
                 <p>We deploy environmental measurement technologies to help industries modernize and be greener. We produce connected sensors that can be worn by factory workers.</p>
                 <p style="text-align: center;">
-					<a class="button" href="Solution/solution.php">Learn more</a>
+					<a class="button" href="EN_VERSION/Solution/solution.php">Learn more</a>
 				</p>
             </div>
         </div>
@@ -169,7 +169,7 @@
             <div class="pra">
                 <p>We offer a web platform that allows users to personalize their experience. A factory can connect its workers and analyze their data in a specific way.</p>
                 <p style="text-align: center;">
-					<a class="button" href="About/About.php">About us</a>
+					<a class="button" href="EN_VERSION/About/About.php">About us</a>
 				</p>
             </div>
         </div>
@@ -180,7 +180,7 @@
             <div class="pra">
                 <p>We have developed a platform for our customers to communicate with us. Our administrators can help you with any issues with your devices. You can even contact us without connecting.</p>
                 <p style="text-align: center;">
-					<a class="button" href="Contact/Contact.php">Contact us</a>
+					<a class="button" href="EN_VERSION/Contact/Contact.php">Contact us</a>
 				</p>
             </div>
         </div>
@@ -209,7 +209,7 @@
         </ul>
 
         <div class="poweredByOversight">
-            <p class="poweredBy">Powered by <a href="About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Powered by <a href="EN_VERSION/About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
         </div>
     </footer>
 

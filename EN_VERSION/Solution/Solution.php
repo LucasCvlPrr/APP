@@ -46,7 +46,7 @@
 
             <ul class="nav-links">
                 <li class="button">
-                    <a href="../index.php">
+                    <a href="../../index.php">
                         Home
                     </a>
                     
@@ -91,7 +91,7 @@
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                        echo "<li class='button'><a href='../Log/log.php'>Log in</a></li>";
                     }
                 ?>
             </ul>
@@ -135,7 +135,7 @@
             <h4 class="pollutionSensorTitle">POLLUTION SENSOR</h4>
             <br>
             <div class="pollutionOverlay">
-                <div class="pollutionOverlayText">Pollution sensor overlay</div>
+                <p class="pollutionOverlayText">Industry is the second largest pollution source in France. This sensor was develop to protect factory's workers against those gaz and pollution rejection.</p>
             </div>
         </div>
 
@@ -147,7 +147,7 @@
             <br>
 
             <div class="soundOverlay">
-                <div class="soundOverlayText">Sound sensor overlay</div>
+                <p class="soundOverlayText">Working in the industry also means working in noisy environment. We are preventing the workers for staying exposed to much time to a critical sound level.</p>
             </div>
         </div>
 
@@ -158,7 +158,7 @@
             <br>
 
             <div class="heartOverlay">
-                <div class="heartOverlayText">Heart beat sensor overlay</div>
+                <p class="heartOverlayText">As we provide information about the environment, we know that workers cannot be always watching the data. That is why we also want to constantly check the heart beat of the users, so we can warn them with a sound alert if any problem is detected.</p>
             </div>
         </div>
 

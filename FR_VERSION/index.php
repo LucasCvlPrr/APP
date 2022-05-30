@@ -36,7 +36,7 @@
                         <option value="FR">FR</option>    
                         <option value="EN">EN</option>
                     </select>
-                    <input type="hidden" name="URL" id="URL" value="index.php">
+                    <input type="hidden" name="URL" id="URL" value="../index.php">
                     <input type="hidden" name="formsend" value="submit">
                 </form>
             </div>

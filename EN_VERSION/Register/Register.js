@@ -8,9 +8,6 @@ let parameters = {
 }
 
 
-
-
-
 function passwdStrength(){
     var strenghBar = document.getElementById("strength-bar");
 
@@ -89,6 +86,12 @@ function passwdStrength(){
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+function resetStyle(ele){
+    var id = ele.id;
+    if(ele.value != ''){
+        document.getElementById(id).style.borderColor = 'black';
+    }
+}

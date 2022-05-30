@@ -46,7 +46,7 @@
 
             <ul class="nav-links">
                 <li class="button">
-                    <a href="../index.php">
+                    <a href="../../index.php">
                         Home
                     </a>
                     
@@ -91,7 +91,7 @@
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                        echo "<li class='button'><a href='../Log/log.php'>Log in</a></li>";
                     }
                 ?>
             </ul>
