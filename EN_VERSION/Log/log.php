@@ -11,8 +11,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Home.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='log.css'>
     <link rel="icon" type="image/png" href="img/factorypng.png">
+    <script src='log.js'></script>
 </head>
 <body>
     
@@ -24,13 +25,13 @@
         <nav class="menuNav">
 
             <div class="leftSide">
-                <img src="img/logoIM.png" alt="logoIM" class="logoIM">
+                <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
                     THE NEW INDUSTRY
                 </p>
 
-                <form action="Config/languages.includes.php" method="post">
+                <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
                         <option value="EN">EN</option>
                         <option value="FR">FR</option>
@@ -42,61 +43,46 @@
 
 
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            
             <!-- Menu de navigation -->
-
             <ul class="nav-links">
-                <!--
+
                 <li class="button">
-                    <a href="index.php">
+                    <a href="../index.php">
                         Home
                     </a>
                     
                 </li>
-                -->
-
+                
                 <li class="button">
-                    <a href="Solution/Solution.php">
+                    <a href="../Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="About/About.php">
+                    <a href="../About/About.php">
                         About
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="Contact/Contact.php">
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
                 </li>
 
-                <?php
-                
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='Dashboard/Dashboard.php'>Dashboard</a></li>";
+                <li class="button">
+                    <a href="log.php" style='text-decoration:underline'>
+                        Login
+                    </a>
+                </li>
 
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
-
-                        if($isAdmin == 1){
-                            echo "<li class='button'><a href='AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
-                        }
-
-                        echo "<li class='button'><a href='Home/php.scripts/logout.php'>Log out</a></li>";
-                    }
-                    else{
-                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='index.php'>Log in</a></li>";
-                    }
-                ?>
             </ul>
+
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -131,14 +117,11 @@
     <div class="homeLoginPreview">
         
         <div class="homeLoginFormContainer">
-            <div class="homeLoginFormTitle">
-                <h2>LOGIN ✔️</h2>
-            </div>
-            
+            <h4 class="homeLoginFormTitle">LOGIN ✔️</h4>
 
-            <form action="Home/php.scripts/login.php" method="post" class="homeLoginForm">
+            <form action="php.scripts/login.php" method="post" class="homeLoginForm">
                 <div class="emailInput">
-                    <div>
+                    <div class="emailLabel">
                         <label for="email">Email 📫</label>
                     </div>
 
@@ -148,7 +131,7 @@
                 </div>
                 
                 <div class="passwordInput">
-                    <div>
+                    <div class="passwordLabel">
                         <label for="password">Password 🔒</label>
                     </div>
                     
@@ -163,12 +146,16 @@
             </form>
 
             <?php 
+                //gestion des erreurs en GET
                 if(isset($_GET["error"])){
                     if($_GET["error"] == "emptyinput"){
                         echo "<h1>You missed a blank, fill the other !</h1>";
                     }
                     else if($_GET["error"] == "wronglogin"){
                         echo "<h1>Incorrect login information !</h1>";
+                    }
+                    else if($_GET["error"] == "notaccepted"){
+                        echo "<h1>You haven't been accepted to join yet. Wait for an Administrator answer.</h1>";
                     }
                 }
 
@@ -188,7 +175,7 @@
         </div>
 
         <div class="homePreviewContainer">
-            <h2 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h2>
+            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h4>
         </div>
 
     </div>
@@ -214,7 +201,7 @@
         </ul>
 
         <div class="poweredByOversight">
-            <p class="poweredBy">Powered by <a href="About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
         </div>
     </footer>
 
