@@ -172,9 +172,9 @@ nav.menuNav img.logoIM{
 /* Contenu */
 .panel{
     padding: 5px;
-    margin: 50px;
+    margin: 5%;
     margin-top: 110px;
-    width: 100%;
+    width: 90%;
     align-self: center;
     height: auto;
     display: flex;

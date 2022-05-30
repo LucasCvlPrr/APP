@@ -119,7 +119,7 @@
         
     <div class="RegisterFormContainer" id="RegisterFormContainer">
         <div class="RegisterFormTitle">
-            <h2>Register</h2>
+            <h1 class="title">Register</h1>
         </div>
 
         <form action="php.scripts/register.include.php" method="post">

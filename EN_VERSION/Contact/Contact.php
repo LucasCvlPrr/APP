@@ -127,7 +127,7 @@
     <!-- Contenu -->
     <div class="ContactFormContainer">
         <div class="ContactFormTitle">
-            <h4>Contact us</h4>
+            <h1 class='title'>Contact us</h1>
         </div>
         
 

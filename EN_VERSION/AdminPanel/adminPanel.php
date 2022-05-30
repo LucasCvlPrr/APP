@@ -11,6 +11,7 @@ session_start();
     <link rel="icon" type="image/png" href="../img/factorypng.png">
     <title>Admin-Panel</title>
     <link rel="stylesheet" type='text/css' media='screen' href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -87,6 +88,7 @@ session_start();
                     //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
                     echo "<li class='button'><a href='../Log/log.php'>Log in</a></li>";
                 }
+                
             ?>
 
             </ul>
@@ -179,7 +181,7 @@ session_start();
                                             <td>" . $user['last_name']. "</td>
                                             <td>" . $user['first_name']. "</td>
                                             <td>" . $user['email']. "</td>
-                                            <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
+                                            <td><a class='confirmation' id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
                                         </tr>
                                         ";
                                     }
@@ -196,7 +198,7 @@ session_start();
                                             <td>" . $user['last_name']. "</td>
                                             <td>" . $user['first_name']. "</td>
                                             <td>" . $user['email']. "</td>
-                                            <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
+                                            <td><a class='confirmation' id='ban_link' href='ban.php?id= ". $user['id'] . "';>Ban this user</a></td>
                                         </tr>
                                         ";
                                     }
@@ -232,7 +234,7 @@ session_start();
                                             <td>" . $user['pseudo']. "</td>
                                             <td>" . $user['email']. "</td>
                                             <td><a id='accept_link' href='acceptMembers.php?id= ". $user['id'] . "';>Accept</a></td>
-                                            <td><a id='ban_link' href='ban.php?id= ". $user['id'] . "';>Dismiss</a></td>
+                                            <td><a class='confirmation' id='ban_link' href='ban.php?id= ". $user['id'] . "';>Dismiss</a></td>
                                         </tr>
                                         ";
                                 }
@@ -257,7 +259,7 @@ session_start();
                                                     <p>By: " . $message['first_name']. " ". $message['last_name']." </p>
                                                     <p>Email: " . $message['email'] . " </p>
                                                     <p>Message: " . $message['msg'] . " </p>
-                                                    <a id='suppr_link' href='supprContact.php?id= ". $message['id'] . "';>Delete</a>
+                                                    <a class='confirmation' id='suppr_link' href='supprContact.php?id= ". $message['id'] . "';>Delete</a>
                                                 </div>
                                                 ";
                                 
@@ -267,6 +269,11 @@ session_start();
 
         </div>
     </div>
+    <script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Are you sure?');
+    });
+    </script>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->

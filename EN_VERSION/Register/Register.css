@@ -168,6 +168,15 @@ nav.menuNav ul li.button:hover a{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
+.title{
+    margin: 0;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+    background-color: #74b2dc;
+    border-radius: 20px 20px 0px 0px;
+}
+
 .RegisterFormContainer{
     margin-top: 130px;
     margin-bottom: 50px;
