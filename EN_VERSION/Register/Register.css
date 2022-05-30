@@ -169,8 +169,8 @@ nav.menuNav ul li.button:hover a{
 /* Contenu */
 
 .RegisterFormContainer{
-    margin-top: 150px;
-    margin-bottom: 100px;
+    margin-top: 130px;
+    margin-bottom: 50px;
     background: white;
     box-shadow: 0px 0px 15px black;
     border-radius: 20px;
@@ -201,6 +201,16 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+label{
+    font-size: 18px;
+}
+
+.firstInputZone{
+    margin: 35px;
+    margin-top: 20px;
+    width: 350px;
 }
 
 .inputZone {
@@ -284,10 +294,36 @@ input {
     cursor: pointer;
 }
 
-.errorMsg {
-    color: white;
+.passwordConditions{
+    display: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: red;
+}
+
+.stmtFailed{
+    display: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: red;
+}
+
+.bienvenue{
+    display: none;
+    padding: 10px;
+    margin-top: 150px;
+    margin-bottom: 200px;
+    background: white;
+    box-shadow: 0px 0px 15px black;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.bienvenue h3{
     text-align: center;
-    padding: 40px;
+    color: #23a6d5;
 }
 
 /*************************************************************************************************************************************************************************************************************************************************************************/

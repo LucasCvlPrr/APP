@@ -132,11 +132,14 @@
     <div class="homeLoginPreview">
         
         <div class="homeLoginFormContainer">
-            <h4 class="homeLoginFormTitle">LOGIN ✔️</h4>
+            <div class="homeLoginFormTitle">
+                <h2>LOGIN ✔️</h2>
+            </div>
+            
 
             <form action="Home/php.scripts/login.php" method="post" class="homeLoginForm">
                 <div class="emailInput">
-                    <div class="emailLabel">
+                    <div>
                         <label for="email">Email 📫</label>
                     </div>
 
@@ -146,7 +149,7 @@
                 </div>
                 
                 <div class="passwordInput">
-                    <div class="passwordLabel">
+                    <div>
                         <label for="password">Password 🔒</label>
                     </div>
                     
@@ -186,7 +189,7 @@
         </div>
 
         <div class="homePreviewContainer">
-            <h4 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h4>
+            <h2 class="homePreviewContainerTitle">What you get on your personnal dashboard 📷</h2>
         </div>
 
     </div>
