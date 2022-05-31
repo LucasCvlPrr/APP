@@ -11,15 +11,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='home.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='log.css'>
     <link rel="icon" type="image/png" href="img/factorypng.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src='log.js'></script>
 </head>
 <body>
-
+    
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- En-tête de page -->
 
@@ -28,75 +25,62 @@
         <nav class="menuNav">
 
             <div class="leftSide">
-                <img src="img/logoIM.png" alt="logoIM" class="logoIM">
+                <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
                     L'INDUSTRIE 2.0
                 </p>
 
-                <form action="Config/languages.includes.php" method="post">
+                <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
                         <option value="FR">FR</option>
                         <option value="EN">EN</option>
                     </select>
-                    <input type="hidden" name="URL" id="URL" value="../index.php">
+                    <input type="hidden" name="URL" id="URL" value="Log/log.php">
                     <input type="hidden" name="formsend" value="submit">
                 </form>
             </div>
 
-            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-            <!-- Menu de navigation -->
 
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            
+            <!-- Menu de navigation -->
             <ul class="nav-links">
-                <li class="button" style='text-decoration:underline'>
-                    <a href="index.php">
+
+                <li class="button">
+                    <a href="../index.php">
                         Accueil
                     </a>
                     
                 </li>
                 
                 <li class="button">
-                    <a href="Solution/Solution.php">
+                    <a href="../Solution/Solution.php">
                         Solution
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="About/About.php">
+                    <a href="../About/About.php">
                         A propos
                     </a>
                     
                 </li>
 
                 <li class="button">
-                    <a href="Contact/Contact.php">
+                    <a href="../Contact/Contact.php">
                         Contact
                     </a>
                     
                 </li>
 
-                <?php
-                
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='Dashboard/Dashboard.php'>Dashboard</a></li>";
+                <li class="button">
+                    <a href="log.php" style='text-decoration:underline'>
+                        Connexion
+                    </a>
+                </li>
 
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
-
-                        if($isAdmin == 1){
-                            echo "<li class='button'><a href='AdminPanel/adminPanel.php'>Administration</a></li>";
-                        }
-
-                        echo "<li class='button'><a href='Log/php.scripts/logout.php'>Déconnexion</a></li>";
-                    }
-                    else{
-                        //<img src="img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='Log/log.php'>Connexion</a></li>";
-                    }
-                ?>
             </ul>
 
             <div class="burger">
@@ -126,77 +110,93 @@
             </script>
         </nav>
     </header>
-    
+
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
 
-    <!-- Top = Gen presentation -->
+    <div class="homeLoginPreview">
+        
+        <div class="homeLoginFormContainer">
+            <div class="homeLoginFormTitle">
+                <h2>CONNEXION ✔️</h2>
+            </div>
+            
+            <form action="php.scripts/login.php" method="post" class="homeLoginForm">
+                <div class="emailInput">
+                    <div>
+                        <label for="email">Email 📫</label>
+                    </div>
 
-	<div class="top">
-        <div class="content">
-            <h4>Bienvenue, nous sommes</h4>
-            <h1>Infinite <span style="color:#74b2dc">Measures.</span></h1>
-            <h3>Nous proposons des solutions technologiques pour le secteur industriel.</h3>
-            <div class="pra">
-                <p style="text-align: center;">
-                    <a class="letStart" href="Log/log.php">Commençons</a>
-                </p>
+                    <div class="email">
+                        <input type="text" name="email" id="email" required size="40px" autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="passwordInput">
+                    <div>
+                        <label for="password">Mot de passe 🔒</label>
+                    </div>
+                    
+                    <div class="password">
+                        <input type="password" name="password" id="password" required size="40px" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="loginBtn">
+                    <button type="submit" name="submit" id="submit">Connexion</button>
+                </div>
+            </form>
+
+            <?php 
+                //gestion des erreurs en GET
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput"){
+                        echo "<h1>You missed a blank, fill the other !</h1>";
+                    }
+                    else if($_GET["error"] == "wronglogin"){
+                        echo "<h1>Incorrect login information !</h1>";
+                    }
+                    else if($_GET["error"] == "notaccepted"){
+                        echo "<h1>You haven't been accepted to join yet. Wait for an Administrator answer.</h1>";
+                    }
+                }
+
+            ?>
+
+            <hr class="loginFormLineSeparator">
+
+            <div class="notRegText">
+                <p>Pas encore inscris ? ⏱</p>
+            </div>
+            
+            <div class="registerBtn">
+                <form method="get" action="../Register/Register.php">
+                    <button type="submit">S'inscrire</button>
+                </form>    
             </div>
         </div>
+
+        <div class="homePreviewContainer">
+            <div class="homePreviewContainerTitle">
+                <h2>Ce que vous verrez sur votre espace personnel 📷</h2>
+            </div>
+            
+        </div>
+
     </div>
 
-    <!-- Bottom = Services -->
-    <div class="service">
-        <div class="title">
-            <h2>Nos Services</h2>
-        </div>
-
-        <div class="box">
-            <div class="card">
-                <i class="fas fa-bars"></i>
-                <h5>Nos solutions</h5>
-                <div class="pra">
-                    <p>Nous développons des systèmes de mesures environnementales afin d'accompagner l'industrie dans sa modernisation et sa trasition écologique. Nous produisons des capteurs connectés qui peuvent être utilisés par les travailleurs de l'industrie.</p>
-                    <br>
-                    <a class="bottomButtons" href="Solution/solution.php">En savoir plus</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <i class="far fa-user"></i>
-                <h5>Personnalisation</h5>
-                <div class="pra">
-                    <p>Nous offrons une plateforme web permettant aux utilisateurs de personnaliser leur expérience. Chaque usine peut connecter ses employés et analyser leurs données à des fins préventives notamment.</p>
-                    <br>
-                    <a class="bottomButtons" href="About/About.php">A propos</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <i class="far fa-bell"></i>
-                <h5>Communication</h5>
-                <div class="pra">
-                    <p>Notre plateforme web intègre un système de communication simplifié. Les administrateurs peuvent rapidement vous venir en aide. Vous pouvez même nous contacter sans vous connecter !</p>
-                    <br>
-                    <a class="bottomButtons" href="Contact/Contact.php">Nous contacter</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="LegalTerms/LegalTerms.php">CGU</a>
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
 
         <div class="poweredByOversight">
-            <p class="poweredBy">Développé par <a href="About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="../About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

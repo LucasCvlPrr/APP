@@ -28,12 +28,12 @@
                 <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
-                    LA NOUVELLE INDUSTRIE
+                    l'INDUSTRIE 2.0
                 </p>
 
                 <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="FR">FR</option>    
+                        <option value="FR">FR</option>
                         <option value="EN">EN</option>
                     </select>
                     <input type="hidden" name="URL" id="URL" value="Register/Register.php">
@@ -77,11 +77,11 @@
                 
                     if(isset($_SESSION["email"])){
                         echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
+                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Déconnexion</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Connexion</a></li>";
+                        echo "<li class='button'><a href='../Log/log.php'>Connexion</a></li>";
                     }
                 ?>
             </ul>
@@ -117,20 +117,19 @@
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
         
-    <div class="RegisterFormContainer">
+    <div class="RegisterFormContainer" id="RegisterFormContainer">
         <div class="RegisterFormTitle">
-            <h4>Register</h4>
+            <h1 class="title">Inscription</h1>
         </div>
-        
 
         <form action="php.scripts/register.include.php" method="post">
-            <div class="inputZone">
+            <div class="firstInputZone">
                 <div>
                     <label for="pseudo">Pseudo</label>
                 </div>
                 
                 <div class="pseudo">
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Your pseudo...">
+                    <input type="text" name="pseudo" id="pseudo" oninput="resetStyle(this)" placeholder="Votre pseudo...">
                 </div>
             </div>
 
@@ -140,7 +139,7 @@
                 </div>
 
                 <div class="last_name">
-                    <input type="text" name="last_name" id="last_name" placeholder="Your last name...">
+                    <input type="text" name="last_name" id="last_name" oninput="resetStyle(this)" placeholder="Votre nom...">
                 </div>
             </div>
             
@@ -150,7 +149,7 @@
                 </div>
                 
                 <div class="first_name">
-                    <input type="text" name="first_name" id="first_name" placeholder="Your first name...">
+                    <input type="text" name="first_name" id="first_name" oninput="resetStyle(this)" placeholder="Votre prénom...">
                 </div>
             </div>
 
@@ -160,7 +159,7 @@
                 </div>
                 
                 <div class="email">
-                    <input type="text" name="email" id="email" placeholder="Your email...">
+                    <input type="text" name="email" id="email" oninput="resetStyle(this)" placeholder="Votre email...">
                 </div>
             </div>
 
@@ -170,7 +169,7 @@
                 </div>
                 
                 <div class="password">
-                    <input type="password" name="password" id="password" oninput="passwdStrength()" placeholder="Your password...">
+                    <input type="password" name="password" id="password" oninput="passwdStrength(); resetStyle(this)" placeholder="Votre mot de passe...">
                 </div>
                 
                 <div id="strength-bar" style="width: 240px"></div>
@@ -178,49 +177,221 @@
 
             <div class="inputZone">
                 <div>
-                    <label for="repeatpassword">Vérification mot de passe</label>
+                    <label for="repeatpassword">Confirmation mot de passe</label>
                 </div>
                 
                 <div class="repeatpassword">
-                    <input type="password" name="repeatpassword" id="repeatpassword" placeholder="Your password... Once again!">
+                    <input type="password" name="repeatpassword" id="repeatpassword" oninput="resetStyle(this)" placeholder="Votre mot de passe... encore un fois !">
                 </div>
             </div>
 
-            
+            <div class="acceptLegalTerms" id="acceptLegalTerms">
+                <input type="checkbox" id="acceptLT" name="acceptLT">
+                <label for="acceptLT" id="acceptLTLabel">Je reconnais avoir lu et accepte les <a href="../LegalTerms/LegalTerms.php">Condition Générale d'Utilisation</a></label>
+            </div>
+
             <div class="registerBtn">
                 <button type="submit" name="formsend" id="formsend">S'inscrire</button>
+            </div>
+
+            <div class="passwordConditions" id="passwordConditions">
+                <p>
+                Le mot de passe doit contenir au moins 8 caractères,
+                1 majuscule, 1 chiffre, et 1 caractère spécial !
+                </p>
+            </div>
+
+            <div class="stmtFailed" id="stmtFailed">
+                <p>
+                Quelque chose semble bloquer... Veuillez réessayer !
+                </p>
             </div>
 
         </form>
     </div>
 
-    <div class="errorMsg">
-        <?php 
+    <div class="bienvenue" id="bienvenue">
+        <h3 class="msgDeBienvenue">
+            Merci pour votre intérêt !
+        </h3>
+
+        <h4>Votre demande d'inscription a été envoyée avec succès. Nos équipes vérifieront votre compte dans les prochaines 24h.</h4>
+        <h4>Si vous ne recevez aucune information supplémentaire de notre part d'ici 24h, n'hésitez pas à nous contacter via l'adresse suivante : help@infinite-measures.com.</h4>
+    </div>
+
+    <div>
+        <?php
             if(isset($_GET["error"])){
+
+                if(isset($_GET["ps"])){
+                    $ps = $_GET["ps"];
+                }
+
+                if(isset($_GET["ln"])){
+                    $ln = $_GET["ln"];
+                }
+
+                if(isset($_GET["fn"])){
+                    $fn = $_GET["fn"];
+                }
+
+                if(isset($_GET["em"])){
+                    $em = $_GET["em"];
+                }
+
+                if(isset($_GET["pw"])){
+                    $pw = $_GET["pw"];
+                }
+
+                if(isset($_GET["rp"])){
+                    $rp = $_GET["rp"];
+                }
+
+                if(isset($_GET["lt"])){
+                    $lt = $_GET["lt"];
+                }
+
                 if($_GET["error"] == "emptyinput"){
-                    echo "<h1>You missed a blank, fill the other !</h1>";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        if('$ps' == ''){
+                            document.getElementById('pseudo').style.borderColor = 'red';
+                            document.getElementById('pseudo').placeholder = 'Veuillez ajoutez un pseudo';
+                        }
+                        if('$ln' == ''){
+                            document.getElementById('last_name').style.borderColor = 'red';
+                            document.getElementById('last_name').placeholder = 'Veuillez ajouter un nom';
+                        }
+                        if('$fn' == ''){
+                            document.getElementById('first_name').style.borderColor = 'red';
+                            document.getElementById('first_name').placeholder = 'Veuillez ajouter un prénom';
+                        }
+                        if('$em' == ''){
+                            document.getElementById('email').style.borderColor = 'red';
+                            document.getElementById('email').placeholder = 'Veuillez ajouter un email';
+                        }
+                        if('$pw' == ''){
+                            document.getElementById('password').style.borderColor = 'red';
+                            document.getElementById('password').placeholder = 'Veuillez ajouter un mot de passe';
+                        }
+                        if('$rp' == ''){
+                            document.getElementById('repeatpassword').style.borderColor = 'red';
+                            document.getElementById('repeatpassword').placeholder = 'Veuillez confirmer votre password';
+                        }
+                        if('$lt' == ''){
+                            document.getElementById('acceptLegalTerms').style.borderRadius = '10px';
+                            document.getElementById('acceptLegalTerms').style.boxShadow = '0px 0px 10px red';
+                        }
+
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+                        </script>
+                    ";
                 }
                 else if($_GET["error"] == "invalidpseudo"){
-                    echo "<h1>Invalid Pseudo, choose another one!</h1>";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').style.borderColor = 'red';
+                        document.getElementById('pseudo').placeholder = 'Merci de n'utiliser que des caractères alphanumériques';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+                        </script>
+                    ";
                 }
                 else if($_GET["error"] == "invalidemail"){
-                    echo "<h1>Invalid Email, choose another one!</h1>";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').style.borderColor = 'red';
+                        document.getElementById('email').placeholder = 'Votre email est invalide';
+                        </script>
+                    ";
                 }
                 else if($_GET["error"] == "invalidpasswd"){
-                    echo "<h1>Password must be at least 8 characters long, 
-                    contain 1 upper case, 1 lower case, 1 number and 1 special character";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+
+                        document.getElementById('password').style.borderColor = 'red';
+                        document.getElementById('password').placeholder = 'Mot de passe invalide ! Verifier les conditions plus bas !';
+                        document.getElementById('passwordConditions').style.display = 'block';
+                        </script>
+                    ";
                 }
                 else if($_GET["error"] == "invalidpasswdmatch"){
-                    echo "<h1>Passwords don't match, try again!</h1>";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+
+                        document.getElementById('repeatpassword').style.borderColor = 'red';
+                        document.getElementById('repeatpassword').placeholder = 'Les mots de passe ne correspondent pas, veuillez réessayer !';
+                        </script>
+                    ";
+                }
+                else if($_GET["error"] == "ltnotchecked"){
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+
+                        document.getElementById('acceptLegalTerms').style.borderRadius = '10px';
+                        document.getElementById('acceptLegalTerms').style.boxShadow = '0px 0px 10px red';
+                        </script>
+                    ";
+
+                    echo "<h1></h1>";
                 }
                 else if($_GET["error"] == "pseudooremailtaken"){
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+                        </script>
+                    ";
+
                     echo "<h1>Pseudo or Email already used...</h1>";
                 }
                 else if($_GET["error"] == "stmtfailed"){
-                    echo "<h1>Something went wrong, try again!</h1>";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('pseudo').value = '$ps';
+                        document.getElementById('last_name').value = '$ln';
+                        document.getElementById('first_name').value = '$fn';
+                        document.getElementById('email').value = '$em';
+                        </script>
+                    ";
                 }
                 else if($_GET["error"] == "none"){
-                    echo "<h1>You have signed up!</h1>";
+
+                    echo "
+                        <script type=\"text/javascript\">
+                        document.getElementById('RegisterFormContainer').style.display = 'none';
+                        document.getElementById('bienvenue').style.display = 'block';
+                        </script>
+                    ";
                 }
             }
 
@@ -229,26 +400,16 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
-
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions Légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="../About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

@@ -8,9 +8,6 @@ let parameters = {
 }
 
 
-
-
-
 function passwdStrength(){
     var strenghBar = document.getElementById("strength-bar");
 
@@ -21,7 +18,7 @@ function passwdStrength(){
     parameters.number = (/[0-9]+/.test(password))?true:false;
     parameters.specChars = (/[!@#$%&*()_+\-=\[\]{};:|.<>\/?]+/.test(password))?true:false;
     
-    console.log(Object.values(parameters));
+    // console.log(Object.values(parameters));
 
     var uppercaseNum = 0;
     var lowercaseNum = 0;
@@ -50,8 +47,9 @@ function passwdStrength(){
 
     possibleCharNum = uppercaseNum + lowercaseNum + numberNum + specCharsNum;
 
-    console.log(possibleCharNum);
-    console.log(passwordLg);
+    // console.log(possibleCharNum);
+    // console.log(passwordLg);
+
 
     strengh = Math.ceil(passwordLg * Math.log2(possibleCharNum));
 
@@ -59,13 +57,14 @@ function passwdStrength(){
         strengh = 120;
     }
 
-    console.log(strengh);
+    // console.log(strengh);
 
     barWidth = strengh + (4*passwordLg);
 
     barWidthPercentage = (barWidth*100)/240;
 
-    console.log(barWidthPercentage);
+    // console.log(barWidthPercentage);
+
 
     if(barWidthPercentage < 20){
 
@@ -87,6 +86,12 @@ function passwdStrength(){
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+function resetStyle(ele){
+    var id = ele.id;
+    if(ele.value != ''){
+        document.getElementById(id).style.borderColor = 'black';
+    }
+}

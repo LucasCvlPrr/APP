@@ -36,7 +36,7 @@
                         <option value="EN">EN</option>
                         <option value="FR">FR</option>
                     </select>
-                    <input type="hidden" name="URL" id="URL" value="index.php">
+                    <input type="hidden" name="URL" id="URL" value="Log/log.php">
                     <input type="hidden" name="formsend" value="submit">
                 </form>
             </div>
@@ -191,19 +191,10 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
+
 
         <div class="poweredByOversight">
             <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>

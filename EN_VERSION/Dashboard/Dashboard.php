@@ -25,7 +25,7 @@
             <img src="../img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
         
             <p class="slogan">
-                DASHBOARD
+                THE NEW INDUSTRY
             </p>
 
             <form action="../Config/languages.includes.php" method="post">
@@ -134,22 +134,22 @@
         <form class="containerInputsMod" action="editProfile.scripts/editProfile.php" method="POST">
             <div class='DivMod'>
                 <label>Email:</label>
-                <input class='email' id='inputMod' type="text" name="email" autocomplete="off" placeholder="New email ...">
+                <input class='email' id='inputMod' type="text" name="email" autocomplete="off" placeholder="New email...">
             </div>
 
             <div class='DivMod'>
                 <label>Pseudo:</label>
-                <input class='pseudo' id='inputMod' type="text" name="pseudo" autocomplete="off" placeholder="New pseudo ...">
+                <input class='pseudo' id='inputMod' type="text" name="pseudo" autocomplete="off" placeholder="New pseudo...">
             </div>
 
             <div class='DivMod'>
                 <label>Last Name:</label>
-                <input class='last_name' id='inputMod' type="text" name="last_name" autocomplete="off" placeholder="New last name ...">
+                <input class='last_name' id='inputMod' type="text" name="last_name" autocomplete="off" placeholder="New last name...">
             </div>
 
             <div class='DivMod'>
                 <label>First Name:</label>
-                <input class='first_name' id='inputMod' type="text" name="first_name" autocomplete="off" placeholder="New first name ...">
+                <input class='first_name' id='inputMod' type="text" name="first_name" autocomplete="off" placeholder="New first name...">
             </div>
                 <input type="submit" name="save" class='edit_profile_btn'>
         </form>
@@ -265,19 +265,10 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
+
 
         <div class="poweredByOversight">
             <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>

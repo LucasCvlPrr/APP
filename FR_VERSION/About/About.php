@@ -28,12 +28,12 @@
                 <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
-                    A PROPOS
+                    L'INDUSTRIE 2.0
                 </p>
 
                 <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="FR">FR</option>    
+                        <option value="FR">FR</option>
                         <option value="EN">EN</option>
                     </select>
                     <input type="hidden" name="URL" id="URL" value="About/About.php">
@@ -58,14 +58,14 @@
                     </a>
                     
                 </li>
-<!--
+
                 <li class="button">
-                    <a href="../About/About.php">
+                    <a href="../About/About.php" style='text-decoration:underline'>
                         A propos
                     </a>
                     
                 </li>
--->
+
                 <li class="button">
                     <a href="../Contact/Contact.php">
                         Contact
@@ -84,14 +84,14 @@
                         $isAdmin = $recupUser->fetch()['isAdmin'];
 
                         if($isAdmin == 1){
-                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Admin-Panel</a></li>";
+                            echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Administration</a></li>";
                         }
 
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Log out</a></li>";
+                        echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Déconnexion</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Log in</a></li>";
+                        echo "<li class='button'><a href='../Log/log.php'>Connexion</a></li>";
                     }
                 ?>
             </ul>
@@ -126,55 +126,41 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <hr class="firstLineSeparator">
+    <div class='container_gl'>
+        <div class='content'>
 
-    <h1>A propos de notre entreprise</h1>
+        <h1>A propos de notre entreprise</h1>
 
-    <h3>Qu'est-ce-qu'<span style="color:#74b2dc">Infinite Measures</span>?</h3>
+        <h3>Qu'est-ce-qu'<span style="color:#74b2dc">Infinite Measures</span>?</h3>
 
-    <p>Infinite Measures est une société à taille humaine.</p>
-    <p>Nous sommes spécialisés dans le développement de solutions technologiques.</p>
-    
-    <hr class="secondLineSeparator">
+        <p><strong>Infinite Measures</strong> est une société à taille humaine.</p>
+        <p>Nous sommes spécialisés dans le développement de solutions technologiques.</p>
+        
+        <hr class="secondLineSeparator">
 
-    <h3>Comment nous travaillons ?</h3>
+        <h3>Comment nous travaillons ?</h3>
 
-    <p>Nous sommes particulièrement attachés aux besoins de chacun de nos clients.</p>
-    <p>Notre équipe est composée d'ingénieurs expérimentés dans le développement de solutions sur mesure,</p>
-    <p>et nous travaillons ensemble afin de proposer la meilleure solution pour tous.</p>
-    <p>Nous collaborons avec les ingénieurs de <strong><span style="color:#74b2dc">Oversight</span></p>
-    <p>pour le développement de notre solution sur la sécurité de l'industrie.</p>
+        <p>Nous sommes particulièrement attachés aux besoins de chacun de nos clients.</p>
+        <p>Notre équipe est composée d'ingénieurs expérimentés dans le développement de solutions sur mesure,</p>
+        <p>et nous travaillons ensemble afin de proposer la meilleure solution pour tous.</p>
+        <p>Nous collaborons avec les ingénieurs de <strong><span style="color:#74b2dc">Oversight</span></p>
+        <p>pour le développement de notre solution sur la sécurité de l'industrie.</p>
 
-
-    <hr class="secondLineSeparator">
-
-    <div class="rect">
-        <h1>Il nous font confiance...<br><br><br><br><br><br></h1>
+        </div>
     </div>
-
-    <hr class="firstLineSeparator">
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

@@ -39,7 +39,7 @@
                         <option value="EN">EN</option>
                         <option value="FR">FR</option>
                     </select>
-                    <input type="hidden" name="URL" id="URL" value="EN_VERSION/Solution/Solution.php">
+                    <input type="hidden" name="URL" id="URL" value="index.php">
                     <input type="hidden" name="formsend" value="submit">
                 </form>
             </div>
@@ -147,7 +147,7 @@
 
     <!-- Bottom = Services -->
     <div class="service">
-        <div>
+        <div class="title">
             <h2>Our Services</h2>
         </div>
 
@@ -191,17 +191,7 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="EN_VERSION/LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
 

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Infinite Measures</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/png" href="../img/factorypng.png">
     <link rel='stylesheet' type='text/css' media='screen' href='Dashboard.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">//on importe JQUERY pour rendre le chat instantanné</script>
 </head>
@@ -23,12 +25,12 @@
             <img src="../img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
         
             <p class="slogan">
-                DASHBOARD
+                L'INDUSTRIE 2.0
             </p>
 
             <form action="../Config/languages.includes.php" method="post">
                 <select name='language' id="language" onchange='this.form.submit()'>
-                    <option value="FR">FR</option>    
+                    <option value="FR">FR</option>
                     <option value="EN">EN</option>
                 </select>
                 <input type="hidden" name="URL" id="URL" value="Dashboard/Dashboard.php">
@@ -38,6 +40,13 @@
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
             <!-- Menu de navigation -->
             <ul class="nav-links">
+
+                <li class="button">
+                    <a href="../index.php">
+                        Accueil
+                    </a>
+
+                </li>
 
                 <li class="button">
                     <a href="../Solution/Solution.php">
@@ -63,9 +72,9 @@
                 <?php
 
                 if(isset($_SESSION["id"])){
-                    //echo "<li class='button'><a href='Dashboard.php'>Dashboard</a></li>";
+                    echo "<li class='button' style='text-decoration:underline'><a href='Dashboard.php'>Dashboard</a></li>";
 
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
                     $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
                     $recupUser->execute(array($_SESSION['id']));
                     $isAdmin = $recupUser->fetch()['isAdmin'];
@@ -74,11 +83,11 @@
                         echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Administration</a></li>";
                     }
 
-                    echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
+                    echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Déconnexion</a></li>";
                 }
                 else{
                     //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                    echo "<li class='button'><a href='../index.php'>Connexion</a></li>";
+                    echo "<li class='button'><a href='../Log/log.php'>Connexion</a></li>";
                 }
             ?>
 
@@ -121,26 +130,26 @@
     <!-- Modal content -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h1 style='text-decoration:underline'>Modifiez vos informations personnelles</h1>
+        <h1 style='text-decoration:underline'>Modifiez vos informations</h1>
         <form class="containerInputsMod" action="editProfile.scripts/editProfile.php" method="POST">
             <div class='DivMod'>
-                <label>Email :</label>
-                <input class='email' id='inputMod' type="text" name="email" autocomplete="off" placeholder="New email ...">
+                <label>Email:</label>
+                <input class='email' id='inputMod' type="text" name="email" autocomplete="off" placeholder="Nouvel email...">
             </div>
 
             <div class='DivMod'>
-                <label>Pseudo :</label>
-                <input class='pseudo' id='inputMod' type="text" name="pseudo" autocomplete="off" placeholder="New pseudo ...">
+                <label>Pseudo:</label>
+                <input class='pseudo' id='inputMod' type="text" name="pseudo" autocomplete="off" placeholder="Nouveau pseudo...">
             </div>
 
             <div class='DivMod'>
-                <label>Nom :</label>
-                <input class='last_name' id='inputMod' type="text" name="last_name" autocomplete="off" placeholder="New last name ...">
+                <label>Nom:</label>
+                <input class='last_name' id='inputMod' type="text" name="last_name" autocomplete="off" placeholder="Nouveau nom...">
             </div>
 
             <div class='DivMod'>
-                <label>Prénom :</label>
-                <input class='first_name' id='inputMod' type="text" name="first_name" autocomplete="off" placeholder="New first name ...">
+                <label>Prénom:</label>
+                <input class='first_name' id='inputMod' type="text" name="first_name" autocomplete="off" placeholder="Nouveau prénom...">
             </div>
                 <input type="submit" name="save" class='edit_profile_btn'>
         </form>
@@ -148,13 +157,31 @@
 
     </div>
 
+    <div class="graph_global_container">
+        <div class="graph_section_title">
+            <h1 class="title">Vos mesures</h1>
+        </div>
+
+        <div class="graph_container">
+            <div class="graph_pollution_sensor">
+            </div>
+
+            <div class="graph_sound_sensor">
+            </div>
+
+            <div class="graph_heart_sensor">
+            </div>
+        </div>
+    </div>
+    </div>
+
     <div class="dash">
     <div class="global_container">
             <div class="info_user">
                 <?php
-                    echo '<h1 class="profile_title">Profile</h1>';
+                    echo '<h1 class="profile_title">Profil</h1>';
 
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
 
                     if(isset($_SESSION["id"])){
                         $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
@@ -189,7 +216,7 @@
                 </div>
             </div>
             <div class="message_container">
-                <h1 class="live_chat_title">Chat en direct</h1>
+                <h1 class="live_chat_title">Messagerie en direct</h1>
                     <div id="messages" class="messages">
                         <!-- c'est ici qu'on affiche les messages en JS -->
                     </div>
@@ -203,24 +230,6 @@
                     
                     </form>
             </div>
-    </div>
-
-    <div class="graph_global_container">
-        <div class="graph_section_title">
-            <h1 class="title">Vos mesures</h1>
-        </div>
-
-        <div class="graph_container">
-            <div class="graph_pollution_sensor">
-            </div>
-
-            <div class="graph_sound_sensor">
-            </div>
-
-            <div class="graph_heart_sensor">
-            </div>
-        </div>
-    </div>
     </div>
 
     <script>
@@ -256,22 +265,13 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions Légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="../About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
     

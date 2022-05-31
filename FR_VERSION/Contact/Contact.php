@@ -27,12 +27,12 @@
                 <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
-                    THE NEW INDUSTRY
+                    L'INDUSTRIE 2.0
                 </p>
 
                 <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="FR">FR</option>    
+                        <option value="FR">FR</option>
                         <option value="EN">EN</option>
                     </select>
                     <input type="hidden" name="URL" id="URL" value="Contact/Contact.php">
@@ -63,14 +63,14 @@
                     </a>
                     
                 </li>
-<!--
+
                 <li class="button">
-                    <a href="../Contact/Contact.php">
+                    <a href="../Contact/Contact.php" style='text-decoration:underline'>
                         Contact
                     </a>
                     
                 </li>
--->
+
 
                 <?php
                 
@@ -86,11 +86,11 @@
                             echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Administration</a></li>";
                         }
 
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
+                        echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Déconnexion</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Connexion</a></li>";
+                        echo "<li class='button'><a href='../Log/log.php'>Connexion</a></li>";
                     }
                 ?>
             </ul>
@@ -127,7 +127,7 @@
     <!-- Contenu -->
     <div class="ContactFormContainer">
         <div class="ContactFormTitle">
-            <h4>Nous contactez</h4>
+            <h1 class='title'>Nous contacter</h1>
         </div>
         
 
@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="first_name">
-                    <input type="text" id="first_name" name="first_name" placeholder="Votre nom...">
+                    <input type="text" id="first_name" name="first_name" placeholder="Votre prénom...">
                 </div>
             </div>
             
@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="last_name">
-                    <input type="text" id="last_name" name="last_name" placeholder="Votre prénom...">
+                    <input type="text" id="last_name" name="last_name" placeholder="Votre nom...">
                 </div>
             </div>
 
@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="message">
-                    <textarea id="message" name="message" placeholder="Votre message..." ></textarea>
+                    <textarea id="message" name="message" placeholder="Ecrivez quelque chose..." ></textarea>
                 </div>
             </div>
             
@@ -186,13 +186,13 @@
         <?php 
             if(isset($_GET["error"])){
                 if($_GET["error"] == "emptyinput"){
-                    echo "<h1>You missed a blank, fill the other !</h1>";
+                    echo "<h1>Vous avez oubliez un champ !</h1>";
                 }
                 else if($_GET["error"] == "invalidemail"){
-                    echo "<h1>Invalid Email, choose another one!</h1>";
+                    echo "<h1>Email invalide, choisissez en un autre !</h1>";
                 }
                 else if($_GET["error"] == "none"){
-                    echo "<h1>Thank you for your interest!</h1>";
+                    echo "<h1>Merci de l'intérêt que vous nous portez !</h1>";
                 }
             }
 
@@ -205,22 +205,13 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions Légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="../About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

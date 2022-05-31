@@ -147,7 +147,7 @@
                 exit();
             }
             else {
-                header("location: ../log?error=notaccepted");
+                header("location: ../log.php?error=notaccepted");
                 exit();
             }
 

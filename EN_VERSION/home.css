@@ -255,6 +255,13 @@ h5{
 	align-items: center;
 	min-height: 400px;
 }
+
+.title{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
 .card{
 	height: 365px;
 	width: 335px;

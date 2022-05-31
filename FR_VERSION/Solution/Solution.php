@@ -28,12 +28,12 @@
                 <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
-                    LA NOUVELLE INDUSTRIE
+                    L'INDUSTRIE 2.0
                 </p>
 
                 <form action="../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="FR">FR</option>    
+                        <option value="FR">FR</option>
                         <option value="EN">EN</option>
                     </select>
                     <input type="hidden" name="URL" id="URL" value="Solution/Solution.php">
@@ -51,14 +51,14 @@
                     </a>
                     
                 </li>
-                <!--
+                
                 <li class="button">
-                    <a href="../Solution/Solution.php">
+                    <a href="../Solution/Solution.php" style='text-decoration:underline'>
                         Solution
                     </a>
                     
                 </li>
--->
+
                 <li class="button">
                     <a href="../About/About.php">
                         A propos
@@ -87,11 +87,11 @@
                             echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Administration</a></li>";
                         }
 
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
+                        echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Déconnexion</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Connexion</a></li>";
+                        echo "<li class='button'><a href='../Log/log.php'>Connexion</a></li>";
                     }
                 ?>
             </ul>
@@ -132,10 +132,14 @@
         <div class="pollutionSensor">
             <br>
             <img class="pollutionImg" src="../img/co2.PNG" alt="pollutionImg">
-            <h4 class="pollutionSensorTitle">CAPTEUR DE GAZ</h4>
+            <h4 class="pollutionSensorTitle">Capteur de pollution</h4>
             <br>
             <div class="pollutionOverlay">
-                <div class="pollutionOverlayText">Description du capteur de gaz</div>
+                <p class="pollutionOverlayText">
+                    Les sites industriels sont la deuxième plus grande source de pollution en France. 
+                    Il est nécessaire de surveiller la production de gaz néfastes en industrie. 
+                    Notre capteur a été développé pour protéger au mieux nos utilisateurs de la qualité de l’air qu’ils respirent.
+                </p>
             </div>
         </div>
 
@@ -143,22 +147,28 @@
         <div class="soundSensor">
             <br>
             <img class="soundImg" src="../img/sound.PNG" alt="soundImg">
-            <h4 class="soundSensorTitle">CAPTEUR SONORE</h4>
+            <h4 class="soundSensorTitle">SOUND SENSOR</h4>
             <br>
 
             <div class="soundOverlay">
-                <div class="soundOverlayText">Description du capteur sonore</div>
+                <p class="soundOverlayText">
+                Le son bruyant, que produisent les sites industriels, peut être nuisible pour les personnes évoluant dans cet environnement de travail.
+                Notre capteur sonore permet aux utilisateurs de surveiller la qualité du son et de les prévenir de certaines menaces et de sons nuisibles.
+                </p>
             </div>
         </div>
 
         <div class="heartBeatSensor">
             <br>
             <img class="heartBeatImg" src="../img/heartBeat.png" alt="heartBeatImg">
-            <h4 class="heartBeatSensorTitle">CAPTEUR CARDIAQUE</h4>
+            <h4 class="heartBeatSensorTitle">HEART BEAT SENSOR</h4>
             <br>
 
             <div class="heartOverlay">
-                <div class="heartOverlayText">Description du capteur cardiaque</div>
+                <p class="heartOverlayText">
+                    Notre capteur cardiaque relève la fréquence cardiaque de nos utilisateurs afin de surveiller leur santé et les risques qui peuvent survenir. 
+                    Les efforts fournis dans un environnement défavorable voire dangereux peuvent porter préjudice.
+                </p>
             </div>
         </div>
 
@@ -166,26 +176,16 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
-
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions Légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="../About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

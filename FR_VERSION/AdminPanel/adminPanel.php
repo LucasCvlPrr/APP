@@ -11,22 +11,25 @@ session_start();
     <link rel="icon" type="image/png" href="../img/factorypng.png">
     <title>Admin-Panel</title>
     <link rel="stylesheet" type='text/css' media='screen' href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
-<header class="header">
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- En-tête de page -->
+    <header class="header">
 
         <nav class="menuNav">
 
-            <img src="../img/logoIM.png" alt="logoIM" class="logoIM">
-
+            <img src="../img/logoIM.png" alt="logoIM" height="125" width="125" class="logoIM">
+        
             <p class="slogan">
-                ADMINSTRATION
+                ADMIN PANEL
             </p>
 
-            <form action="../Config/languages.includes.php" method="post">
+            <form action="../Config/languages.includes.php" method="post" id="pet-select">
                 <select name='language' id="language" onchange='this.form.submit()'>
-                    <option value="FR">FR</option>    
+                    <option value="FR">FR</option>
                     <option value="EN">EN</option>
                 </select>
                 <input type="hidden" name="URL" id="URL" value="AdminPanel/adminPanel.php">
@@ -36,11 +39,12 @@ session_start();
             <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
             <!-- Menu de navigation -->
             <ul class="nav-links">
+
                 <li class="button">
                     <a href="../index.php">
-                        Home
+                        Accueil
                     </a>
-                    
+
                 </li>
 
                 <li class="button">
@@ -65,27 +69,30 @@ session_start();
                 </li>
 
                 <?php
+
+                if(isset($_SESSION["id"])){
+                    echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
+
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE id = ?');
+                    $recupUser->execute(array($_SESSION['id']));
+                    $isAdmin = $recupUser->fetch()['isAdmin'];
+
+                    if($isAdmin == 1){
+                        echo "<li class='button' style='text-decoration:underline'><a href='../AdminPanel/adminPanel.php'>Administration</a></li>";
+                    }
+
+                    echo "<li class='button'><a href='../Log/php.scripts/logout.php'>Déconnexion</a></li>";
+                }
+                else{
+                    //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
+                    echo "<li class='button'><a href='../Log/log.php'>Connexion</a></li>";
+                }
                 
-                    if(isset($_SESSION["email"])){
-                        echo "<li class='button'><a href='../Dashboard/Dashboard.php'>Dashboard</a></li>";
+            ?>
 
-                        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                        $recupUser->execute(array($_SESSION['email']));
-                        $isAdmin = $recupUser->fetch()['isAdmin'];
-
-                        if($isAdmin == 1){
-                            //echo "<li class='button'><a href='../AdminPanel/adminPanel.php'>Administration</a></li>";
-                        }
-
-                        echo "<li class='button'><a href='../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
-                    }
-                    else{
-                        //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../index.php'>Connexion</a></li>";
-                    }
-                ?>
             </ul>
+
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -111,65 +118,175 @@ session_start();
                 }
                 navSlide();
             </script>
-
         </nav>
     </header>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Contenu -->
-    <div class="global">
-        <div class="admin_info">
-            <h3>Bienvenu sur le panneau d'administration !</h3><br>
-            <?php
-                if(isset($_SESSION["email"])){
-                    $email = $_SESSION['email'];
+    <div class='panel'>
+        <div class="global_container">
+            <div class="users_list">
+                    <h1 class="div_title">Rechercher un utilisateur</h1>
+                    <!-- action="rechercheMultiCriteres.php" -->
+                    <form id="research" method="POST">
+                        
+                        <div class="element">
+                            <input id='pseudoForm' type="text" name="pseudo" autocomplete="off" placeholder="Cherchez un pseudo">
+                        </div>
+
+                        <div class="element">
+                            <input id='last_nameForm' type="text" name="last_name" autocomplete="off" placeholder="Cherchez un nom de famille">
+                        </div>
+
+                        <div class="element">
+                            <input id='first_nameForm' type="text" name="first_name" autocomplete="off" placeholder="Chercher un prénom">
+                        </div>
+
+                        <div class="element">
+                            <input id='emailForm' type="text" name="email" autocomplete="off" placeholder="Chercher un email">
+                        </div>
+                            
+                        <div class="submit_div">
+                            <button id='btn-sub' type="submit" name="submit">Rechercher</button>
+                        </div>
+                        
+                    </form>
                     
-                    echo "<p>Votre email : ".$email."</p><br>";
-                    
-                    //récupération 'isAdmin'
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'root', '');
-                    $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
-                    $recupUser->execute(array($_SESSION['email']));
-                    $isAdmin = $recupUser->fetch()['isAdmin'];
-                    echo "<p>isAdmin : ".$isAdmin."</p>";
-                }
-            ?>
+                    <div class="recup_users">
+                        <table>
+                            <tr>
+                                <th>Pseudo</th>
+                                <th>Nom de famille</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Modération</th>
+                            </tr>
+                            <?php
+                            //récupération de tous les utilisateurs
+                            $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                            if(isset($_POST['submit'])){
+                                $pseudo = $_POST['pseudo'];
+                                $email = $_POST['email'];
+                                $last_name = $_POST['last_name'];
+                                $first_name = $_POST['first_name'];
+
+                                $results = $bdd->query("SELECT * FROM users WHERE pseudo LIKE '%{$pseudo}%' AND  email LIKE '%{$email}%' AND  last_name LIKE '%{$last_name}%' AND  first_name LIKE '%{$first_name}%' ");
+                                //$users = $results->fetchAll(); //recup toutes les données
+                                while($user = $results->fetch()){
+                                    if($user['id'] != $_SESSION['id']){
+                                        //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                        echo "
+                                        <tr>
+                                            <td>" . $user['pseudo']. "</td>
+                                            <td>" . $user['last_name']. "</td>
+                                            <td>" . $user['first_name']. "</td>
+                                            <td>" . $user['email']. "</td>
+                                            <td><a class='confirmation' id='ban_link' href='ban.php?id= ". $user['id'] . "';>Supprimer</a></td>
+                                        </tr>
+                                        ";
+                                    }
+                                }
+                            } else {
+                                $results = $bdd->query("SELECT * FROM users WHERE accepted=1");
+                                //$users = $results->fetchAll(); //recup toutes les données
+                                while($user = $results->fetch()){
+                                    if($user['id'] != $_SESSION['id']){
+                                        //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                        echo "
+                                        <tr>
+                                            <td>" . $user['pseudo']. "</td>
+                                            <td>" . $user['last_name']. "</td>
+                                            <td>" . $user['first_name']. "</td>
+                                            <td>" . $user['email']. "</td>
+                                            <td><a class='confirmation' id='ban_link' href='ban.php?id= ". $user['id'] . "';>Supprimer</a></td>
+                                        </tr>
+                                        ";
+                                    }
+                                }
+                            }
+                            
+                            ?>
+                        </table>
+                    </div>
+            </div>
+            
+
+            <div class="accept_users">
+                <h1 class="div_title">Demandes d'inscription</h1>
+                
+                <table>
+                            <tr>
+                                <th>Pseudo</th>
+                                <th>Email</th>
+                                <th>Accepter</th>
+                                <th>Refuser</th>
+                            </tr>
+                            <?php
+                            //récupération de tous les utilisateurs
+                            $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                            $results = $bdd->query("SELECT * FROM users WHERE accepted=0");
+                            //$users = $results->fetchAll(); //recup toutes les données
+                            while($user = $results->fetch()){
+                                if($user['id'] != $_SESSION['id']){
+                                    //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                        echo "
+                                        <tr>
+                                            <td>" . $user['pseudo']. "</td>
+                                            <td>" . $user['email']. "</td>
+                                            <td><a id='accept_link' href='acceptMembers.php?id= ". $user['id'] . "';>Accepter</a></td>
+                                            <td><a class='confirmation' id='ban_link' href='ban.php?id= ". $user['id'] . "';>Refuser</a></td>
+                                        </tr>
+                                        ";
+                                }
+                            }
+                            ?>
+                        </table>
+            </div>
         </div>
-        <div class="users_list">
-                <h3>Liste des utilisateurs :</h3><br>
-                <?php
-                    //récupération de tous les utilisateurs
-                    $recupUsers = $bdd->query('SELECT * FROM users');
-                    while($user = $recupUsers->fetch()){
-                        ?>
-                            <p><?= $user['pseudo']; ?><a id='ban_link' href="ban.php?id=<?= $user['id']; ?>" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Supprimer le compte</a></p>
-                        <?php
-                    }
-                ?>
+
+        <div class="global_container_2">
+                            <h1 class="div_title">Formulaires de contact</h1>
+                            <div class='msgs'>
+                                <?php 
+                                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8;', 'admin', 'admin');
+                                    $results = $bdd->query("SELECT * FROM contact");
+                                    //$users = $results->fetchAll(); //recup toutes les données
+                                    while($message = $results->fetch()){
+                                    
+                                            //<p><?= $user['pseudo'];<a id='ban_link' href="ban.php?id=<?= $user['id'];" style="color:white; background-color:red; text-decoration:none;margin-left:5px;border-radius:5px;padding:5;">Ban this user</a></p>
+                                                echo "
+                                                <div class='contacts'>
+                                                    <p>Par : " . $message['first_name']. " ". $message['last_name']." </p>
+                                                    <p>Email : " . $message['email'] . " </p>
+                                                    <p>Message : " . $message['msg'] . " </p>
+                                                    <a class='confirmation' id='suppr_link' href='supprContact.php?id= ". $message['id'] . "';>Supprimer</a>
+                                                </div>
+                                                ";
+                                
+                                    }
+                                ?>
+                                </div>
+
         </div>
     </div>
+    <script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Êtes-vous sûr ?');
+    });
+    </script>
 
     <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
     <!-- Pied de page -->
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions Légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="../About/OversightTeam/OversightTeam.php" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

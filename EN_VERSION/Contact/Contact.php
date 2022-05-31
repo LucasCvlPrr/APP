@@ -205,19 +205,10 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
+
 
         <div class="poweredByOversight">
             <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>

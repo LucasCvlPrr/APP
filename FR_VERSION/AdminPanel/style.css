@@ -5,7 +5,6 @@
 body {
     margin:0;
     font-weight: bold;
-    height: 100%;
     font-family: 'Saira Extra Condensed', sans-serif;
     letter-spacing: 2px;
     -webkit-font-smoothing: antialiased;
@@ -14,6 +13,15 @@ body {
 	background-size: 400% 400%;
 	animation: animate-background 15s ease-in-out infinite;
     transition: 1s all;
+}
+
+header.header{
+    position: fixed;
+    overflow:visible;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    box-shadow: 1px 1px 15px black;
 }
 
 .main {
@@ -35,25 +43,9 @@ body {
     }
 }
 
-/*************************************************************************************************************************************************************************************************************************************************************************/
-/* En-tête */
-
-header.header{
-    position: fixed;
-    overflow: visible;
-    top: 0;
-    width: 100%;
-    box-shadow: 1px 1px 15px black;
-}
-
-nav.menuNav img.logoIM{
-    align-self: center;
-    height: 100px;
-    width: 100px;
-}
-
 p.slogan{
     padding-left: 10px;
+    font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 25px;
     font-weight: bolder;
     letter-spacing: 4px;
@@ -82,6 +74,7 @@ nav.menuNav ul li.button{
 }
 
 nav.menuNav ul li.button a{
+    font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 20px;
     color: black;
     text-decoration: none;
@@ -96,6 +89,21 @@ nav.menuNav ul li.button:hover a{
     transition: 1s all;
     overflow: hidden;
     border-radius: 20px;
+}
+
+nav.menuNav img.logoIM{
+    align-self: center;
+    height: 100px;
+    width: 100px;
+}
+
+#pet-select{
+    margin-left: 10px;
+    align-self: center;
+}
+
+#language{
+    border: none;
 }
 
 /* burger menu for responsive navbar */
@@ -114,7 +122,7 @@ nav.menuNav ul li.button:hover a{
     border-radius: 10px;
 }
 
-@media only screen and (max-width: 1043px) {
+@media only screen and (max-width: 965px) {
     body{
         overflow-x: hidden;
     }
@@ -140,6 +148,7 @@ nav.menuNav ul li.button:hover a{
 
     .burger{
         display: block;
+        display: right;
         align-self:center;
     }
 }
@@ -161,62 +170,252 @@ nav.menuNav ul li.button:hover a{
 
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
-
-
-.form_connection {
-    align-items: center;
+.panel{
+    padding: 5px;
+    margin: 5%;
+    margin-top: 110px;
+    width: 90%;
+    align-self: center;
+    height: auto;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    margin-top: 10px;
-    margin-left: 35%;
-    margin-right: 35%;
-    padding-bottom: 10px;
-    border-radius: 20px;
+    margin-bottom: 50px;
 }
 
-form {
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-div {
-    padding-bottom: 5px;
-}
-
-.global {
-    padding-top: 140px;
+.global_container {
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
-    margin-left: 20px;
+    justify-content: space-around;
+    
 }
 
-.admin_info{
-    align-items: center;
+.global_container_2 {
+    margin: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 10px;
     border-radius: 20px;
+}
+
+.msgs{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    justify-content:baseline;
+}
+
+.contacts{
+    margin: 5px;
+    width: 20%;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+}
+
+#suppr_link{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 25px;
+    width: 70px;
+    background-color: red;
+    color: white;
+    border-style: outset;
+    border-color: red;
+    border: 1px solid red;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#suppr_link:hover {
+    background-color: rgba(255, 0, 0, 0.58);
+    cursor: pointer;
+    border: 1px solid rgba(255, 0, 0, 0.58);
 }
 
 .users_list{
+    width: 60%;
     align-items: center;
+    align-content: center;
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 10px;
     border-radius: 20px;
-    margin-left: 20px;
+    box-shadow: 1px 1px 15px black;
 }
 
-.ban_link {
-  background-color: red;
-  color: white;
-  padding: 15px 25px;
-  text-decoration: none;
+.accept_users{
+    width: 38%;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px black;
+}
+
+.div_title{
+    margin: 0;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#research {
+    width: 100%;
+}
+
+.element {
+    width: 100%;
+    text-align:center
+}
+
+input[type="text"] {
+    width: 80%;
+}
+
+.submit_div {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#btn-sub {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    background-color: #569ac7;
+    color: white;
+    border-style: outset;
+    border-color: #569ac7;
+    border: 1px solid #569ac7;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+}
+
+#btn-sub:hover {
+    background-color: #74b2dc8b;
+    cursor: pointer;
+    border: 1px solid #74b2dc8b;
+}
+
+.recup_users {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.div_title {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #74b2dc;
+    border-radius: 20px 20px 0px 0px;
+    margin-bottom: 20px;
+}
+
+.title{
+    margin: 0;
+    margin-top: 5%;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+  
+th, td{
+    border: 4px solid #74b2dc;
+    padding: 10px;
+}
+
+#ban_link {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    background-color: red;
+    color: white;
+    border-style: outset;
+    border-color: red;
+    border: 1px solid red;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#accept_link {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    border-style: outset;
+    border-color: green;
+    border: 1px solid green;
+    box-shadow: 1px 1px 15px gray;
+    text-shadow: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#ban_link:hover {
+    background-color: rgba(255, 0, 0, 0.58);
+    cursor: pointer;
+    border: 1px solid rgba(255, 0, 0, 0.58);
+}
+
+
+@media only screen and (max-width: 965px) {
+    .global_container {
+        display: flex;
+        flex-direction:column;
+        justify-content: space-around;
+    } 
+
+    .users_list{
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 1px 1px 15px black;
+    }
+    
+    .accept_users{
+        margin-top: 50px;
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 1px 1px 15px black;
+    }
 }
 
 /*************************************************************************************************************************************************************************************************************************************************************************/

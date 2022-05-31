@@ -129,7 +129,7 @@
     <!-- Contenu -->
     <div class="OversightTeamContainer">
         <div class="containerTitle">
-            <h4>Discover Oversight team</h4>
+            <h1>Discover Oversight team</h1>
         </div>
 
         <div class="members">
@@ -137,13 +137,13 @@
                 <div class="person">
                     <img src="../../img/Thibault.png" class="imgThibault"></img>
                     <h4 class="ThibaultName">Thibault Gilbin</h4>
-                    <h4 class="ThibaultFunction">Manager, Software Engineer, Back-End</h4>
+                    <h4 class="ThibaultFunction">Co-founder, Software Engineer, Back-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Lucas.png" class="imgLucas"></img>
                     <h4 class="LucasName">Lucas Chevalier</h4>
-                    <h4 class="LucasFunction">Manager, Software Engineer, Front-End</h4>
+                    <h4 class="LucasFunction">Co-founder, Software Engineer, Front-End</h4>
                 </div>
 
                 <div class="person">
@@ -182,22 +182,13 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="../../LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Powered by <a href="" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Powered by <a href="" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 

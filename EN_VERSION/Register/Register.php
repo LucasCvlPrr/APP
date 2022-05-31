@@ -187,7 +187,7 @@
 
             <div class="acceptLegalTerms" id="acceptLegalTerms">
                 <input type="checkbox" id="acceptLT" name="acceptLT">
-                <label for="acceptLT" id="acceptLTLabel">I certify that I agree to the <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>.</label>
+                <label for="acceptLT" id="acceptLTLabel">I certify that I agree to the <a href="../LegalTerms/LegalTerms.php">Terms of Use</a> and <a href="../LegalTerms/LegalTerms.php">Privacy Policy</a>.</label>
             </div>
 
             <div class="registerBtn">
@@ -404,19 +404,10 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
+
 
         <div class="poweredByOversight">
             <p class="poweredBy">Powered by <a href="../About/OversightTeam/OversightTeam.php" class="oversight">Oversight</a></p>

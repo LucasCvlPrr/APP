@@ -168,6 +168,15 @@ nav.menuNav ul li.button:hover a{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
+.title{
+    margin: 0;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+    background-color: #74b2dc;
+    border-radius: 20px 20px 0px 0px;
+}
+
 .ContactFormContainer {
     margin-top: 150px;
     margin-bottom: 100px;
@@ -192,7 +201,6 @@ nav.menuNav ul li.button:hover a{
 }
 
 .ContactFormTitle {
-    padding: 5px;
     text-align: center;
     font-size: large;
 }
@@ -211,6 +219,10 @@ form {
 
 input {
     width: 100%;
+}
+
+label{
+    font-size: 18px;
 }
 
 .first_name {
@@ -240,7 +252,7 @@ textarea{
 
 .sendBtn button{
     font-family: 'Saira Extra Condensed', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     height: 50px;
     width: 100px;
     background-color: #569ac7;

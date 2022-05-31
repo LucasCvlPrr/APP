@@ -39,6 +39,7 @@ body {
 /* En-tête */
 
 .header{
+    z-index: 1;
     position: fixed;
     overflow: visible;
     top: 0;
@@ -168,158 +169,160 @@ nav.menuNav ul li.button:hover a{
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
 
-.homeLoginPreview {
-    margin-top: 140px;
-    display: flex;
-    align-content: center;
+.top{
+    margin: 0;
+	height: 100vh;
+	width: 100%;
+	background-image: url(img/background.jpg);
+	background-size: cover;
+	background-position: center;
 }
 
-.firstLineSeparator{
-    width: 80%;
-    margin-top: 25px;
+.content{
+	padding: 20px;
+    padding-top: 0;
+	position: absolute;
+	top: 50%;
+	left:8%;
+	transform: translateY(-50%);
+	background-color: rgba(37, 37, 37, 0.753);
+	border-radius: 20px;
+	box-shadow: 1px 1px 15px black;
 }
 
 h1{
-    color: #74b2dc;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 60px;
+	color: white;
+	margin: 20px 0px 20px;
+	font-size: 100px;
 }
 
-.homeLoginFormContainer{
-    border-radius: 10px;
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    box-shadow: 1px 1px 15px black;
+h2{
+	color: white;
+	font-size: 75px;
+	width: 1130px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+h3{
+	color: white;
+	font-size: 25px;
+	margin-bottom: 70px;
+}
+
+h4{
+	color: rgba(136, 190, 252, 0.8);
+	letter-spacing: 2px;
+	font-size: 40px;
+}
+
+h5{
+	color: white;
+	font-size: 23px;
+	margin-bottom: 15px;
+}
+
+.letStart{
+	background-color:#74b2dc;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 9px 22px;
+	border-radius: 30px;
+	transition: .4s; 
+}
+
+.letStart:hover{
+	background-color: transparent;
+	border: 2px solid #74b2dc;
+	cursor: pointer;
+}
+
+.service{
+	background: linear-gradient(-45deg, #74b2dc, black, #23a6d5, gray);
+	background-size: 400% 400%;
+	animation: animate-background 15s ease-in-out infinite;
+    transition: 1s all;
+	width: 100%;
+	padding: 100px 0px;
+    margin-bottom: 55px;
+}
+
+.box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 400px;
+}
+
+.title{
     display: flex;
-    flex-direction: column;
     align-items: center;
+    align-content: center;
 }
 
-.homeLoginFormTitle{
-    text-align: center;
+.card{
+	height: 365px;
+	width: 335px;
+	padding: 20px 35px;
+	background-color: rgba(37, 37, 37, 0.753);
+	border-radius: 20px;
+	margin: 15px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	box-shadow: 1px 1px 15px black;
+}
+.card i{
+	font-size: 50px;
+	display: block;
+	text-align: center;
+	margin: 25px 0px;
+	color: #74b2dc;
+
 }
 
-.emailInput{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.pra p{
+	color: #74b2dc;
+	font-size: 16px;
+	line-height: 27px;
+	margin-bottom: 25px;
 }
 
-.emailInput .emailLabel{
-    font-weight: bold;
+.bottomButtons{
+	background-color:#74b2dc;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+	transition: .4s;
 }
 
-.emailInput .email{
-    margin-top: 10px;
+.bottomButtons:hover{
+	background-color: transparent;
+	border: 2px solid #74b2dc;
+	cursor: pointer;
 }
 
-.passwordInput{
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-.passwordInput .passwordLabel{
-    font-weight: bold;
-}
-
-.passwordInput .password{
-    margin-top: 10px;
-}
-
-.loginBtn{
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
-
-.loginBtn button{
-    font-family: 'Saira Extra Condensed', sans-serif;
-    font-size: 16px;
-    height: 50px;
-    width: 100px;
-    background-color: #569ac7;
-    color: white;
-    border-style: outset;
-    border-color: #569ac7;
-    border: 1px solid #569ac7;
-    box-shadow: 1px 1px 15px gray;
-    text-shadow: none;
-    border-radius: 10px;
-}
-
-.loginBtn button:hover {
-    background-color: #c4def0;
-    cursor: pointer;
-    border: 1px solid #c4def0;
-}
-
-.loginFormLineSeparator{
-    width: 50%;
-}
-
-.notRegText{
-    text-align: center;
-    font-weight: bold;
-}
-
-.registerBtn{
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-.registerBtn button{
-    font-family: 'Saira Extra Condensed', sans-serif;
-    font-size: 16px;
-    height: 50px;
-    width: 100px;
-    background-color: #569ac7;
-    color: white;
-    border-style: outset;
-    border-color: #569ac7;
-    border: 1px solid #569ac7;
-    box-shadow: 1px 1px 15px gray;
-    text-shadow: none;
-    border-radius: 10px;
-}
-
-.registerBtn button:hover{
-    background-color: #c4def0;
-    cursor: pointer;
-    border: 1px solid #c4def0;
-}
-
-.homePreviewContainer{
-    box-shadow: 1px 1px 15px black;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 45%;
-    background-image: url(../img/backgroundPreviewContainerHome.jpg);
-}
-
-.homePreviewContainer h4.homePreviewContainerTitle{
-    text-align: center;
-    color: white;
-}
-
-@media only screen and (max-width: 965px) {
-    .homeLoginPreview{
+@media only screen and (max-width: 1300px) {
+    .box{
         flex-direction: column;
     }
 
-    .homeLoginFormContainer,
-    .homePreviewContainer {
-        width: 70%;
-        margin-top: 3%;
-        margin-bottom: 3%;
-    }
+	.card{
+		width: 700px;
+	}
 
-    .homePreviewContainer{
-        height: 400px;
-    }
+}
+
+@media only screen and (max-width: 800px) {
+	.card{
+		width: 400px;
+	}
+
 }
 
 /*************************************************************************************************************************************************************************************************************************************************************************/

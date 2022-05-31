@@ -154,17 +154,7 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Legal Terms
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Sitemap
-                </a>
-
+                <a href="../LegalTerms/LegalTerms.php">Legal Terms</a>
             </li>
         </ul>
 

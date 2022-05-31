@@ -10,10 +10,6 @@ body {
     letter-spacing: 2px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(-45deg, #74b2dc, black, #23a6d5, gray);
-	background-size: 400% 400%;
-	animation: animate-background 15s ease-in-out infinite;
-    transition: 1s all;
 }
 
 .main {
@@ -167,68 +163,33 @@ nav.menuNav ul li.button:hover a{
 
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Contenu */
-.container_gl{
-    width: 100%;
-    margin:0;
-    margin-top: 130px;
-    align-content: center;
-}
 
 .content{
-    margin: 0 auto;
-    width:fit-content;
-    height: fit-content;
-	padding: 40px;
-    padding-top: 20px;
-	background-color: rgba(37, 37, 37, 0.753);
-	border-radius: 20px;
-	box-shadow: 1px 1px 15px black;
+    margin-top: 130px;
+    margin-bottom: 100px;
 }
 
-hr.firstLineSeparator{
-    width: 80%;
-    margin-top: 25px;
+.title{
+    text-align: center;
 }
 
-h1{
+h1,
+h2{
     color: #74b2dc;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
 }
-
-h3{
-    text-align: center;
-    color: white;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-p{
-    text-align: center;
-    color: white;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px; 
-}
-
-hr.secondLineSeparator{
-    width: 50%;
-    margin-top: 25px;
-}
-
-
 
 /*************************************************************************************************************************************************************************************************************************************************************************/
 /* Pied-de-page */
 
 .footer{
     background: white;
+    font-family: 'Saira Extra Condensed', sans-serif;
     display: flex;
     position: fixed;
     bottom: 0px;
     align-items: center;
     width: 100%;
+    box-shadow: 1px 1px 15px black;
 }
 
 .footer ul li.link{
@@ -237,6 +198,7 @@ hr.secondLineSeparator{
 }
 
 .footer ul li.link a{
+    font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 15px;
     text-decoration: none;
     padding: 10px;

@@ -28,12 +28,12 @@
                 <img src="../../img/logoIM.png" alt="logoIM" class="logoIM">
 
                 <p class="slogan">
-                    OVERSIGHT
+                    L'INDUSTRIE 2.0
                 </p>
 
                 <form action="../../Config/languages.includes.php" method="post">
                     <select name='language' id="language" onchange='this.form.submit()'>
-                        <option value="FR">FR</option>    
+                        <option value="FR">FR</option>
                         <option value="EN">EN</option>
                     </select>
                     <input type="hidden" name="URL" id="URL" value="About/OversightTeam/OversightTeam.php">
@@ -88,11 +88,11 @@
                             echo "<li class='button'><a href='../../AdminPanel/adminPanel.php'>Administration</a></li>";
                         }
 
-                        echo "<li class='button'><a href='../../Home/php.scripts/logout.php'>Se déconnecter</a></li>";
+                        echo "<li class='button'><a href='../../Home/php.scripts/logout.php'>Déconnexion</a></li>";
                     }
                     else{
                         //<img src="../img/connexionLogo.png" alt="connexionLogo" height="50" width="50" class="connexionLogo">
-                        echo "<li class='button'><a href='../../index.php'>Connexion</a></li>";
+                        echo "<li class='button'><a href='../../Log/log.php'>Connexion</a></li>";
                     }
                 ?>
             </ul>
@@ -129,7 +129,7 @@
     <!-- Contenu -->
     <div class="OversightTeamContainer">
         <div class="containerTitle">
-            <h4>Discover Oversight team</h4>
+            <h1>Découvrez l'équipe Oversight</h1>
         </div>
 
         <div class="members">
@@ -137,19 +137,19 @@
                 <div class="person">
                     <img src="../../img/Thibault.png" class="imgThibault"></img>
                     <h4 class="ThibaultName">Thibault Gilbin</h4>
-                    <h4 class="ThibaultFunction">Manager, Ingénieur Logiciel, Back-End</h4>
+                    <h4 class="ThibaultFunction">Co-fondateur, Ingénieur Logiciel, Back-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Lucas.png" class="imgLucas"></img>
                     <h4 class="LucasName">Lucas Chevalier</h4>
-                    <h4 class="LucasFunction">Manager, Ingénieur Logiciel, Front-End</h4>
+                    <h4 class="LucasFunction">Co-fondateur, Ingénieur Logiciel, Front-End</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Clemence.png" class="imgClemence"></img>
                     <h4 class="ClemenceName">Clémence Canguilhem</h4>
-                    <h4 class="ClemenceFunction">Ingénieur en électronique</h4>
+                    <h4 class="ClemenceFunction">Ingénieur Electronique</h4>
                 </div>
             </div>
             
@@ -157,19 +157,19 @@
                 <div class="person">
                     <img src="../../img/Noelle.png" class="imgNoelle"></img>
                     <h4 class="NoelleName">Noelle Garreta</h4>
-                    <h4 class="NoelleFunction">Ingénieur en électronique</h4>
+                    <h4 class="NoelleFunction">Ingénieur Electronique</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Amin.png" class="imgAmin"></img>
                     <h4 class="AminName">Amin El Kadari</h4>
-                    <h4 class="AminFunction">Ingénieur en télécominications</h4>
+                    <h4 class="AminFunction">Ingénieur Télécommunications</h4>
                 </div>
 
                 <div class="person">
                     <img src="../../img/Anthony.png" class="imgAnthony"></img>
                     <h4 class="AnthonyName">Anthony Villemain</h4>
-                    <h4 class="AnthonyFunction">Ingénieur en traitement du signal</h4>
+                    <h4 class="AnthonyFunction">Ingénieur Traitement du Signal</h4>
                 </div>
             </div>
 
@@ -182,22 +182,13 @@
     <footer class="footer">
         <ul>
             <li class="link">
-                <a href="">
-                    Mentions légales
-                </a>
-
-            </li>
-
-            <li class="link">
-                <a href="">
-                    Plan du site
-                </a>
-
+                <a href="../../LegalTerms/LegalTerms.php">CGU</a>
             </li>
         </ul>
 
+
         <div class="poweredByOversight">
-            <p class="poweredBy">Par <a href="" class="oversight">Oversight</a></p>
+            <p class="poweredBy">Développé par <a href="" class="oversight"  style='text-decoration:underline'>Oversight</a></p>
         </div>
     </footer>
 
